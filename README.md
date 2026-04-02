@@ -29,9 +29,6 @@ indabaX-website/
 ├── index.html        # Homepage
 ├── about.html        # About page
 ├── archive.html      # Archive page
-├── speakers.html     # Speakers page
-├── schedule.html     # Schedule page
-├── contact.html      # Contact page
 │
 ├── css/
 │   └── styles.css    # Custom styles (if any)
