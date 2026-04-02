@@ -1,13 +1,8 @@
 # IndabaX Namibia Conference Website
 
-A modern, responsive conference website built for **IndabaX Namibia (Deep Learning Indaba)**.
-This project showcases event information, speakers, schedules, and archives of past events.
+IndabaX Namibia is a locally organized, three-day Artificial Intelligence (AI) and Machine Learning (ML) conference, typically held at the Namibia University of Science and Technology (NUST). This Website will showcase information, content and archives of Deep Learning Indaba Namibia **IndabaX Namibia (Deep Learning Indaba)**.
 
 ---
-
-## Project Overview
-
-This website was developed as a **front-end project** using simple and efficient technologies to deliver a clean, professional conference experience within a short timeline.
 
 ### Purpose
 
@@ -18,7 +13,7 @@ This website was developed as a **front-end project** using simple and efficient
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **HTML5** – Structure of the website
 * **Tailwind CSS** – Styling and responsive design
