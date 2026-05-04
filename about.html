@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - IndabaX Namibia 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dune': '#C1440E',
+                        'orange': '#E85D04',
+                        'sand': '#F4A261',
+                        'desert': '#E9C46A',
+                        'sky': '#2A9D8F',
+                        'earth': '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-white text-earth">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <span class="text-xl font-bold text-earth">IndabaX Namibia</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-earth hover:text-dune px-3 py-2 rounded-md transition duration-300">Home</a>
+                        <a href="about.html" class="text-dune font-semibold px-3 py-2 rounded-md transition duration-300">About</a>
+                        <a href="archive.html" class="text-earth hover:text-dune px-3 py-2 rounded-md transition duration-300">Archive</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Home</a>
+                    <a href="about.html" class="text-dune font-semibold block px-3 py-2 rounded-md">About</a>
+                    <a href="archive.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Archive</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-sky text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-5xl lg:text-6xl font-light mb-6">About IndabaX Namibia</h1>
+                <p class="text-xl lg:text-2xl font-light opacity-90 max-w-3xl mx-auto">Empowering Namibia's AI future through education, community, and innovation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-light text-earth mb-6">What is IndabaX?</h2>
+                    <p class="text-lg text-earth/70 mb-6">IndabaX events are locally organized satellite events of the Deep Learning Indaba, designed to bring world-class AI education and networking opportunities directly to African communities.</p>
+                    <p class="text-lg text-earth/70 mb-6">The Deep Learning Indaba is a movement to strengthen African Machine Learning by bringing together African researchers, practitioners, and students to learn, share, and grow together.</p>
+                    <p class="text-lg text-earth/70">IndabaX Namibia serves as the premier AI conference in our nation, fostering collaboration between academia, industry, and government to accelerate AI adoption and development.</p>
+                </div>
+                <div class="bg-gradient-to-br from-sand/20 to-desert/20 rounded-lg p-12">
+                    <div class="bg-dune/10 rounded-lg p-8 text-center">
+                        <i class="fas fa-globe-africa text-dune text-6xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-earth mb-4">Part of a Global Movement</h3>
+                        <p class="text-earth/70">Connecting Namibian AI talent to the broader African and global AI community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission/Vision Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light text-earth mb-4">Our Mission</h2>
+                <p class="text-xl text-earth/70">Building Namibia's AI ecosystem through three core pillars</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Education -->
+                <div class="text-center p-8 bg-white rounded-lg shadow-lg">
+                    <div class="bg-sky/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-sky text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-earth mb-4">Education</h3>
+                    <p class="text-earth/70">Providing accessible, world-class AI education to students, researchers, and professionals across Namibia. We believe in democratizing knowledge and making AI education available to all.</p>
+                </div>
+                
+                <!-- Community -->
+                <div class="text-center p-8 bg-white rounded-lg shadow-lg">
+                    <div class="bg-orange/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-orange text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-earth mb-4">Community</h3>
+                    <p class="text-earth/70">Building a strong, inclusive community of AI enthusiasts, practitioners, and researchers. We foster collaboration, mentorship, and knowledge sharing across all levels of expertise.</p>
+                </div>
+                
+                <!-- Innovation -->
+                <div class="text-center p-8 bg-white rounded-lg shadow-lg">
+                    <div class="bg-dune/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-dune text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-earth mb-4">Innovation</h3>
+                    <p class="text-earth/70">Encouraging innovation and entrepreneurship in AI. We support local startups, research projects, and initiatives that leverage AI to solve uniquely Namibian and African challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Attend Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light text-earth mb-4">Why Attend IndabaX Namibia?</h2>
+                <p class="text-xl text-earth/70">Join us for an transformative experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition duration-300">
+                    <i class="fas fa-brain text-sky text-4xl mb-4"></i>
+                    <h4 class="text-lg font-semibold text-earth mb-2">Learn AI</h4>
+                    <p class="text-earth/70 text-sm">Gain practical skills in machine learning, deep learning, and AI applications</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition duration-300">
+                    <i class="fas fa-handshake text-orange text-4xl mb-4"></i>
+                    <h4 class="text-lg font-semibold text-earth mb-2">Network</h4>
+                    <p class="text-earth/70 text-sm">Connect with researchers, industry leaders, and fellow AI enthusiasts</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition duration-300">
+                    <i class="fas fa-tools text-dune text-4xl mb-4"></i>
+                    <h4 class="text-lg font-semibold text-earth mb-2">Build Skills</h4>
+                    <p class="text-earth/70 text-sm">Participate in hands-on workshops and practical coding sessions</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition duration-300">
+                    <i class="fas fa-lightbulb text-sand text-4xl mb-4"></i>
+                    <h4 class="text-lg font-semibold text-earth mb-2">Innovate</h4>
+                    <p class="text-earth/70 text-sm">Discover new opportunities and contribute to AI solutions for Africa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-earth text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Our Organizing Team</h2>
+                <p class="text-xl opacity-90">Dedicated volunteers working to bring world-class AI education to Namibia</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div class="w-24 h-24 bg-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user text-white text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Conference Chair</h4>
+                    <p class="opacity-75 text-sm">Leading the overall organization and strategic direction of IndabaX Namibia</p>
+                </div>
+                
+                <div class="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div class="w-24 h-24 bg-sky rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Program Committee</h4>
+                    <p class="opacity-75 text-sm">Curating high-quality content, speakers, and workshop facilitators</p>
+                </div>
+                
+                <div class="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div class="w-24 h-24 bg-sand rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands-helping text-white text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Volunteers</h4>
+                    <p class="opacity-75 text-sm">Passionate individuals making IndabaX Namibia possible through their dedication</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-lg opacity-90 mb-6">Interested in joining our team?</p>
+                <a href="#" class="bg-orange hover:bg-orange/90 text-white px-8 py-3 rounded-lg font-medium transition duration-300 inline-block">Get Involved</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-8 w-auto mr-3">
+                    <span class="text-lg font-semibold text-earth">IndabaX Namibia</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-earth/70">&copy; 2026 IndabaX Namibia. All rights reserved.</p>
+                    <p class="text-earth/70 text-sm mt-1">Part of the Deep Learning Indaba movement</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndabaX Namibia 2026 - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dune': '#C1440E',
+                        'orange': '#E85D04',
+                        'sand': '#F4A261',
+                        'desert': '#E9C46A',
+                        'sky': '#2A9D8F',
+                        'earth': '#264653',
+                        'light-sand': '#F4A261'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-earth">
+    <!-- Navbar -->
+    <nav class="bg-sky-500 shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <span class="text-xl font-bold text-black">IndabaX Namibia</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+                        <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+                        <a href="archive.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Archive</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
+                    <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
+                    <a href="archive.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Archive</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-dune text-white pt-20 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/BACKGROUD.jpeg'); background-size: cover; background-position: center;"></div>
+        <!-- Lighter Gradient Overlay to improve image visibility while keeping text readable -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl lg:text-6xl font-semibold mb-6">IndabaX Namibia 2026</h1>
+                    <p class="text-xl lg:text-2xl font-light mb-8 opacity-90">Advancing AI in Namibia through community and innovation</p>
+                    <a href="#" class="bg-orange hover:bg-orange/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Register Now</a>
+                </div>
+                <div class="lg:text-right">
+                    <div class="bg-orange/20 rounded-full w-80 h-80 mx-auto lg:ml-auto flex items-center justify-center">
+                        <div class="bg-orange/30 rounded-full w-60 h-60 flex items-center justify-center">
+                            <div class="bg-white/20 rounded-full w-40 h-40 flex items-center justify-center">
+                                <i class="fas fa-brain text-white text-6xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Strip (3 columns) -->
+    <section id="feature-strip" class="py-16 bg-orange/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card: Speakers -->
+                <div style="perspective:1000px;" class="flex items-stretch justify-center">
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Speakers</div>
+                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
+                            <span class="mr-2">24</span>
+                            <span class="text-2xl text-white/100">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Overall Attendees -->
+                <div style="perspective:1000px;" class="flex items-stretch justify-center">
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Attendees</div>
+                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
+                            <span class="mr-2">512</span>
+                            <span class="text-2xl text-white/100">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Overall Workshops -->
+                <div style="perspective:1000px;" class="flex items-stretch justify-center">
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Workshops</div>
+                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
+                            <span class="mr-2">18</span>
+                            <span class="text-2xl text-white/100">+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:order-2">
+                    <!-- Polygon image viewer -->
+                    <div class="flex items-center justify-center">
+                        <div id="poly-viewer" class="relative w-full max-w-md md:max-w-lg h-64 md:h-80 flex items-center justify-center">
+                            <!-- Prev button placed outside left -->
+                            <button id="poly-prev" aria-label="Previous image" class="absolute z-20 top-1/2 -translate-y-1/2 bg-dune/85 hover:bg-black/50 text-white p-3 rounded-full shadow" style="left: -48px;">‹</button>
+
+                            <div class="polygon-mask w-full h-full overflow-hidden rounded-3xl shadow-lg" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
+                                <img id="poly-image" src="Resources/BACKGROUD.jpeg" alt="Highlight image" class="w-full h-full object-cover transition-opacity duration-500">
+                            </div>
+
+                            <!-- Next button placed outside right -->
+                            <button id="poly-next" aria-label="Next image" class="absolute z-20 top-1/2 -translate-y-1/2 bg-dune/85 hover:bg-black/70 text-white p-3 rounded-full shadow" style="right: -48px;">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:order-1">
+                    <h2 class="text-4xl font-semibold text-black mb-6">Building AI Excellence in Namibia</h2>
+                    <p class="text-xl text-earth/70 mb-8">IndabaX Namibia is more than just a conference – it's a movement to democratize AI education and foster innovation across our nation. Join us as we build a stronger, more inclusive AI community.</p>
+                    <a href="about.html" class="bg-orange hover:bg-black/70 text-white px-8 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="py-20 bg-earth text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-light mb-6">Ready to Shape the Future of AI?</h2>
+            <p class="text-xl opacity-90 mb-8">Don't miss this opportunity to be part of Namibia's growing AI community. Register today and join the conversation.</p>
+            <a href="#" class="bg-orange hover:bg-orange/90 text-white px-10 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Get Your Ticket</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-8 w-auto mr-3">
+                    <span class="text-lg font-semibold text-earth">IndabaX Namibia</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-earth/70">&copy; 2026 IndabaX Namibia. All rights reserved.</p>
+                    <p class="text-earth/70 text-sm mt-1">Part of the Deep Learning Indaba movement</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
