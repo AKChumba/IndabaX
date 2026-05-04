@@ -1,0 +1,253 @@
+<!-- Please do note that there are three sections in this file, html,tailwind and javascript. i will seperate soon enough. peace out-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee – IndabaX Namibia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indaba: {
+                            brown:  '#C56D46',
+                            burgundy: '#6a2a11',
+                            gold:  '#e9c46a',
+                            peach:  '#FECF97',
+                            muted: '#8B7355',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        #bio-modal  { transition: opacity 0.2s ease; }
+        #modal-panel { transition: transform 0.25s ease, opacity 0.25s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- COMMITTEE SECTION-->
+<section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-indaba-brown mt-2">Organizing Committee</h2>
+            <p class="text-indaba-muted mt-3 max-w-xl mx-auto text-base">
+                Meet the passionate team behind the scenes driving AI &amp; ML education across Namibia.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div id="committee-grid"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+    </div>
+</section>
+
+<!-- bio modal -->
+<div id="bio-modal"
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0"
+     role="dialog" aria-modal="true" aria-labelledby="modal-name">
+
+    <div id="modal-panel"
+         class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
+
+        <!-- Modal top bar -->
+        <div class="bg-indaba-brown px-6 py-4 flex items-center justify-between">
+            <span class="text-white/80 text-sm font-semibold uppercase tracking-widest">Full Profile</span>
+            <button id="modal-close"
+                    class="text-white/70 hover:text-white text-3xl leading-none focus:outline-none"
+                    aria-label="Close">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="p-6">
+            <div class="flex items-center gap-5 mb-5">
+                <img id="modal-img" src="" alt=""
+                     class="w-24 h-24 rounded-full object-cover ring-4 ring-indaba-burgundy/30 flex-shrink-0">
+                <div>
+                    <h3 id="modal-name" class="text-xl font-bold text-indaba-peach"></h3>
+                    <p id="modal-role" class="text-indaba-burgundy font-semibold text-sm mt-1"></p>  
+                </div>
+            </div>
+            <p id="modal-bio" class="text-gray-600 leading-relaxed text-sm"></p>
+            <hr class="my-4 border-gray-100">
+            <p id="modal-contact" class="text-xs text-gray-400"></p>
+        </div>
+
+        <!-- Navigation footer -->
+        <div class="border-t border-gray-100 px-6 py-3 flex justify-between items-center bg-gray-50">
+            <button id="modal-prev"
+                    class="text-sm text-indaba-brown hover:underline focus:outline-none">&larr; Previous</button>
+            <span id="modal-counter" class="text-xs text-gray-400"></span>
+            <button id="modal-next"
+                    class="text-sm text-indaba-brown hover:underline focus:outline-none">Next &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+// Committee data, place IndabaX Namibia members//
+const members = [
+    {
+        name: "Dr. Nashandi",
+        role: "Conference Chair",
+        shortBio: "Leading the strategic vision and overall coordination.",
+        fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
+        image: "<img src='Resources/Dr. Nashandi.jpg' alt='Dr. Nashandi' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    },
+    {
+        name: "TK Hambira",
+        role: "Technical Program Chair",
+        shortBio: "Manages peer-review and scientific tracks.",
+        fullBio: "TK leads the technical programme committee ensuring high-quality double-blind review. He is a senior researcher in AI ethics and has previously managed programme committees for workshops.",
+        image: "<img src='Resources/TK Hambira.jpg' alt='TK Hambira' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    },
+    {
+        name: "Liina Massipa",
+        role: "Sponsorship & Partnerships",
+        shortBio: "Connects with industry partners and funding bodies.",
+        fullBio: "Liina has built partnerships with top tech companies, securing sponsorships and fostering collaboration between academia and industry. She believes in impactful networking for the African AI community.",
+        image: "<img src='Resources/Liina Massipa.jpg' alt='Liina Massipa' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    },
+    {
+        name: "Member 3",
+        role: "Workshop & Tutorial Chair",
+        shortBio: "Coordinates pre-conference workshops and hands-on sessions.",
+        fullBio: "Member 3 is passionate about knowledge exchange. He has organised more than 30 workshops covering data science, cloud computing, and responsible AI across NUST and regional institutions.",
+        image: "<img src='Resources/Member 3.jpg' alt='Member 3' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    },
+    {
+        name: "Member 4",
+        role: "Logistics & Operations",
+        shortBio: "Ensures smooth on-site and virtual experience.",
+        fullBio: "Member 4 is a seasoned event manager with expertise in hybrid conference logistics. He makes sure every session runs on time and every attendee at NUST feels welcomed.",
+        image: "<img src='Resources/Member 4.jpg' alt='Member 4' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    },
+    {
+        name: "Dr. Bean",
+        role: "Publications Chair",
+        shortBio: "Oversees proceedings and open-access archives.",
+        fullBio: "Bean manages the publication workflow, indexing, and DOI registration. He advocates for open science and transparent peer review within the Deep Learning Indaba community.",
+        image: "<img src='Resources/Dr. Bean.jpg' alt='Dr. Bean' class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' loading='lazy'>"
+    }
+];
+
+
+// Render cards// 
+const grid = document.getElementById('committee-grid');
+
+members.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 cursor-pointer group';
+    card.dataset.index = i;
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View bio for ${m.name}`);
+
+    card.innerHTML = `
+        <div class="overflow-hidden h-56">
+            <img src="${m.image}" alt="${m.name}, ${m.role}"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        </div>
+        <div class="p-5 pb-14 relative">
+            <h3 class="text-lg font-bold text-indaba-peach">${m.name}</h3>
+            <p class="text-xs font-semibold uppercase tracking-wider text-indaba-burgundy mt-0.5 mb-2">${m.role}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">${m.shortBio}</p>
+            <button
+                class="absolute bottom-4 right-4 text-xs font-semibold text-white bg-indaba-brown hover:bg-indaba-peach px-4 py-2 rounded-full transition-colors duration-200"
+                data-index="${i}"
+                aria-label="Read full bio for ${m.name}">
+                Read Bio
+            </button>
+        </div>
+    `;
+
+    grid.appendChild(card);
+});
+
+
+// Modal logic//
+const modal    = document.getElementById('bio-modal');
+const panel    = document.getElementById('modal-panel');
+const closeBtn = document.getElementById('modal-close');
+const prevBtn  = document.getElementById('modal-prev');
+const nextBtn  = document.getElementById('modal-next');
+const counter  = document.getElementById('modal-counter');
+
+let currentIndex = 0;
+
+function openModal(index) {
+    currentIndex = index;
+    populateModal(currentIndex);
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        panel.classList.remove('scale-95', 'opacity-0');
+    });
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modal.classList.add('opacity-0');
+    panel.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }, 220);
+}
+
+function populateModal(index) {
+    const m = members[index];
+    document.getElementById('modal-img').src             = m.image;
+    document.getElementById('modal-img').alt             = m.name;
+    document.getElementById('modal-name').textContent    = m.name;
+    document.getElementById('modal-role').textContent    = m.role;
+    document.getElementById('modal-bio').textContent     = m.fullBio;
+    document.getElementById('modal-contact').textContent =
+        '\u2709 ' + m.name.toLowerCase().replace(/ /g, '.') + '@indabaxnamibia.org';
+    counter.textContent = (index + 1) + ' / ' + members.length;
+}
+
+function navigate(dir) {
+    currentIndex = (currentIndex + dir + members.length) % members.length;
+    populateModal(currentIndex);
+}
+
+// Clicks
+document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-index]');
+    if (target && modal.classList.contains('hidden')) {
+        openModal(Number(target.dataset.index));
+    }
+});
+
+closeBtn.addEventListener('click', closeModal);
+prevBtn.addEventListener('click', () => navigate(-1));
+nextBtn.addEventListener('click', () => navigate(1));
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        const focused = document.activeElement.closest('[data-index]');
+        if (focused) openModal(Number(focused.dataset.index));
+    }
+    if (!modal.classList.contains('hidden')) {
+        if (e.key === 'Escape')      closeModal();
+        if (e.key === 'ArrowRight')  navigate(1);
+        if (e.key === 'ArrowLeft')   navigate(-1);
+    }
+});
+</script>
+
+</body>
+</html>

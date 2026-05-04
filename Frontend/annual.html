@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndabaX Highlights</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            brown: '#C56D46',
+                            burgundy: '#6a2a11',
+                            peach: '#FECF97',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom animations for cards */
+        .highlight-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .highlight-card:hover .card-image {
+            transform: scale(1.05);
+        }
+        
+        .card-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .read-more-link {
+            transition: all 0.2s ease;
+        }
+        
+        .read-more-link:hover {
+            gap: 8px;
+            color: #6a2a11;
+        }
+        
+        /* Responsive label adjustments */
+        @media (max-width: 640px) {
+            .card-label {
+                font-size: 11px;
+                padding: 5px 12px;
+                white-space: nowrap;
+            }
+        }
+        
+        /* Loading animation for images */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .highlight-card img {
+            animation: fadeIn 0.5s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Highlights Section -->
+    <section class="py-12 px-4 md:px-6 lg:px-8">
+        <div class="container mx-auto max-w-7xl">
+            
+            <!-- Section Header -->
+            <div class="mb-10">
+                <h2 class="text-4xl font-bold text-brand-brown mt-2">
+                    Latest Highlights
+                </h2>
+               <!-- Incase you want to add text <p class="text-gray-600 mt-3 text-lg"></p> -->
+            </div>
+            
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                
+                <!-- Card 1 - Annual Conference -->
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" 
+                             src="https://www.confco.co.za/wp-content/uploads/2025/04/SlideShow2.jpg" 
+                             alt="Annual conference" 
+                             loading="lazy">
+                        <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Annual conference
+                        </span>
+                    </div>
+                    
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span class="text-brand-brown">IndabaX committee</span>
+                        </div>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Bringing together the brightest minds in machine learning across Africa for a week of talks, workshops, and collaboration opportunities.
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>June 10, 2025</span>
+                        </div>
+                        <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2- Artificial Intelligence -->
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" 
+                             src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Future_Of_Artificial_Intelligence.jpg" 
+                             alt="Artificial Intelligence" 
+                             loading="lazy">
+                        <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Artificial Intelligence
+                        </span>
+                    </div>
+                    
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span class="text-brand-brown">IndabaX committee</span>
+                        </div>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The purpose of this article is to explore the future of artificial intelligence and its impact on various industries.
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>May 18, 2024</span>
+                        </div>
+                        <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+                
+                
+                <!-- Card 3 - Workshop Sessions -->
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" 
+                             src="https://www.arebbusch.com/wp-content/uploads/2021/09/Sossusvlei-Namibia-Attractions-in-Namibia-Arebbusch-Travel-Lodge-5.jpg" 
+                             alt="Workshop sessions" 
+                             loading="lazy">
+                        <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Workshop sessions
+                        </span>
+                    </div>
+                    
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span class="text-brand-brown ">IndabaX committee</span>
+                        </div>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Hands-on sessions led by expert practitioners covering the latest techniques in deep learning, NLP, and computer vision applications.
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>June 12, 2023</span>
+                        </div>
+                        <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- View All Button (Optional) -->
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 bg-brand-brown text-white rounded-lg font-semibold hover:bg-brand-burgundy transition-colors duration-200 shadow-md hover:shadow-lg">
+                    View All Highlights →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple JavaScript for Interactive Features -->
+    <script>
+        // Add click tracking for "read more" links
+        const readMoreLinks = document.querySelectorAll('.read-more-link');
+        readMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const card = this.closest('.highlight-card');
+                const title = card.querySelector('.card-label').innerText;
+                console.log(`Opening article: ${title}`);
+                // You can replace this with actual modal or page navigation
+                alert(`Opening "${title}" article - Add your modal or page navigation here`);
+            });
+        });
+        
+        // Add hover effect logging (optional)
+        const cards = document.querySelectorAll('.highlight-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // You can add additional hover effects here
+                console.log('Card hovered');
+            });
+        });
+        
+        // Lazy loading enhancement with Intersection Observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.opacity = '1';
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.card-image').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Smooth scroll for "View All" button if linking to anchor
+        const viewAllBtn = document.querySelector('.inline-block.bg-brand-brown');
+        if (viewAllBtn && viewAllBtn.getAttribute('href').startsWith('#')) {
+            viewAllBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>
