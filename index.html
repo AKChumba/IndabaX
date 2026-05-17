@@ -13,6 +13,7 @@
                         'dune': '#C1440E',
                         'orange': '#E85D04',
                         'sand': '#F4A261',
+                        'brown': '#3d251e',
                         'desert': '#E9C46A',
                         'sky': '#2A9D8F',
                         'earth': '#264653',
@@ -27,7 +28,7 @@
 
 <body class="bg-black text-earth">
     <!-- Navbar -->
-    <nav class="bg-sky-500 shadow-lg fixed w-full top-0 z-50">
+    <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -65,7 +66,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-dune text-white pt-20 overflow-hidden">
+    <section class="relative bg-dune text-white pt-10 overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/BACKGROUD.jpeg'); background-size: cover; background-position: center;"></div>
         <!-- Lighter Gradient Overlay to improve image visibility while keeping text readable -->
@@ -74,7 +75,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-5xl lg:text-6xl font-semibold mb-6">IndabaX Namibia 2026</h1>
+                    <h1 class="text-5xl lg:text-6xl text-white font-bold mb-6">IndabaX Namibia 2026</h1>
                     <p class="text-xl lg:text-2xl font-light mb-8 opacity-90">Advancing AI in Namibia through community and innovation</p>
                     <a href="#" class="bg-orange hover:bg-orange/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Register Now</a>
                 </div>
@@ -92,13 +93,14 @@
     </section>
 
     <!-- Feature Strip (3 columns) -->
-    <section id="feature-strip" class="py-16 bg-orange/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="feature-strip" class="py-16 bg-dune">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card: Speakers -->
                 <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                     <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Speakers</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
                             <span class="mr-2">24</span>
@@ -109,7 +111,8 @@
 
                 <!-- Card: Overall Attendees -->
                 <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                     <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Attendees</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
                             <span class="mr-2">512</span>
@@ -120,7 +123,8 @@
 
                 <!-- Card: Overall Workshops -->
                 <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-orange/20 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
+                     <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
+                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Workshops</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
                             <span class="mr-2">18</span>

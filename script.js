@@ -40,34 +40,51 @@ window.addEventListener('scroll', function() {
     if (!navbar) return;
 
     const threshold = 30; // px scrolled before applying frosted style
+    const links = document.querySelectorAll('nav a');
+    const btn = document.getElementById('mobile-menu-btn');
+    const logoText = document.getElementById('nav-logo-text');
+
     if (window.scrollY > threshold) {
         // Apply frosted translucent navbar
         navbar.classList.add('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
         navbar.classList.remove('bg-sky-500', 'shadow-lg', 'bg-transparent');
 
-        // Update link colors for contrast
-        document.querySelectorAll('nav a').forEach(a => {
-            a.classList.remove('text-white');
+        // Update link colors for contrast: remove any previous color classes then add black
+        links.forEach(a => {
+            a.classList.remove('text-white', 'text-earth', 'text-black');
             a.classList.add('text-black');
         });
-        const btn = document.getElementById('mobile-menu-btn');
+
         if (btn) {
-            btn.classList.remove('text-white');
+            btn.classList.remove('text-white', 'text-earth', 'text-black');
             btn.classList.add('text-earth');
+        }
+
+        // Logo text color
+        if (logoText) {
+            logoText.classList.remove('text-white', 'text-black', 'text-earth');
+            logoText.classList.add('text-black');
         }
     } else {
         // At top: restore original solid navbar
         navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
         navbar.classList.add('bg-sky-500', 'shadow-lg');
 
-        document.querySelectorAll('nav a').forEach(a => {
-            a.classList.remove('text-earth');
+        // Restore link colors to white: remove any previous color classes then add white
+        links.forEach(a => {
+            a.classList.remove('text-black', 'text-earth', 'text-white');
             a.classList.add('text-white');
         });
-        const btn = document.getElementById('mobile-menu-btn');
+
         if (btn) {
-            btn.classList.remove('text-earth');
+            btn.classList.remove('text-earth', 'text-white', 'text-black');
             btn.classList.add('text-white');
+        }
+
+        // Logo text color
+        if (logoText) {
+            logoText.classList.remove('text-black', 'text-earth', 'text-white');
+            logoText.classList.add('text-white');
         }
     }
 });
@@ -151,3 +168,16 @@ document.addEventListener('DOMContentLoaded', function() {
         show(0);
     });
 })();
+
+// Slideshow for About hero (10000ms interval)
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = [document.getElementById('about-slide-0'), document.getElementById('about-slide-1')];
+    if (!slides || !slides[0]) return;
+    let idx = 0;
+    setInterval(() => {
+        const next = (idx + 1) % slides.length;
+        slides[idx].style.opacity = '0';
+        slides[next].style.opacity = '1';
+        idx = next;
+    }, 10000); // 10000ms (10 seconds)
+});
