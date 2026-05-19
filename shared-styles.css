@@ -1,0 +1,143 @@
+/* shared-styles.css — base variables & reusable classes */
+:root {
+  --color-brand-brown: #C56D46;
+  --color-brand-burgundy: #6a2a11;
+  --color-brand-peach: #FECF97;
+  --color-text-primary: #2c2c2a;
+  --color-text-secondary: #666;
+  --color-border: #e8e4de;
+  --color-background: #fafaf8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ── Page hero banner ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--color-brand-burgundy) 0%, #4a1e0e 60%, #2c1008 100%);
+  padding: 80px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(197,109,70,.18) 0%, transparent 70%);
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+  position: relative;
+}
+.page-hero p {
+  color: rgba(255,255,255,.72);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(254,207,151,.18);
+  border: 1px solid rgba(254,207,151,.35);
+  color: var(--color-brand-peach);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+/* ── Section wrapper ── */
+.page-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+/* ── Card base ── */
+.indaba-card-base {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.indaba-card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.09);
+}
+
+/* ── Pill badge ── */
+.pill {
+  display: inline-block;
+  background: #fef3e8;
+  color: var(--color-brand-burgundy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── CTA button ── */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-brand-brown);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--color-brand-burgundy); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-block;
+  padding: 11px 26px;
+  border: 2px solid var(--color-brand-brown);
+  color: var(--color-brand-brown);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: background .2s, color .2s, transform .15s;
+}
+.btn-outline:hover { background: var(--color-brand-brown); color: #fff; transform: translateY(-1px); }
+
+/* ── Section heading ── */
+.section-heading {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-brand-brown);
+  margin: 0 0 8px;
+}
+.section-sub {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  margin: 0 0 40px;
+  max-width: 560px;
+}
+
+/* ── Divider line ── */
+.divider { border: none; border-top: 1px solid var(--color-border); margin: 40px 0; }
+
+/* ── Nav link colour (injected by shared.js) ── */
+.nav-link { color: #555; transition: color .2s; text-decoration: none; }
+.nav-link:hover { color: var(--color-brand-brown); }

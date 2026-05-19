@@ -16,16 +16,25 @@
                         'desert': '#E9C46A',
                         'sky': '#2A9D8F',
                         'earth': '#264653',
-                        'light-sand': '#F4A261'
+                        'light-sand': '#F4A261',
+                        'brown': '#C56D46',
+                        'burgundy': '#6a2a11',
+                        'peach': '#FECF97',
+                        brand: {
+                            brown: '#C56D46',
+                            burgundy: '#6a2a11',
+                            peach: '#FECF97'
+                        }
                     }
                 }
             }
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-black text-earth">
+<body class="text-earth">
     <!-- Navbar -->
     <nav class="bg-sky-500 shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +42,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
-                    <span class="text-xl font-bold text-black">IndabaX Namibia</span>
+                    <span class="text-xl font-bold text-black">IndabaX Namibia</span> <!-- Brand Name change color -->
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -66,7 +75,7 @@
 
     <!-- Hero Section -->
     <section class="relative bg-dune text-white pt-20 overflow-hidden">
-        <!-- Background Image -->
+        <!-- Background Image GET A CLEAR IMAGE -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/BACKGROUD.jpeg'); background-size: cover; background-position: center;"></div>
         <!-- Lighter Gradient Overlay to improve image visibility while keeping text readable -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
@@ -91,9 +100,9 @@
         </div>
     </section>
 
-    <!-- Feature Strip (3 columns) -->
-    <section id="feature-strip" class="py-16 bg-orange/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Feature Strip (3 columns) add pictures -->
+    <section id="feature-strip" class="py-16 px-4 sm:px-6 lg:px-8 bg-orange/10">
+        <div class="max-w-7xl mx-auto">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card: Speakers -->
@@ -133,8 +142,8 @@
     </section>
 
     <!-- Highlight Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="lg:order-2">
                     <!-- Polygon image viewer -->
@@ -162,30 +171,572 @@
         </div>
     </section>
 
+ <!-- Latest Highlights Section -->   
+<section class="py-12 px-4 md:px-6 lg:px-8">
+    <div class="container mx-auto max-w-7xl">
+        <div class="mb-10">
+            <h2 class="text-4xl font-bold text-brand-brown mt-2">Latest Highlights</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="relative overflow-hidden bg-gray-200">
+                    <img class="card-image w-full h-64 object-cover" 
+                         src="https://www.confco.co.za/wp-content/uploads/2025/04/SlideShow2.jpg" 
+                         alt="Annual conference" 
+                         loading="lazy">
+                    <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                        Annual conference
+                    </span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span class="text-brand-brown">IndabaX committee</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Bringing together the brightest minds in machine learning across Africa for a week of talks, workshops, and collaboration opportunities.
+                    </p>
+                </div>
+                <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span>June 10, 2025</span>
+                    </div>
+                    <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                        read more <span>→</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="relative overflow-hidden bg-gray-200">
+                    <img class="card-image w-full h-64 object-cover" 
+                         src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Future_Of_Artificial_Intelligence.jpg" 
+                         alt="Artificial Intelligence" 
+                         loading="lazy">
+                    <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                        Artificial Intelligence
+                    </span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span class="text-brand-brown">IndabaX committee</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        The purpose of this article is to explore the future of artificial intelligence and its impact on various industries.
+                    </p>
+                </div>
+                <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span>May 18, 2024</span>
+                    </div>
+                    <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                        read more <span>→</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                <div class="relative overflow-hidden bg-gray-200">
+                    <img class="card-image w-full h-64 object-cover" 
+                         src="https://www.arebbusch.com/wp-content/uploads/2021/09/Sossusvlei-Namibia-Attractions-in-Namibia-Arebbusch-Travel-Lodge-5.jpg" 
+                         alt="Workshop sessions" 
+                         loading="lazy">
+                    <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-brown text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                        Workshop sessions
+                    </span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span class="text-brand-brown">IndabaX committee</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Hands-on sessions led by expert practitioners covering the latest techniques in deep learning, NLP, and computer vision applications.
+                    </p>
+                </div>
+                <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span>June 12, 2023</span>
+                    </div>
+                    <a href="#" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                        read more <span>→</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="highlights.html" class="inline-block px-8 py-3 bg-brand-brown text-white rounded-lg font-semibold hover:bg-brand-burgundy transition-colors duration-200 shadow-md hover:shadow-lg">
+                View All Highlights →
+            </a>
+        </div>
+    </div>
+</section>
+ <!-- video section -->
+  <div class="indaba-wrap px-4 sm:px-6 lg:px-8">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="text-center mb-8">
+            <h2 style="font-size: 2.5rem; font-weight: 700; color: var(--color-brand-brown); margin: 0 0 12px;">
+                IndabaX Annual Conference
+            </h2>
+            <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                See below for upcoming event happening this year, see you there!
+            </p>
+        </div>
+
+        <div class="indaba-card">
+            <div class="slide-grid">
+                <div class="cell quote-cell">
+                    <p class="qmark">&ldquo;</p>
+                    <p class="qtext">IndabaX brought together a community that is shaping the future of AI on the African continent. Truly inspiring.</p>
+                    <p class="qauthor">— Dr Aisha Kamara, Keynote Speaker</p>
+                </div>
+
+                <div class="cell year-cell">
+                    <p class="year-num">2026</p>
+                    <p class="year-sub">Conference Event</p>
+                </div>
+
+                <div class="cell video-cell">
+                    <iframe 
+                        src="https://www.youtube.com/embed/W1obb9L9dUM" 
+                        title="What is an IndabaX? - YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                    <span class="vid-label">What is an IndabaX?</span>
+                </div>
+
+                <div class="cell map-cell">
+                    <iframe src="https://maps.google.com/maps?q=Windhoek,+Namibia&z=12&output=embed" 
+                            loading="lazy" 
+                            title="IndabaX Namibia Location">
+                    </iframe>
+                    <div class="map-label">Windhoek, Namibia</div>
+                </div>
+
+                <div class="stats-col">
+                    <div class="stat">
+                        <p class="stat-lbl">Attendees</p>
+                        <p class="stat-num">500+</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-lbl">Speakers</p>
+                        <p class="stat-num">60+</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-lbl">Workshops</p>
+                        <p class="stat-num">5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Call-to-Action Section -->
-    <section class="py-20 bg-earth text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-earth text-white">
+        <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-light mb-6">Ready to Shape the Future of AI?</h2>
             <p class="text-xl opacity-90 mb-8">Don't miss this opportunity to be part of Namibia's growing AI community. Register today and join the conversation.</p>
             <a href="#" class="bg-orange hover:bg-orange/90 text-white px-10 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Get Your Ticket</a>
         </div>
     </section>
+    
+<section id="organizing-committee" class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-brand-brown mt-2">Organizing Committee</h2>
+            <p class="text-gray-600 mt-3 max-w-xl mx-auto text-base">
+                Meet the passionate team behind the scenes driving AI &amp; ML education across Namibia.
+            </p>
+        </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
+        <div id="committee-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+</section>
+
+<div id="bio-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div id="modal-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
+        <div class="bg-brand-brown px-6 py-4 flex items-center justify-between">
+            <span class="text-white/80 text-sm font-semibold uppercase tracking-widest">Full Profile</span>
+            <button id="modal-close" class="text-white/70 hover:text-white text-3xl leading-none focus:outline-none" aria-label="Close">&times;</button>
+        </div>
+        <div class="p-6">
+            <div class="flex items-center gap-5 mb-5">
+                <img id="modal-img" src="" alt="" class="w-24 h-24 rounded-full object-cover ring-4 ring-brand-burgundy/30 flex-shrink-0">
+                <div>
+                    <h3 id="modal-name" class="text-xl font-bold text-brand-peach"></h3>
+                    <p id="modal-role" class="text-brand-burgundy font-semibold text-sm mt-1"></p>
+                </div>
+            </div>
+            <p id="modal-bio" class="text-gray-600 leading-relaxed text-sm"></p>
+            <hr class="my-4 border-gray-100">
+            <p id="modal-contact" class="text-xs text-gray-400"></p>
+        </div>
+        <div class="border-t border-gray-100 px-6 py-3 flex justify-between items-center bg-gray-50">
+            <button id="modal-prev" class="text-sm text-brand-brown hover:underline focus:outline-none">&larr; Previous</button>
+            <span id="modal-counter" class="text-xs text-gray-400"></span>
+            <button id="modal-next" class="text-sm text-brand-brown hover:underline focus:outline-none">Next &rarr;</button>
+        </div>
+    </div>
+</div>
+
+
+ <footer class="w-full mt-12">
+    <div class="bg-transparent border border-b-0 border-transparent rounded-t-xl px-10 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="inline-flex items-center border-2 border-transparent rounded-md px-4 py-2 mb-5">
                     <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-8 w-auto mr-3">
                     <span class="text-lg font-semibold text-earth">IndabaX Namibia</span>
                 </div>
-                <div class="text-center md:text-right">
-                    <p class="text-earth/70">&copy; 2026 IndabaX Namibia. All rights reserved.</p>
-                    <p class="text-earth/70 text-sm mt-1">Part of the Deep Learning Indaba movement</p>
-                </div>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                    Advancing machine learning and artificial intelligence across the African continent through community, research, and education.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Quick Links</h3>
+                <ul class="space-y-2" id="quickLinks">
+                    <li><a href="index.html" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">About IndabaX</a></li>
+                    <li><a href="Annual Conference.html" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Annual Conference</a></li>
+                    <li><a href="index.html#organizing-committee" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Committee Members</a></li>
+                    <li><a href="archive.html" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Workshops</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Research Papers</a></li>
+                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Tutorials</a></li>
+                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Highlights Archive</a></li>
+                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Apply to Speak</a></li>
+                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Sponsorship</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Connect</h3>
+                <ul class="space-y-3" id="socialLinks">
+                    <li>
+                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="Twitter">
+                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                            </span>
+                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">Twitter / X</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="LinkedIn">
+                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </span>
+                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="YouTube">
+                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#C56D46" stroke="none"/></svg>
+                            </span>
+                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">YouTube</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="Instagram">
+                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </span>
+                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">Instagram</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+    <div class="bg-brand-burgundy rounded-b-xl px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-white/50" id="copyrightYear">&copy; <span id="year"></span> IndabaX. All rights reserved.</p>
+        <nav class="flex items-center gap-5" aria-label="Footer legal links">
+            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Privacy Policy</a>
+            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Terms of Use</a>
+            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Contact Us</a>
+        </nav>
+    </div>
+</footer>
+
+<!-- Committee section -->
+<script>
+    const playBtn = document.getElementById('playBtn');
+    if (playBtn) {
+        playBtn.addEventListener('click', function() {
+            alert('Video player would start playing. Add a <video> element with your actual video source.');
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== "#" && href !== "") {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll('.stat').forEach(stat => {
+        stat.addEventListener('mouseenter', () => {
+            stat.style.transform = 'translateX(5px)';
+        });
+        stat.addEventListener('mouseleave', () => {
+            stat.style.transform = 'translateX(0)';
+        });
+    });
+
+    const readMoreLinks = document.querySelectorAll('.read-more-link');
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const card = this.closest('.highlight-card');
+            const title = card.querySelector('.card-label').innerText;
+            alert(`Opening "${title}" article - Add your modal or page navigation here`);
+        });
+    });
+
+    document.querySelectorAll('.highlight-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            console.log('Card hovered');
+        });
+    });
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.card-image').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    const viewAllBtn = document.querySelector('.inline-block.bg-brand-brown');
+    if (viewAllBtn && viewAllBtn.getAttribute('href').startsWith('#')) {
+        viewAllBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    const members = [
+        {
+            name: "Dr. Nashandi",
+            role: "Conference Chair",
+            shortBio: "Leading the strategic vision and overall coordination.",
+            fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
+            image: "Resources/Nashandi.jpg"
+        },
+        {
+            name: "TK Hambira",
+            role: "Technical Program Chair",
+            shortBio: "Manages peer-review and scientific tracks.",
+            fullBio: "TK leads the technical programme committee ensuring high-quality double-blind review. He is a senior researcher in AI ethics and has previously managed programme committees for workshops.",
+            image: "Resources/Hambira.jpg"
+        },
+        {
+            name: "Liina Massipa",
+            role: "Sponsorship & Partnerships",
+            shortBio: "Connects with industry partners and funding bodies.",
+            fullBio: "Liina has built partnerships with top tech companies, securing sponsorships and fostering collaboration between academia and industry. She believes in impactful networking for the African AI community.",
+            image: "Resources/Massipa.jpg"
+        },
+        {
+            name: "Member 3",
+            role: "Workshop & Tutorial Chair",
+            shortBio: "Coordinates pre-conference workshops and hands-on sessions.",
+            fullBio: "Member 3 is passionate about knowledge exchange. He has organised more than 30 workshops covering data science, cloud computing, and responsible AI across NUST and regional institutions.",
+            image: "Resources/Nashandi.jpg"
+        },
+        {
+            name: "Member 4",
+            role: "Logistics & Operations",
+            shortBio: "Ensures smooth on-site and virtual experience.",
+            fullBio: "Member 4 is a seasoned event manager with expertise in hybrid conference logistics. He makes sure every session runs on time and every attendee at NUST feels welcomed.",
+            image: "Resources/Hambira.jpg"
+        },
+        {
+            name: "Dr. Bean",
+            role: "Publications Chair",
+            shortBio: "Oversees proceedings and open-access archives.",
+            fullBio: "Bean manages the publication workflow, indexing, and DOI registration. He advocates for open science and transparent peer review within the Deep Learning Indaba community.",
+            image: "Resources/Massipa.jpg"
+        }
+    ];
+
+    const grid = document.getElementById('committee-grid');
+    members.forEach((m, i) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 cursor-pointer group';
+        card.dataset.index = i;
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `View bio for ${m.name}`);
+
+        card.innerHTML = `
+            <div class="overflow-hidden h-56">
+                <img src="${m.image}" alt="${m.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+            </div>
+            <div class="p-5 pb-14 relative">
+                <h3 class="text-lg font-bold text-brand-peach">${m.name}</h3>
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-burgundy mt-0.5 mb-2">${m.role}</p>
+                <p class="text-sm text-gray-500 leading-relaxed">${m.shortBio}</p>
+                <button class="absolute bottom-4 right-4 text-xs font-semibold text-white bg-brand-brown hover:bg-brand-peach px-4 py-2 rounded-full transition-colors duration-200" data-index="${i}" aria-label="Read full bio for ${m.name}">
+                    Read Bio
+                </button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    const modal = document.getElementById('bio-modal');
+    const panel = document.getElementById('modal-panel');
+    const closeBtn = document.getElementById('modal-close');
+    const prevBtn = document.getElementById('modal-prev');
+    const nextBtn = document.getElementById('modal-next');
+    const counter = document.getElementById('modal-counter');
+    let currentIndex = 0;
+
+    function populateModal(index) {
+        const m = members[index];
+        document.getElementById('modal-img').src = m.image;
+        document.getElementById('modal-img').alt = m.name;
+        document.getElementById('modal-name').textContent = m.name;
+        document.getElementById('modal-role').textContent = m.role;
+        document.getElementById('modal-bio').textContent = m.fullBio;
+        document.getElementById('modal-contact').textContent = '\u2709 ' + m.name.toLowerCase().replace(/ /g, '.') + '@indabaxnamibia.org';
+        counter.textContent = (index + 1) + ' / ' + members.length;
+    }
+
+    function openModal(index) {
+        currentIndex = index;
+        populateModal(currentIndex);
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            modal.classList.remove('opacity-0');
+            panel.classList.remove('scale-95', 'opacity-0');
+        });
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.add('opacity-0');
+        panel.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }, 220);
+    }
+
+    function navigate(dir) {
+        currentIndex = (currentIndex + dir + members.length) % members.length;
+        populateModal(currentIndex);
+    }
+
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('[data-index]');
+        if (target && modal.classList.contains('hidden')) {
+            openModal(Number(target.dataset.index));
+        }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', () => navigate(-1));
+    nextBtn.addEventListener('click', () => navigate(1));
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const focused = document.activeElement.closest('[data-index]');
+            if (focused) openModal(Number(focused.dataset.index));
+        }
+        if (!modal.classList.contains('hidden')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') navigate(1);
+            if (e.key === 'ArrowLeft') navigate(-1);
+        }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.footer-link, .social-link span:last-child').forEach(function(link) {
+        link.style.position = 'relative';
+    });
+
+    const footerObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, i) {
+            if (entry.isIntersecting) {
+                setTimeout(function() {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+                footerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('footer > div:first-child > div > div').forEach(function(col) {
+        col.style.opacity = '0';
+        col.style.transform = 'translateY(20px)';
+        col.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        footerObserver.observe(col);
+    });
+
+    document.querySelector('.border-brand-brown').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
     <script src="script.js"></script>
 </body>
