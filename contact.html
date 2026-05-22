@@ -152,22 +152,15 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-8 w-auto mr-3">
-                    <span class="text-lg font-semibold text-earth">IndabaX Namibia</span>
-                </div>
-                <div class="text-center md:text-right">
-                    <p class="text-earth/70">&copy; 2026 IndabaX Namibia. All rights reserved.</p>
-                    <p class="text-earth/70 text-sm mt-1">Part of the Deep Learning Indaba movement</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+   <!-- Footer -->
+ <div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
+</script>
     <script src="script.js"></script>
 </body>
 </html>
