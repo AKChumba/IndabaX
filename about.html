@@ -15,6 +15,7 @@
                         'sand': '#F4A261',
                         'desert': '#E9C46A',
                         'sky': '#2A9D8F',
+                        'dark-brown': '#8B4513',
                         'earth': '#264653'
                     }
                 }
@@ -26,27 +27,27 @@
 
 <body class="bg-white text-earth">
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
-                    <span class="text-xl font-bold text-earth">IndabaX Namibia</span>
+                    <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-earth hover:text-dune px-3 py-2 rounded-md transition duration-300">Home</a>
-                        <a href="about.html" class="text-dune font-semibold px-3 py-2 rounded-md transition duration-300">About</a>
-                        <a href="schedule.html" class="text-earth hover:text-dune px-3 py-2 rounded-md transition duration-300">Conference</a>
+                        <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+                        <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+                        <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Conference</a>
                     </div>
                 </div>
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-white hover:text-dune focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -55,39 +56,44 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="index.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Home</a>
-                    <a href="about.html" class="text-dune font-semibold block px-3 py-2 rounded-md">About</a>
-                    <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Conference</a>
+                    <a href="index.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">Home</a>
+                    <a href="about.html" class="text-white font-semibold block px-3 py-2 rounded-md">About</a>
+                    <a href="schedule.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">Conference</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-sky text-white pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section class="relative bg-sky text-white pt-40 overflow-hidden">
+        <!-- Static Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/About.jfif'); background-size: cover; background-position: center;"></div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
-                <h1 class="text-5xl lg:text-6xl font-light mb-6">About IndabaX Namibia</h1>
-                <p class="text-xl lg:text-2xl font-light opacity-90 max-w-3xl mx-auto">Empowering Namibia's AI future through education, community, and innovation</p>
+                <h1 class="text-5xl lg:text-5xl text-orange font-bold mb-6">About IndabaX Namibia</h1>
+                <p class="text-xl lg:text-2xl font-light opacity-90 ">Empowering Namibia's AI future through education, community, and innovation</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 bg-dune">
+        <div style="perspective: 1000px;" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-light text-earth mb-6">What is IndabaX?</h2>
-                    <p class="text-lg text-earth/70 mb-6">IndabaX events are locally organized satellite events of the Deep Learning Indaba, designed to bring world-class AI education and networking opportunities directly to African communities.</p>
-                    <p class="text-lg text-earth/70 mb-6">The Deep Learning Indaba is a movement to strengthen African Machine Learning by bringing together African researchers, practitioners, and students to learn, share, and grow together.</p>
-                    <p class="text-lg text-earth/70">IndabaX Namibia serves as the premier AI conference in our nation, fostering collaboration between academia, industry, and government to accelerate AI adoption and development.</p>
+                <div id="feature-strip" class="py-16 p-8 bg-dune/10">
+                    <h2 class="text-4xl font-semibold text-white mb-6">What is IndabaX?</h2>
+                    <p class="text-lg text-white mb-6">The Deep Learning Indaba is a movement to strengthen African Machine Learning by bringing together African researchers, practitioners, and students to learn, share, and grow together.</p>
+                    <p class="text-lg text-white">IndabaX Namibia serves as the premier AI conference in our nation, fostering collaboration between academia, industry, and government to accelerate AI adoption and development.</p>
                 </div>
-                <div class="bg-gradient-to-br from-sand/20 to-desert/20 rounded-lg p-12">
-                    <div class="bg-dune/10 rounded-lg p-8 text-center">
+                <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-12">
+                    <div class="bg-orange/30 rounded-lg p-8 text-center">
                         <i class="fas fa-globe-africa text-dune text-6xl mb-6"></i>
-                        <h3 class="text-2xl font-bold text-earth mb-4">Part of a Global Movement</h3>
-                        <p class="text-earth/70">Connecting Namibian AI talent to the broader African and global AI community</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Global Movement</h3>
+                        <p class="text-white">Connecting Namibian AI talent to the broader African and global AI community</p>
                     </div>
                 </div>
             </div>
