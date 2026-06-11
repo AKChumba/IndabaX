@@ -1,41 +1,33 @@
 // Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function () {
             mobileMenu.classList.toggle('hidden');
-            
-            // Toggle hamburger icon
             const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
     }
 });
 
-// Smooth scrolling for anchor links (if any)
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Add scroll effect to navbar (frosted transparent when scrolling)
-window.addEventListener('scroll', function() {
+// Frosted navbar on scroll
+window.addEventListener('scroll', function () {
     const navbar = document.querySelector('nav');
     if (!navbar) return;
 
@@ -89,26 +81,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Simple fade-in animation for cards on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
+// Fade-in cards on scroll
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Observe elements with animation class when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add animation classes to cards
-    const cards = document.querySelectorAll('.bg-white.rounded-lg, .bg-gray-50.rounded-lg');
-    cards.forEach(card => {
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.bg-white.rounded-lg, .bg-gray-50.rounded-lg').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -116,23 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Tilt effect for cards
-(function(){
-    const supportsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (supportsReducedMotion && supportsReducedMotion.matches) return;
+// Tilt effect for .tilt-card elements
+(function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    function bindTilt(el){
-        const rect = el.getBoundingClientRect();
+    function bindTilt(el) {
         el.addEventListener('pointermove', (e) => {
+            const rect = el.getBoundingClientRect();
             const px = (e.clientX - rect.left) / rect.width;
             const py = (e.clientY - rect.top) / rect.height;
-            const rotateY = (px - 0.5) * 12; // degrees
-            const rotateX = (0.5 - py) * 8; // degrees
-            el.style.transform = `translateZ(0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.03)`;
+            el.style.transform = `rotateX(${(0.5 - py) * 8}deg) rotateY(${(px - 0.5) * 12}deg) translateY(-6px) scale(1.03)`;
         });
-        el.addEventListener('pointerleave', () => {
-            el.style.transform = '';
-        });
+        el.addEventListener('pointerleave', () => { el.style.transform = ''; });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -140,26 +119,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 
-// Polygon viewer (highlight section)
-(function(){
-    const images = [
-        'Resources/BACKGROUD.jpeg',
-        'Resources/Hero Background.jfif',
-        'Resources/BACKGROUD.jpeg'
-    ];
+// Polygon image viewer
+(function () {
+    const images = ['Resources/BACKGROUD.jpeg', 'Resources/Hero Background.jfif', 'Resources/BACKGROUD.jpeg'];
     let idx = 0;
     const imgEl = document.getElementById('poly-image');
-    const prev = document.getElementById('poly-prev');
-    const next = document.getElementById('poly-next');
+    const prev  = document.getElementById('poly-prev');
+    const next  = document.getElementById('poly-next');
 
-    function show(i){
+    function show(i) {
         if (!imgEl) return;
         idx = (i + images.length) % images.length;
         imgEl.style.opacity = '0';
-        setTimeout(() => {
-            imgEl.src = images[idx];
-            imgEl.style.opacity = '1';
-        }, 200);
+        setTimeout(() => { imgEl.src = images[idx]; imgEl.style.opacity = '1'; }, 200);
     }
 
     document.addEventListener('DOMContentLoaded', () => {

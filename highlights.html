@@ -5,353 +5,428 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Highlights Archive | IndabaX Namibia</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{brand:{brown:'#C56D46',burgundy:'#6a2a11',peach:'#FECF97'}}}}}</script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dune': '#C1440E',
+            'orange': '#E85D04',
+            'sand': '#F4A261',
+            'desert': '#E9C46A',
+            'sky': '#2A9D8F',
+            'earth': '#264653',
+            'light-sand': '#F4A261',
+            'brown': '#C56D46',
+            'burgundy': '#6a2a11',
+            'peach': '#FECF97',
+            brand: {
+              brown: '#C56D46',
+              burgundy: '#6a2a11',
+              peach: '#FECF97'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="shared-styles.css">
-  
   <style>
-    .highlight-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.07); transition:transform .25s,box-shadow .25s; cursor:pointer; }
+    /* Additional custom styles that match the original archive page aesthetic */
+    :root {
+      --color-brand-brown: #C56D46;
+      --color-brand-burgundy: #6a2a11;
+      --color-brand-peach: #FECF97;
+      --color-text-primary: #1e1e2a;
+      --color-text-secondary: #4a4a5a;
+      --color-border: #e5e7eb;
+    }
+    .highlight-card { 
+      background:#fff; 
+      border-radius:16px; 
+      overflow:hidden; 
+      box-shadow:0 4px 18px rgba(0,0,0,.07); 
+      transition:transform .25s,box-shadow .25s; 
+      cursor:pointer; 
+    }
     .highlight-card:hover { transform:translateY(-5px); box-shadow:0 20px 36px rgba(0,0,0,.12); }
     .highlight-card img { width:100%; height:220px; object-fit:cover; transition:transform .4s; }
     .highlight-card:hover img { transform:scale(1.05); }
-    .card-label-abs { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); background:var(--color-brand-brown); color:#fff; padding:5px 20px; border-radius:6px; font-size:.82rem; font-weight:700; white-space:nowrap; box-shadow:0 2px 8px rgba(0,0,0,.2); }
-    .read-more-link { color:var(--color-brand-brown); font-weight:600; font-size:.88rem; display:inline-flex; align-items:center; gap:4px; transition:gap .2s; text-decoration:none; }
+    .card-label-abs { 
+      position:absolute; 
+      bottom:16px; 
+      left:50%; 
+      transform:translateX(-50%); 
+      background:var(--color-brand-brown); 
+      color:#fff; 
+      padding:5px 20px; 
+      border-radius:6px; 
+      font-size:.82rem; 
+      font-weight:700; 
+      white-space:nowrap; 
+      box-shadow:0 2px 8px rgba(0,0,0,.2); 
+    }
+    .read-more-link { 
+      color:var(--color-brand-brown); 
+      font-weight:600; 
+      font-size:.88rem; 
+      display:inline-flex; 
+      align-items:center; 
+      gap:4px; 
+      transition:gap .2s; 
+      text-decoration:none; 
+    }
     .read-more-link:hover { gap:8px; color:var(--color-brand-burgundy); }
-    .year-tab { cursor:pointer; padding:8px 20px; border-radius:8px; font-size:.85rem; font-weight:600; border:1px solid var(--color-border); background:#fff; color:var(--color-text-secondary); transition:all .2s; }
+    .year-tab { 
+      cursor:pointer; 
+      padding:8px 20px; 
+      border-radius:8px; 
+      font-size:.85rem; 
+      font-weight:600; 
+      border:1px solid var(--color-border); 
+      background:#fff; 
+      color:var(--color-text-secondary); 
+      transition:all .2s; 
+    }
     .year-tab.active, .year-tab:hover { background:var(--color-brand-brown); color:#fff; border-color:var(--color-brand-brown); }
+
+    /* Page hero styling - matching the archive page style */
+    .page-hero {
+      background: linear-gradient(135deg, #264653 0%, #1e3a3f 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 24px 60px;
+      margin-top: 0;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .page-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 60px;
+    }
 
     /* Article modal */
     #art-modal { transition:opacity .2s; }
     #art-panel { transition:transform .25s,opacity .25s; }
+    .opacity-0 { opacity: 0; }
+    .scale-95 { transform: scale(0.95); }
+    .hidden { display: none; }
   </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="bg-sky-500 shadow-lg fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
-                    <span class="text-xl font-bold text-black">IndabaX Namibia</span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
-                        <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
-                        <a href="archive.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Archive</a>
-                    </div>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
-                    <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
-                    <a href="archive.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Archive</a>
-                </div>
-            </div>
+<body class="text-earth">
+
+  <!-- =============================================== -->
+  <!-- NAVBAR – REPLACED WITH INDEX PAGE VERSION       -->
+  <!-- =============================================== -->
+  <nav class="bg-sky-500 shadow-lg fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <span class="text-xl font-bold text-black">IndabaX Namibia</span>
         </div>
-    </nav>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+            <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+            <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Conference</a>
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
+          <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
+          <a href="archive.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Archive</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<main class="pt-16">
+  <main>
+    <div class="page-hero">
+      <span class="hero-tag">Our Story in Pictures</span>
+      <h1>Highlights Archive</h1>
+      <p>Relive the moments, talks, and breakthroughs from every IndabaX Namibia conference.</p>
+    </div>
 
-  <div class="page-hero">
-    <span class="hero-tag">Our Story in Pictures</span>
-    <h1>Highlights Archive</h1>
-    <p>Relive the moments, talks, and breakthroughs from every IndabaX Namibia conference.</p>
+    <div class="page-section">
+
+      <!-- YEAR FILTERS -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
+        <button class="year-tab active" onclick="filterYear('all',this)">All Years</button>
+        <button class="year-tab"        onclick="filterYear('2025',this)">2025</button>
+        <button class="year-tab"        onclick="filterYear('2024',this)">2024</button>
+        <button class="year-tab"        onclick="filterYear('2023',this)">2023</button>
+        <button class="year-tab"        onclick="filterYear('2022',this)">2022</button>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div id="cards-grid" style="display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
+
+        <!-- 2025 cards -->
+        <div class="highlight-card" data-year="2025" data-title="Annual Conference 2025" data-desc="Our largest event to date — over 400 attendees gathered at NUST Windhoek for three days of talks, workshops, and community. Highlights included a rooftop networking session and the inaugural Student Research Award." data-date="June 10, 2025" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://www.confco.co.za/wp-content/uploads/2025/04/SlideShow2.jpg" alt="Annual Conference 2025" loading="lazy">
+            <span class="card-label-abs">Annual Conference</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              June 10, 2025
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Bringing together the brightest minds in machine learning across Africa for a week of talks, workshops, and collaboration.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="highlight-card" data-year="2025" data-title="Student Research Award 2025" data-desc="For the first time, IndabaX Namibia awarded three student researchers for outstanding poster presentations. The winning paper on low-resource Oshikwanyama NLP received a travel grant to attend the Deep Learning Indaba main event." data-date="June 12, 2025" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Student Awards" loading="lazy">
+            <span class="card-label-abs">Student Awards</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              June 12, 2025
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Celebrating the next generation of AI researchers from Namibian universities with our inaugural award programme.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="highlight-card" data-year="2024" data-title="The Future of Artificial Intelligence" data-desc="A deep-dive feature exploring what the next decade of AI looks like for Africa — from large language models and multimodal systems to AI governance frameworks being developed on the continent." data-date="May 18, 2024" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Future_Of_Artificial_Intelligence.jpg" alt="AI Future" loading="lazy">
+            <span class="card-label-abs">Artificial Intelligence</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              May 18, 2024
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Exploring the future of artificial intelligence and its impact on various industries across the continent.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="highlight-card" data-year="2024" data-title="Industry Partnership Launch" data-desc="2024 saw IndabaX Namibia formalise its industry partnership programme, welcoming five anchor sponsors including a leading telecommunications group and a regional fintech firm. These partnerships fund 40 student bursaries annually." data-date="March 5, 2024" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Industry Partnerships" loading="lazy">
+            <span class="card-label-abs">Partnerships</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              March 5, 2024
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Launching our formal industry partnership programme to fund student bursaries and research grants across Namibia.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="highlight-card" data-year="2023" data-title="Workshop Sessions 2023" data-desc="Our 2023 hands-on track featured five deep-dive workshops on topics from computer vision to responsible AI. Led by expert practitioners, the sessions introduced Namibian participants to the latest tools in the PyTorch and Hugging Face ecosystems." data-date="June 12, 2023" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://www.arebbusch.com/wp-content/uploads/2021/09/Sossusvlei-Namibia-Attractions-in-Namibia-Arebbusch-Travel-Lodge-5.jpg" alt="Workshop Sessions" loading="lazy">
+            <span class="card-label-abs">Workshop Sessions</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              June 12, 2023
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Hands-on sessions led by expert practitioners covering the latest techniques in deep learning, NLP, and computer vision.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="highlight-card" data-year="2023" data-title="Back in Person — 300 Attendees" data-desc="After two virtual editions driven by the pandemic, IndabaX Namibia returned to campus in 2023 with record in-person attendance. The hybrid format allowed 150 additional participants to join online from across the continent." data-date="June 8, 2023" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="Return to Campus" loading="lazy">
+            <span class="card-label-abs">In-Person Return</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              June 8, 2023
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Returning to campus with 300 attendees and a hybrid format after two years of virtual-only conferences.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="highlight-card" data-year="2022" data-title="Virtual Edition 2022" data-desc="Our second all-virtual edition reached participants in 14 countries. Keynotes were delivered live, workshops were run via Google Colab, and a new online poster tool let students present their work to global reviewers." data-date="July 20, 2022" onclick="openArticle(this)">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80" alt="Virtual 2022" loading="lazy">
+            <span class="card-label-abs">Virtual Edition</span>
+          </div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              July 20, 2022
+            </div>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Reaching 14 countries with live keynotes, virtual workshops, and our online poster showcase platform.</p>
+            <a class="read-more-link" href="#">Read more <span>→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="no-results" style="display:none;text-align:center;padding:48px;color:var(--color-text-secondary);">
+        No highlights for that year yet. Check back soon!
+      </div>
+    </div>
+  </main>
+
+  <!-- ARTICLE MODAL -->
+  <div id="art-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0" role="dialog" aria-modal="true">
+    <div id="art-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
+      <div style="background:var(--color-brand-brown);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:rgba(255,255,255,.8);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Highlight</span>
+        <button id="art-close" style="color:rgba(255,255,255,.7);font-size:2rem;line-height:1;background:none;border:none;cursor:pointer;" aria-label="Close">&times;</button>
+      </div>
+      <div style="padding:28px;">
+        <p id="art-date" style="font-size:.8rem;color:var(--color-brand-brown);font-weight:600;margin:0 0 6px;"></p>
+        <h3 id="art-title" style="font-size:1.3rem;font-weight:700;color:var(--color-text-primary);margin:0 0 16px;"></h3>
+        <p id="art-body" style="color:var(--color-text-secondary);line-height:1.8;font-size:.92rem;margin:0;"></p>
+      </div>
+      <div style="border-top:1px solid var(--color-border);padding:16px 24px;background:#fafaf8;text-align:right;">
+        <button id="art-close-btn" style="padding:10px 22px;background:var(--color-brand-brown);color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.88rem;">Close</button>
+      </div>
+    </div>
   </div>
 
-  <div class="page-section">
+  <script>
+    // Filter function for year tabs
+    function filterYear(year, btn) {
+      document.querySelectorAll('.year-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let visible = 0;
+      document.querySelectorAll('.highlight-card').forEach(card => {
+        const show = year === 'all' || card.dataset.year === year;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      const noResultsDiv = document.getElementById('no-results');
+      if (noResultsDiv) noResultsDiv.style.display = visible === 0 ? 'block' : 'none';
+    }
 
-    <!-- YEAR FILTERS -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
-      <button class="year-tab active" onclick="filterYear('all',this)">All Years</button>
-      <button class="year-tab"        onclick="filterYear('2025',this)">2025</button>
-      <button class="year-tab"        onclick="filterYear('2024',this)">2024</button>
-      <button class="year-tab"        onclick="filterYear('2023',this)">2023</button>
-      <button class="year-tab"        onclick="filterYear('2022',this)">2022</button>
-    </div>
+    // Modal functions
+    const modal = document.getElementById('art-modal');
+    const panel = document.getElementById('art-panel');
 
-    <!-- FEATURED (large) -->
-    <div id="cards-grid"
-       style="display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
+    function openArticle(card) {
+      const titleElem = document.getElementById('art-title');
+      const dateElem = document.getElementById('art-date');
+      const bodyElem = document.getElementById('art-body');
+      if (titleElem) titleElem.textContent = card.dataset.title;
+      if (dateElem) dateElem.textContent = card.dataset.date;
+      if (bodyElem) bodyElem.textContent = card.dataset.desc;
+      if (modal) {
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          modal.classList.remove('opacity-0');
+          if (panel) panel.classList.remove('scale-95', 'opacity-0');
+        });
+        document.body.style.overflow = 'hidden';
+      }
+    }
 
-      <!-- 2025 cards -->
-      <div class="highlight-card" data-year="2025" data-title="Annual Conference 2025" data-desc="Our largest event to date — over 400 attendees gathered at NUST Windhoek for three days of talks, workshops, and community. Highlights included a rooftop networking session and the inaugural Student Research Award." data-date="June 10, 2025" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://www.confco.co.za/wp-content/uploads/2025/04/SlideShow2.jpg" alt="Annual Conference 2025" loading="lazy">
-          <span class="card-label-abs">Annual Conference</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            June 10, 2025
-          </div>
-          <p style="color:var(--color-text-secondary);
-            font-size:.88rem;line-height:1.6;margin:0 0 14px;">Bringing together the brightest minds in machine learning across Africa for a week of talks, workshops, and collaboration.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
+    function closeArticle() {
+      if (modal) {
+        modal.classList.add('opacity-0');
+        if (panel) panel.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => { 
+          modal.classList.add('hidden'); 
+          document.body.style.overflow = ''; 
+        }, 220);
+      }
+    }
 
-      <div class="highlight-card" data-year="2025" data-title="Student Research Award 2025" data-desc="For the first time, IndabaX Namibia awarded three student researchers for outstanding poster presentations. The winning paper on low-resource Oshikwanyama NLP received a travel grant to attend the Deep Learning Indaba main event." data-date="June 12, 2025" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Student Awards" loading="lazy">
-          <span class="card-label-abs">Student Awards</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            June 12, 2025
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Celebrating the next generation of AI researchers from Namibian universities with our inaugural award programme.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
+    // Attach modal close listeners if elements exist
+    const closeBtn = document.getElementById('art-close');
+    const closeBtnAlt = document.getElementById('art-close-btn');
+    if (closeBtn) closeBtn.addEventListener('click', closeArticle);
+    if (closeBtnAlt) closeBtnAlt.addEventListener('click', closeArticle);
+    if (modal) {
+      modal.addEventListener('click', e => { if (e.target === modal) closeArticle(); });
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeArticle(); });
 
-      <!-- 2024 -->
-      <div class="highlight-card" data-year="2024" data-title="The Future of Artificial Intelligence" data-desc="A deep-dive feature exploring what the next decade of AI looks like for Africa — from large language models and multimodal systems to AI governance frameworks being developed on the continent." data-date="May 18, 2024" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Future_Of_Artificial_Intelligence.jpg" alt="AI Future" loading="lazy">
-          <span class="card-label-abs">Artificial Intelligence</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            May 18, 2024
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Exploring the future of artificial intelligence and its impact on various industries across the continent.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
+    // Lazy image fade-in
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { 
+          if (e.isIntersecting) { 
+            e.target.style.opacity = '1'; 
+            obs.unobserve(e.target); 
+          } 
+        });
+      });
+      document.querySelectorAll('.highlight-card img').forEach(img => { 
+        img.style.opacity = '0'; 
+        img.style.transition = 'opacity .5s'; 
+        obs.observe(img); 
+      });
+    }
 
-      <div class="highlight-card" data-year="2024" data-title="Industry Partnership Launch" data-desc="2024 saw IndabaX Namibia formalise its industry partnership programme, welcoming five anchor sponsors including a leading telecommunications group and a regional fintech firm. These partnerships fund 40 student bursaries annually." data-date="March 5, 2024" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Industry Partnerships" loading="lazy">
-          <span class="card-label-abs">Partnerships</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            March 5, 2024
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Launching our formal industry partnership programme to fund student bursaries and research grants across Namibia.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
+    // Mobile nav toggle for the navbar (index style)
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
 
-      <!-- 2023 -->
-      <div class="highlight-card" data-year="2023" data-title="Workshop Sessions 2023" data-desc="Our 2023 hands-on track featured five deep-dive workshops on topics from computer vision to responsible AI. Led by expert practitioners, the sessions introduced Namibian participants to the latest tools in the PyTorch and Hugging Face ecosystems." data-date="June 12, 2023" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://www.arebbusch.com/wp-content/uploads/2021/09/Sossusvlei-Namibia-Attractions-in-Namibia-Arebbusch-Travel-Lodge-5.jpg" alt="Workshop Sessions" loading="lazy">
-          <span class="card-label-abs">Workshop Sessions</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            June 12, 2023
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Hands-on sessions led by expert practitioners covering the latest techniques in deep learning, NLP, and computer vision.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="highlight-card" data-year="2023" data-title="Back in Person — 300 Attendees" data-desc="After two virtual editions driven by the pandemic, IndabaX Namibia returned to campus in 2023 with record in-person attendance. The hybrid format allowed 150 additional participants to join online from across the continent." data-date="June 8, 2023" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="Return to Campus" loading="lazy">
-          <span class="card-label-abs">In-Person Return</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            June 8, 2023
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Returning to campus with 300 attendees and a hybrid format after two years of virtual-only conferences.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
-
-      <!-- 2022 -->
-      <div class="highlight-card" data-year="2022" data-title="Virtual Edition 2022" data-desc="Our second all-virtual edition reached participants in 14 countries. Keynotes were delivered live, workshops were run via Google Colab, and a new online poster tool let students present their work to global reviewers." data-date="July 20, 2022" onclick="openArticle(this)">
-        <div style="position:relative;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80" alt="Virtual 2022" loading="lazy">
-          <span class="card-label-abs">Virtual Edition</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            July 20, 2022
-          </div>
-          <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Reaching 14 countries with live keynotes, virtual workshops, and our online poster showcase platform.</p>
-          <a class="read-more-link" href="#">Read more <span>→</span></a>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="no-results" style="display:none;text-align:center;padding:48px;color:var(--color-text-secondary);">
-      No highlights for that year yet. Check back soon!
-    </div>
-
-  </div>
-
-</main>
-
-<!-- ARTICLE MODAL -->
-<div id="art-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0" role="dialog" aria-modal="true">
-  <div id="art-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
-    <div style="background:var(--color-brand-brown);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;">
-      <span style="color:rgba(255,255,255,.8);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Highlight</span>
-      <button id="art-close" style="color:rgba(255,255,255,.7);font-size:2rem;line-height:1;background:none;border:none;cursor:pointer;" aria-label="Close">&times;</button>
-    </div>
-    <div style="padding:28px;">
-      <p id="art-date" style="font-size:.8rem;color:var(--color-brand-brown);font-weight:600;margin:0 0 6px;"></p>
-      <h3 id="art-title" style="font-size:1.3rem;font-weight:700;color:var(--color-text-primary);margin:0 0 16px;"></h3>
-      <p id="art-body" style="color:var(--color-text-secondary);line-height:1.8;font-size:.92rem;margin:0;"></p>
-    </div>
-    <div style="border-top:1px solid var(--color-border);padding:16px 24px;background:#fafaf8;text-align:right;">
-      <button id="art-close-btn" style="padding:10px 22px;background:var(--color-brand-brown);color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.88rem;">Close</button>
-    </div>
-  </div>
-</div>
- <footer class="w-full mt-12">
-    <div class="bg-transparent border border-b-0 border-transparent rounded-t-xl px-10 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div>
-                <div class="inline-flex items-center border-2 border-transparent rounded-md px-4 py-2 mb-5">
-                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-8 w-auto mr-3">
-                    <span class="text-lg font-semibold text-earth">IndabaX Namibia</span>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed">
-                    Advancing machine learning and artificial intelligence across the African continent through community, research, and education.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Quick Links</h3>
-                <ul class="space-y-2" id="quickLinks">
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">About IndabaX</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Annual Conference</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Speakers</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Workshops</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Code of Conduct</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Resources</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Research Papers</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Tutorials</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Highlights Archive</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Apply to Speak</a></li>
-                    <li><a href="#" class="footer-link text-sm text-gray-500 hover:text-brand-peach transition-colors duration-200">Sponsorship</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xs font-bold text-brand-brown uppercase tracking-widest mb-3 pb-2 border-b-2 border-gray-200">Connect</h3>
-                <ul class="space-y-3" id="socialLinks">
-                    <li>
-                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="Twitter">
-                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-                            </span>
-                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">Twitter / X</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="LinkedIn">
-                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            </span>
-                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">LinkedIn</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="YouTube">
-                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#C56D46" stroke="none"/></svg>
-                            </span>
-                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">YouTube</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link flex items-center gap-3 group" aria-label="Instagram">
-                            <span class="w-7 h-7 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-50 transition-colors duration-200">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C56D46" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                            </span>
-                            <span class="text-sm text-gray-500 group-hover:text-brand-peach transition-colors duration-200">Instagram</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="bg-brand-burgundy rounded-b-xl px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-white/50" id="copyrightYear">&copy; <span id="year"></span> IndabaX. All rights reserved.</p>
-        <nav class="flex items-center gap-5" aria-label="Footer legal links">
-            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Privacy Policy</a>
-            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Terms of Use</a>
-            <a href="#" class="text-xs text-white/50 hover:text-white transition-colors duration-200">Contact Us</a>
-        </nav>
-    </div>
-</footer>
+  <div id="footer-placeholder"></div>
 <script>
-function filterYear(year, btn) {
-  document.querySelectorAll('.year-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  let visible = 0;
-  document.querySelectorAll('.highlight-card').forEach(card => {
-    const show = year === 'all' || card.dataset.year === year;
-    card.style.display = show ? '' : 'none';
-    if (show) visible++;
-  });
-  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
-}
-
-const modal = document.getElementById('art-modal');
-const panel = document.getElementById('art-panel');
-
-function openArticle(card) {
-  document.getElementById('art-title').textContent = card.dataset.title;
-  document.getElementById('art-date').textContent  = card.dataset.date;
-  document.getElementById('art-body').textContent  = card.dataset.desc;
-  modal.classList.remove('hidden');
-  requestAnimationFrame(() => {
-    modal.classList.remove('opacity-0');
-    panel.classList.remove('scale-95','opacity-0');
-  });
-  document.body.style.overflow = 'hidden';
-}
-
-function closeArticle() {
-  modal.classList.add('opacity-0');
-  panel.classList.add('scale-95','opacity-0');
-  setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 220);
-}
-
-document.getElementById('art-close').addEventListener('click', closeArticle);
-document.getElementById('art-close-btn').addEventListener('click', closeArticle);
-modal.addEventListener('click', e => { if (e.target === modal) closeArticle(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeArticle(); });
-
-// lazy image fade-in
-if ('IntersectionObserver' in window) {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; obs.unobserve(e.target); } });
-  });
-  document.querySelectorAll('.highlight-card img').forEach(img => { img.style.opacity='0'; img.style.transition='opacity .5s'; obs.observe(img); });
-}
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
 </script>
+
 <script src="shared.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IndabaX Namibia 2026 – Programme Schedule</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --rust: #C05A28;
+      --rust-light: #E8795A;
+      --sand: #F5F0E8;
+      --dark: #1E1410;
+      --muted: #7A6A5A;
+      --hero-bg: #1E1410;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--sand);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Override any conflicting nav styles from the new navbar – keep consistent */
+    nav.bg-sky-500 {
+      background-color: #2A9D8F !important; /* sky-500 = #2A9D8F */
+    }
+    nav.bg-sky-500 a.text-white {
+      color: white !important;
+    }
+    nav.bg-sky-500 a.text-white:hover {
+      color: #F4A261 !important; /* orange/70 equivalent */
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background-color: var(--dark);
+      color: white;
+      padding: 96px 24px 56px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      opacity: 0.75;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Main layout ── */
+    .main-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .main-content { grid-template-columns: 1fr; }
+    }
+
+    /* ── Tag badges ── */
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .tag-workshop { background: #FEE9D3; color: #B54C10; }
+    .tag-lunch    { background: #D6EDD7; color: #2A6B2E; }
+    .tag-panel    { background: #D6E8F7; color: #1A5C9A; }
+    .tag-closing  { background: #EDD6D6; color: #8B1A1A; }
+    .tag-social   { background: #E8D6F5; color: #5A1A8B; }
+
+    /* ── Day tabs ── */
+    .day-tab {
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: none;
+      background: none;
+      transition: all 0.2s;
+      color: var(--muted);
+    }
+    .day-tab:hover { color: var(--rust); }
+    .day-tab.active { background: var(--rust); color: white; }
+
+    /* ── Schedule rows ── */
+    .schedule-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid #E8E0D4;
+      animation: fadeUp 0.3s ease both;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .time-col {
+      width: 48px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Map ── */
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      height: 340px;
+    }
+    .map-container iframe { width: 100%; height: 100%; border: none; }
+    .map-overlay-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--rust);
+      color: white;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Info cards ── */
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .info-card svg { flex-shrink: 0; }
+
+    .card-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .card-value {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .card-value a {
+      color: var(--rust);
+      text-decoration: none;
+    }
+    .card-value a:hover { text-decoration: underline; }
+
+    /* Contact card spans both columns */
+    .info-card.contact {
+      grid-column: 1 / -1;
+    }
+
+    /* Fading transition */
+    #schedule-list { transition: opacity 0.2s; }
+    #schedule-list.fading { opacity: 0; }
+
+    /* Footer styling consistency */
+    footer {
+      background: white;
+      border-top: 1px solid #E8E0D4;
+      margin-top: 40px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+    }
+    .footer-bottom {
+      border-top: 1px solid #E8E0D4;
+      padding: 16px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p, .footer-bottom a {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: var(--rust); }
+    .footer-bottom nav { display: flex; gap: 20px; }
+    .footer-col h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #E8E0D4;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--rust); }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+    .social-link span.icon {
+      width: 28px; height: 28px;
+      background: #F5F0E8;
+      border: 1px solid #E8E0D4;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-link span.label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .social-link:hover span.label { color: var(--rust); }
+  </style>
+</head>
+<body class="text-earth">
+
+  <!-- =============================================== -->
+  <!-- NAVBAR – REPLACED WITH INDEX PAGE VERSION       -->
+  <!-- =============================================== -->
+  <nav class="bg-white-500 shadow-lg fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <span class="text-xl font-bold text-black">IndabaX Namibia</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+            <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+            <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Conference</a>
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
+          <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
+          <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Conference</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (keeping original programme hero) -->
+  <section class="hero">
+    <h1>Annual Conference</h1>
+    <p>Empowering Namibia's AI future through education, community, and innovation</p>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- LEFT: Schedule Panel -->
+    <div style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
+      <h1 style="font-size:1.9rem; color:var(--rust); margin-bottom:4px;">Programme Schedule</h1>
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">A curated three-day journey through theory, practice, and community.</p>
+
+      <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
+        <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — Aug 18</button>
+        <button class="day-tab"        onclick="switchDay(1, this)">Day 2 — Aug 19</button>
+        <button class="day-tab"        onclick="switchDay(2, this)">Day 3 — Aug 20</button>
+      </div>
+
+      <div id="schedule-list"></div>
+    </div>
+
+    <!-- RIGHT: Map + Info -->
+    <div style="display:flex; flex-direction:column; gap:16px;">
+
+      <!-- Map -->
+      <div style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); overflow:hidden; position:relative;">
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Namibia+University+of+Science+and+Technology,+Windhoek,+Namibia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="map-overlay-label">Windhoek, Namibia</div>
+        </div>
+        <a href="https://maps.google.com/?q=Namibia+University+of+Science+and+Technology,+Windhoek"
+          target="_blank"
+          style="position:absolute; top:12px; left:12px; background:white; font-size:0.75rem; font-weight:600; padding:6px 12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.12); color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:6px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Maps
+        </a>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-cards">
+
+        <!-- Dates -->
+        <div class="info-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <div>
+            <div class="card-label">Dates</div>
+            <div class="card-value">Aug 18 – 20, 2026</div>
+          </div>
+        </div>
+
+        <!-- Venue -->
+        <div class="info-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <div class="card-label">Venue</div>
+            <div class="card-value">NUST, Windhoek</div>
+          </div>
+        </div>
+
+        <!-- Contact — spans both columns -->
+        <div class="info-card contact">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <div>
+            <div class="card-label">Contact</div>
+            <div class="card-value">
+              <a href="mailto:info@indabaxnamibia.org">info@indabaxnamibia.org</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Script -->
+  <script>
+    const scheduleData = [
+      [
+        { time: "08:30", tag: "opening",  label: "Opening Ceremony",                   sub: "Main Auditorium",         tagClass: "tag-closing" },
+        { time: "09:30", tag: "keynote",  label: "Keynote: The Future of AI in Africa", sub: "Dr. Abebe Birhane",       tagClass: "tag-panel" },
+        { time: "11:00", tag: "workshop", label: "Introduction to Deep Learning",       sub: "Track A – Room 101",      tagClass: "tag-workshop" },
+        { time: "11:00", tag: "workshop", label: "Data Engineering & Pipelines",        sub: "Track B – Room 102",      tagClass: "tag-workshop" },
+        { time: "13:00", tag: "lunch",    label: "Lunch Break",                         sub: "",                        tagClass: "tag-lunch" },
+        { time: "14:00", tag: "panel",    label: "Panel: AI Policy & Governance",       sub: "Chaired by Nadia Hassan", tagClass: "tag-panel" },
+        { time: "16:00", tag: "social",   label: "Welcome Reception",                   sub: "Rooftop Terrace",         tagClass: "tag-social" },
+      ],
+      [
+        { time: "09:00", tag: "keynote",  label: "Keynote: Responsible ML Systems",     sub: "Prof. Sara Hooker",       tagClass: "tag-panel" },
+        { time: "10:30", tag: "workshop", label: "Computer Vision: Object Detection",   sub: "Track A – Room 204",      tagClass: "tag-workshop" },
+        { time: "10:30", tag: "workshop", label: "NLP & Transformers in Practice",      sub: "Track B – Room 205",      tagClass: "tag-workshop" },
+        { time: "12:30", tag: "lunch",    label: "Lunch Break",                         sub: "",                        tagClass: "tag-lunch" },
+        { time: "13:30", tag: "workshop", label: "Reinforcement Learning Fundamentals", sub: "Track A – Room 204",      tagClass: "tag-workshop" },
+        { time: "15:00", tag: "panel",    label: "Poster Session & Demo Hour",          sub: "Exhibition Hall",         tagClass: "tag-panel" },
+        { time: "17:00", tag: "social",   label: "Community Mixer",                     sub: "Garden Courtyard",        tagClass: "tag-social" },
+      ],
+      [
+        { time: "09:00", tag: "workshop", label: "NLP for Healthcare: Building Triage Systems",      sub: "Track A – Room 204",      tagClass: "tag-workshop" },
+        { time: "09:00", tag: "workshop", label: "MLOps & Production Deployments",                   sub: "Track B – Room 206",      tagClass: "tag-workshop" },
+        { time: "12:00", tag: "lunch",    label: "Lunch Break",                                      sub: "",                        tagClass: "tag-lunch" },
+        { time: "13:30", tag: "panel",    label: "Student Research Showcase & Awards",               sub: "Chaired by Lina Massipa", tagClass: "tag-panel" },
+        { time: "15:30", tag: "closing",  label: "Closing Ceremony & Announcement of IndabaX 2027", sub: "Organising Committee",    tagClass: "tag-closing" },
+        { time: "17:00", tag: "social",   label: "Farewell Networking Drinks",                       sub: "Rooftop Terrace",         tagClass: "tag-social" },
+      ],
+    ];
+
+    let currentDay = 0;
+
+    function renderDay(day) {
+      const list = document.getElementById('schedule-list');
+      list.innerHTML = '';
+      scheduleData[day].forEach((item, i) => {
+        const row = document.createElement('div');
+        row.className = 'schedule-row';
+        row.style.animationDelay = `${i * 45}ms`;
+        row.innerHTML = `
+          <div class="time-col">${item.time}</div>
+          <div style="flex:1;">
+            <span class="tag ${item.tagClass}">${item.tag}</span>
+            <div style="font-weight:600; font-size:0.875rem; margin-top:4px; color:var(--dark);">${item.label}</div>
+            ${item.sub ? `<div style="font-size:0.75rem; margin-top:2px; color:var(--muted);">${item.sub}</div>` : ''}
+          </div>`;
+        list.appendChild(row);
+      });
+    }
+
+    function switchDay(day, btn) {
+      if (day === currentDay) return;
+      currentDay = day;
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const list = document.getElementById('schedule-list');
+      list.classList.add('fading');
+      setTimeout(() => { renderDay(day); list.classList.remove('fading'); }, 160);
+    }
+
+    renderDay(0);
+
+    // Mobile nav toggle for the navbar (index style)
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+
+  <!-- Footer (from original programme page) -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(() => {
+        // Fallback inline footer if footer.html not available (to keep demo complete)
+        document.getElementById('footer-placeholder').innerHTML = `
+          <footer>
+            <div class="footer-inner">
+              <div class="footer-col"><h3>IndabaX Namibia</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="archive.html">Archive</a></li></ul></div>
+              <div class="footer-col"><h3>Connect</h3><ul><li><a href="#">Twitter</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">GitHub</a></li></ul></div>
+              <div class="footer-col"><h3>Contact</h3><ul><li><a href="mailto:info@indabaxnamibia.org">info@indabaxnamibia.org</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 IndabaX Namibia. All rights reserved.</p><nav><a href="#">Code of Conduct</a><a href="#">Privacy</a></nav></div>
+          </footer>
+        `;
+      });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
