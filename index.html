@@ -51,7 +51,7 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
                         <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
-                        <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Conference</a>
+                        <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Programme</a>
                     </div>
                 </div>
                 
@@ -88,14 +88,29 @@
                     <p class="text-xl lg:text-2xl font-light mb-8 opacity-90">Advancing AI in Namibia through community and innovation</p>
                     <a href="#" class="bg-orange hover:bg-orange/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Register Now</a>
                 </div>
-                <div class="lg:text-right">
-                    <div class="bg-orange/20 rounded-full w-80 h-80 mx-auto lg:ml-auto flex items-center justify-center">
-                        <div class="bg-orange/30 rounded-full w-60 h-60 flex items-center justify-center">
-                            <div class="bg-white/20 rounded-full w-40 h-40 flex items-center justify-center">
-                                <i class="fas fa-brain text-white text-6xl"></i>
-                            </div>
-                        </div>
+                <div class="lg:text-right relative">
+
+                    <!-- React Magic Rings -->
+                    <div 
+                        id="react-bit" 
+                        class="absolute inset-0 w-80 h-80 mx-auto lg:ml-auto">
                     </div>
+
+                    <!-- Brain Icon -->
+                    <div class="relative z-10 bg-orange/20 rounded-full w-80 h-80 mx-auto lg:ml-auto flex items-center justify-center">
+
+                        <div class="bg-orange/30 rounded-full w-60 h-60 flex items-center justify-center">
+
+                            <div class="bg-white/20 rounded-full w-40 h-40 flex items-center justify-center">
+
+                                <i class="fas fa-brain text-white text-6xl"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -176,10 +191,10 @@
     </section>
 
  <!-- Latest Highlights Section -->   
-<section id="Highlight-section" class="py-12 px-4 md:px-6 lg:px-8">
+<section id="Highlight-section" class="py-12 px-4 md:px-6 lg:px-8 bg-white">
     <div class="container mx-auto max-w-7xl">
         <div class="mb-10">
-            <h2 class="text-4xl font-bold text-brand-brown mt-2">Latest Highlights</h2>
+            <h2 class="text-4xl font-bold text-black mt-2">Latest Highlights</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -309,7 +324,7 @@
     </div>
 </section>
  <!-- video section -->
-  <div class="indaba-wrap px-4 sm:px-6 lg:px-8">
+  <div class="indaba-wrap px-4 sm:px-6 lg:px-8 bg-white ">
     <div style="max-width: 1200px; margin: 0 auto;">
         <div class="text-center mb-8">
             <h2 style="font-size: 2.5rem; font-weight: 700; color: var(--color-brand-brown); margin: 0 0 12px;">
@@ -323,14 +338,13 @@
         <div class="indaba-card">
             <div class="slide-grid">
                 <div class="cell quote-cell">
+                    </div>
+
+                <div class="cell year-cell">
                     <p class="qmark">&ldquo;</p>
                     <p class="qtext">IndabaX brought together a community that is shaping the future of AI on the African continent. Truly inspiring.</p>
                     <p class="qauthor">— Dr Aisha Kamara, Keynote Speaker</p>
-                </div>
-
-                <div class="cell year-cell">
-                    <p class="year-num">2026</p>
-                    <p class="year-sub">Conference Event</p>
+               
                 </div>
 
                 <div class="cell video-cell">
@@ -343,27 +357,17 @@
                     </iframe>
                     <span class="vid-label">What is an IndabaX?</span>
                 </div>
-
+                <!-- I'll fix this later, dont touch it works!!!! -->
                 <div class="cell map-cell">
-                    <iframe src="https://maps.google.com/maps?q=Windhoek,+Namibia&z=12&output=embed" 
+                   
+                </div>
+
+                <div class="stats-col">
+                     <iframe src="https://maps.google.com/maps?q=Windhoek,+Namibia&z=12&output=embed" 
                             loading="lazy" 
                             title="IndabaX Namibia Location">
                     </iframe>
                     <div class="map-label">Windhoek, Namibia</div>
-                </div>
-
-                <div class="stats-col">
-                    <div class="stat">
-                        <p class="stat-lbl">Attendees</p>
-                        <p class="stat-num">500+</p>
-                    </div>
-                    <div class="stat">
-                        <p class="stat-lbl">Speakers</p>
-                        <p class="stat-num">60+</p>
-                    </div>
-                    <div class="stat">
-                        <p class="stat-lbl">Workshops</p>
-                        <p class="stat-num">5</p>
                     </div>
                 </div>
             </div>
@@ -380,7 +384,7 @@
         </div>
     </section>
     
-<section id="organizing-committee" class="py-16 px-4 sm:px-6 lg:px-8">
+<section id="organizing-committee" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-brand-brown mt-2">Organizing Committee</h2>
@@ -431,5 +435,6 @@
 
     <script src="cards.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="./main.jsx"></script>
 </body>
 </html>

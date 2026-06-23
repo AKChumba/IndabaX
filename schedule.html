@@ -30,15 +30,15 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* Override any conflicting nav styles from the new navbar – keep consistent */
+    /* Override any conflicting nav styles.....keep consistent */
     nav.bg-sky-500 {
-      background-color: #2A9D8F !important; /* sky-500 = #2A9D8F */
+      background-color: transparent !important; /* sky-500 = #2A9D8F */
     }
     nav.bg-sky-500 a.text-white {
       color: white !important;
     }
     nav.bg-sky-500 a.text-white:hover {
-      color: #F4A261 !important; /* orange/70 equivalent */
+      color: #E85D04 !important; /* orange/70 equivalent */
     }
 
     /* ── Hero ── */
@@ -283,10 +283,9 @@
 </head>
 <body class="text-earth">
 
-  <!-- =============================================== -->
-  <!-- NAVBAR – REPLACED WITH INDEX PAGE VERSION       -->
-  <!-- =============================================== -->
-  <nav class="bg-white-500 shadow-lg fixed w-full top-0 z-50">
+  
+  <!-- NAVBAR -->
+  <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
@@ -317,7 +316,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
           <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
-          <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Conference</a>
+          <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Programme</a>
         </div>
       </div>
     </div>
@@ -325,7 +324,7 @@
 
   <!-- Hero Section (keeping original programme hero) -->
   <section class="hero">
-    <h1>Annual Conference</h1>
+    <h1>Programme Schedule</h1>
     <p>Empowering Namibia's AI future through education, community, and innovation</p>
   </section>
 
@@ -335,7 +334,7 @@
     <!-- LEFT: Schedule Panel -->
     <div style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
       <h1 style="font-size:1.9rem; color:var(--rust); margin-bottom:4px;">Programme Schedule</h1>
-      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">A curated three-day journey through theory, practice, and community.</p>
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">The programme 2026 is currently under development. Below isa preview of the week to help you know what you might expect at the Indaba. Please note that the programme is subject to change and will be updated here regularly.</p>
 
       <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
         <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — Aug 18</button>
