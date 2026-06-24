@@ -134,26 +134,95 @@ document.addEventListener('DOMContentLoaded', function () {
     const imgEl = document.getElementById('poly-image');
     const prev = document.getElementById('poly-prev');
     const next = document.getElementById('poly-next');
+    const dotContainer = document.getElementById('poly-dots');
 
 
-    function show(i) {
+    function updateDots(){
 
-        if (!imgEl) return;
+        const dots = document.querySelectorAll('#poly-dots button');
+
+        dots.forEach((dot,index)=>{
+
+            if(index === idx){
+
+                dot.classList.remove('bg-white/50');
+
+                dot.classList.add(
+                    'bg-white/80',
+                    'scale-125'
+                );
+
+            }
+            else{
+
+                dot.classList.add('bg-white/50');
+
+                dot.classList.remove(
+                    'bg-white/80',
+                    'scale-125'
+                );
+
+            }
+
+        });
+
+    }
+
+
+
+    function createDots(){
+
+    if(!dotContainer) return;
+
+
+    images.forEach((image,index)=>{
+
+        const dot = document.createElement('button');
+
+
+        dot.className =
+        "w-3 h-3 rounded-full bg-white/80 border border-black transition-all duration-300";
+
+
+        dot.addEventListener('click',()=>{
+
+            show(index);
+
+        });
+
+
+        dotContainer.appendChild(dot);
+
+    });
+
+}
+
+
+
+    function show(i){
+
+        if(!imgEl) return;
+
 
         idx = (i + images.length) % images.length;
 
-        // fade out
+
         imgEl.style.opacity = '0';
 
 
-        setTimeout(() => {
+        setTimeout(()=>{
+
 
             imgEl.src = images[idx];
 
-            // fade in
             imgEl.style.opacity = '1';
 
-        }, 500);
+
+            updateDots();
+
+
+        },500);
+
 
     }
 
@@ -167,38 +236,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded',()=>{
 
 
-        if (prev) {
-            prev.addEventListener('click', () => {
-                show(idx - 1);
-            });
-        }
-
-
-        if (next) {
-            next.addEventListener('click', () => {
-                show(idx + 1);
-            });
-        }
+        createDots();
 
 
         show(0);
 
 
-        // AUTOMATIC SLIDESHOW
-        setInterval(() => {
+
+        if(prev){
+
+            prev.addEventListener('click',()=>{
+
+                show(idx-1);
+
+            });
+
+        }
+
+
+
+        if(next){
+
+            next.addEventListener('click',()=>{
+
+                show(idx+1);
+
+            });
+
+        }
+
+
+
+        setInterval(()=>{
 
             nextImage();
 
-        }, 4000);
+        },4000);
 
 
     });
 
 
+
 })();
+
+
 
 // Slideshow for About hero (10000ms interval)
 document.addEventListener('DOMContentLoaded', function() {
