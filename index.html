@@ -79,8 +79,8 @@
         <!-- Background Image -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style="background-image: url('Resources/NamibDesert.jpg');   
-            background-size: cover; 
-            background-position: center;">
+                    background-size: cover; 
+                    background-position: center;">
             </div>
         <!-- Lighter Gradient Overlay to improve image visibility while keeping text readable -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
@@ -133,7 +133,7 @@
                     <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Speakers</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span class="mr-2">24</span>
+                            <span id="speakers-count" class="mr-2">24</span>
                             <span class="text-2xl text-white/100">+</span>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                     <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Attendees</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span class="mr-2">512</span>
+                            <span id="attendees-count" class="mr-2">512</span>
                             <span class="text-2xl text-white/100">+</span>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                     <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full" role="group">
                         <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Workshops</div>
                         <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span class="mr-2">18</span>
+                            <span id="workshops-count" class="mr-2">18</span>
                             <span class="text-2xl text-white/100">+</span>
                         </div>
                     </div>
@@ -178,7 +178,10 @@
                             <button id="poly-prev" aria-label="Previous image" class="absolute z-20 top-1/2 -translate-y-1/2 bg-dune/85 hover:bg-black/50 text-white p-3 rounded-full shadow" style="left: -48px;">‹</button>
 
                             <div class="polygon-mask w-full h-full overflow-hidden rounded-3xl shadow-lg" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
-                                <img id="poly-image" src="Resources/BACKGROUD.jpeg" alt="Highlight image" class="w-full h-full object-cover transition-opacity duration-500">
+                                <img id="poly-image" 
+                                    src="Resources/BACKGROUD.jpeg" 
+                                    alt="Highlight image" 
+                                    class="w-full h-full object-cover transition-all duration-700 ease-in-out">
                             </div>
 
                             <!-- Next button placed outside right -->

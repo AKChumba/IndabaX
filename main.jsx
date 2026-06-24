@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
+import CountUp from "./react-components/CountUp.jsx";
 
 const root = createRoot(
     document.getElementById("react-bit")
@@ -29,3 +30,27 @@ if (heroText) {
         <HeroText />
     );
 }
+
+const speakers = document.getElementById("speakers-count");
+
+if (speakers) {
+    createRoot(speakers).render(
+        <CountUp end={24}/>
+    );
+}
+
+const attendees = document.getElementById("attendees-count");
+
+ if (attendees) {
+    createRoot(attendees).render(
+        <CountUp end={512}/>
+    );
+ }
+
+const workshops = document.getElementById("workshops-count");
+
+if (workshops) {
+    createRoot(workshops).render(
+        <CountUp end={18}/>
+    );
+ }

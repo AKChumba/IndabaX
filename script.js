@@ -119,26 +119,85 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })();
 
+
 // Polygon image viewer
 (function () {
-    const images = ['Resources/BACKGROUD.jpeg', 'Resources/Hero Background.jfif', 'Resources/BACKGROUD.jpeg'];
+
+    const images = [
+        'Resources/BACKGROUD.jpeg',
+        'Resources/Hero Background.jfif',
+        'Resources/BACKGROUD.jpeg'
+    ];
+
     let idx = 0;
+
     const imgEl = document.getElementById('poly-image');
-    const prev  = document.getElementById('poly-prev');
-    const next  = document.getElementById('poly-next');
+    const prev = document.getElementById('poly-prev');
+    const next = document.getElementById('poly-next');
+
 
     function show(i) {
+
         if (!imgEl) return;
+
         idx = (i + images.length) % images.length;
+
+        // fade out
         imgEl.style.opacity = '0';
-        setTimeout(() => { imgEl.src = images[idx]; imgEl.style.opacity = '1'; }, 200);
+
+
+        setTimeout(() => {
+
+            imgEl.src = images[idx];
+
+            // fade in
+            imgEl.style.opacity = '1';
+
+        }, 500);
+
     }
 
+
+
+    function nextImage(){
+
+        show(idx + 1);
+
+    }
+
+
+
     document.addEventListener('DOMContentLoaded', () => {
-        if (prev) prev.addEventListener('click', () => show(idx - 1));
-        if (next) next.addEventListener('click', () => show(idx + 1));
+
+
+        if (prev) {
+            prev.addEventListener('click', () => {
+                show(idx - 1);
+            });
+        }
+
+
+        if (next) {
+            next.addEventListener('click', () => {
+                show(idx + 1);
+            });
+        }
+
+
         show(0);
+
+
+        // AUTOMATIC SLIDESHOW
+        setInterval(() => {
+
+            nextImage();
+
+        }, 4000);
+
+
     });
+
+
 })();
 
 // Slideshow for About hero (10000ms interval)
