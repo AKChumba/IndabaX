@@ -119,14 +119,95 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })();
 
+// Feature counter animation
+document.addEventListener("DOMContentLoaded", () => {
+
+    const featureSection = document.querySelector("#features");
+
+    if (!featureSection) return;
+
+
+    const counters = featureSection.querySelectorAll(".counter");
+
+
+    function startCounting(){
+
+        counters.forEach(counter => {
+
+            counter.innerText = "0";
+
+            const target = Number(counter.dataset.target);
+
+
+            let count = 0;
+
+            const speed = target / 100;
+
+
+            function update(){
+
+                count += speed;
+
+
+                if(count < target){
+
+                    counter.innerText = Math.ceil(count);
+
+                    requestAnimationFrame(update);
+
+                }
+                else{
+
+                    counter.innerText = target;
+
+                }
+
+            }
+
+
+            update();
+
+        });
+
+    }
+
+
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+
+            if(entry.isIntersecting){
+
+                startCounting();
+
+            }
+
+
+        });
+
+
+    },{
+
+        threshold:0.6
+
+    });
+
+
+
+    observer.observe(featureSection);
+
+
+});
 
 // Polygon image viewer
 (function () {
 
     const images = [
-        'Resources/BACKGROUD.jpeg',
-        'Resources/Hero Background.jfif',
-        'Resources/BACKGROUD.jpeg'
+        'Resources/photo.jpg',
+        'Resources/question.jpg',
+        'Resources/stage.jpg'
     ];
 
     let idx = 0;
