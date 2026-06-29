@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
 import CountUp from "./react-components/CountUp.jsx";
+import PartnerLogos from "./react-components/PartnerLogos.jsx";
 
 const root = createRoot(
     document.getElementById("react-bit")
