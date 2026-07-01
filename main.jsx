@@ -74,6 +74,10 @@ if (logoLoop) {
                 {
                     src: "/Resources/mtc.png",
                     alt: "Logo 3"
+                },
+                {
+                    src: "/Resources/IndabaX_Logo.png",
+                    alt: "Logo 4"
                 }
             ]}
 

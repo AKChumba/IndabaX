@@ -72,46 +72,46 @@
 
     const members = [
         {
-            name: "Dr. Nashandi",
-            role: "Conference Chair",
+            name: "Ms Ndinelago Nashandi",
+            role: "Lecturer: Software Engineering",
             shortBio: "Leading the strategic vision and overall coordination ensures runs smoothly.",
             fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
-            image: "Resources/Nashandi.jpg"
+            image: "Resources/Nashandi.jpeg"
         },
         {
-            name: "TK Hambira",
-            role: "Technical Program Chair",
+            name: "Mr. Naftali Indongo",
+            role: "Lecturer: Software Engineering",
             shortBio: "Manages peer-review and scientific tracks ensure all work is done and runs smoothely .",
-            fullBio: "TK leads the technical programme committee ensuring high-quality double-blind review. He is a senior researcher in AI ethics and has previously managed programme committees for workshops.",
-            image: "Resources/Hambira.jpg"
+            fullBio: "Mr. Indongo is a passionate software engineering lecturer with a focus on AI and machine learning. He has been instrumental in developing the curriculum for AI courses at NUST and is committed to mentoring the next generation of AI researchers.",
+            image: "Resources/Naftali.jpeg"
         },
         {
-            name: "Liina Massipa",
-            role: "Sponsorship & Partnerships",
+            name: "Dr. Sebastian Mukumbira",
+            role: "Lecturer: Informatics",
             shortBio: "Connects with industry partners and funding bodies.",
-            fullBio: "Liina has built partnerships with top tech companies, securing sponsorships and fostering collaboration between academia and industry. She believes in impactful networking for the African AI community.",
-            image: "Resources/Massipa.jpg"
+            fullBio: "Dr. Mukumbira is a senior lecturer in Informatics and has extensive experience in industry-academia collaborations. He has successfully secured funding for multiple AI research projects and is passionate about bridging the gap between research and real-world applications.",
+            image: "Resources/Sebastian.jpeg"
         },
         {
-            name: "Member 3",
-            role: "Workshop & Tutorial Chair",
+            name: "Prof. Stephen Fashoto",
+            role: "Associate Professor: Informatics",
             shortBio: "Coordinates pre-conference workshops and hands-on sessions.",
-            fullBio: "Member 3 is passionate about knowledge exchange. He has organised more than 30 workshops covering data science, cloud computing, and responsible AI across NUST and regional institutions.",
-            image: "Resources/Nashandi.jpg"
+            fullBio: "Prof. Fashoto is an expert in machine learning and data science. He has organized numerous workshops and believes in practical, hands-on learning experiences for students and professionals alike.",
+            image: "Resources/Stephan.jpeg"
         },
         {
-            name: "Member 4",
-            role: "Logistics & Operations",
+            name: "Ms. Ndeshihafela Kakwambi",
+            role: "Lecturer: INCEIT",
             shortBio: "Ensures smooth on-site and virtual experience.",
-            fullBio: "Member 4 is a seasoned event manager with expertise in hybrid conference logistics. He makes sure every session runs on time and every attendee at NUST feels welcomed.",
-            image: "Resources/Hambira.jpg"
+            fullBio: "Ms. Kakwambi is a lecturer at the Namibia Centre of Excellence in Information Technology, dedicated to providing high-quality education and fostering innovation in the field.",
+            image: "Resources/Ndeshihafela.jpeg"
         },
         {
-            name: "Dr. Bean",
-            role: "Publications Chair",
+            name: "Prof. Attle M. Gamundani",
+            role: "Associate Professor: Cybersecurity",
             shortBio: "Oversees proceedings and open-access archives.",
-            fullBio: "Bean manages the publication workflow, indexing, and DOI registration. He advocates for open science and transparent peer review within the Deep Learning Indaba community.",
-            image: "Resources/Massipa.jpg"
+            fullBio: "Prof. Gamundani is a cybersecurity expert with a focus on open-access research. He ensures that all conference proceedings are archived and accessible to the global research community.",
+            image: "Resources/prof.png"
         }
     ];
 
