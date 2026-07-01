@@ -4,8 +4,7 @@ import { createRoot } from "react-dom/client";
 import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
 import CountUp from "./react-components/CountUp.jsx";
-import PartnerLogos from "./react-components/PartnerLogos.jsx";
-
+import LogoLoop from "./react-components/LogoLoop.jsx";
 const root = createRoot(
     document.getElementById("react-bit")
 );
@@ -55,3 +54,38 @@ if (workshops) {
         <CountUp end={18}/>
     );
  }
+
+ const logoLoop = document.getElementById("logo-loop-root");
+
+if (logoLoop) {
+    createRoot(logoLoop).render(
+
+        <LogoLoop
+
+            logos={[
+                {
+                    src: "/Resources/unam.png",
+                    alt: "Logo 1"
+                },
+                {
+                    src: "/Resources/nust.png",
+                    alt: "Logo 2"
+                },
+                {
+                    src: "/Resources/mtc.png",
+                    alt: "Logo 3"
+                }
+            ]}
+
+            speed={60}
+            direction="left"
+            logoHeight={70}
+            gap={60}
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#ffffff"
+
+        />
+
+    );
+}

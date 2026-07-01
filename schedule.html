@@ -9,9 +9,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
-      --rust: #C05A28;
-      --rust-light: #E8795A;
-      --sand: #F5F0E8;
+      --rust: #E85D04;
+      --rust-light: #E85D04;
+      --sand: #ffffff;
       --dark: #1E1410;
       --muted: #7A6A5A;
       --hero-bg: #1E1410;
@@ -21,7 +21,7 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: var(--sand);
+      background-color: var(white);
       color: var(--dark);
       min-height: 100vh;
     }
@@ -43,7 +43,7 @@
 
     /* ── Hero ── */
     .hero {
-      background-color: var(--dark);
+      background-image: url('Resources/photo.jpg');
       color: white;
       padding: 96px 24px 56px;
       text-align: center;
@@ -291,7 +291,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
-          <span class="text-xl font-bold text-black">IndabaX Namibia</span>
+          <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
         
         <!-- Desktop Menu -->

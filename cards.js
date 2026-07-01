@@ -74,14 +74,14 @@
         {
             name: "Dr. Nashandi",
             role: "Conference Chair",
-            shortBio: "Leading the strategic vision and overall coordination.",
+            shortBio: "Leading the strategic vision and overall coordination ensures runs smoothly.",
             fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
             image: "Resources/Nashandi.jpg"
         },
         {
             name: "TK Hambira",
             role: "Technical Program Chair",
-            shortBio: "Manages peer-review and scientific tracks.",
+            shortBio: "Manages peer-review and scientific tracks ensure all work is done and runs smoothely .",
             fullBio: "TK leads the technical programme committee ensuring high-quality double-blind review. He is a senior researcher in AI ethics and has previously managed programme committees for workshops.",
             image: "Resources/Hambira.jpg"
         },
@@ -132,7 +132,7 @@
                 <h3 class="text-lg font-bold text-brand-peach">${m.name}</h3>
                 <p class="text-xs font-semibold uppercase tracking-wider text-brand-burgundy mt-0.5 mb-2">${m.role}</p>
                 <p class="text-sm text-gray-500 leading-relaxed">${m.shortBio}</p>
-                <button class="absolute bottom-4 right-4 text-xs font-semibold text-white bg-brand-brown hover:bg-brand-peach px-4 py-2 rounded-full transition-colors duration-200" data-index="${i}" aria-label="Read full bio for ${m.name}">
+                <button class="absolute bottom-4 right-4 text-xs font-semibold text-white bg-orange hover:bg-brand-peach px-4 py-2 rounded-full transition-colors duration-200" data-index="${i}" aria-label="Read full bio for ${m.name}">
                     Read Bio
                 </button>
             </div>

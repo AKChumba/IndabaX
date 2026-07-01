@@ -378,3 +378,5 @@ document.addEventListener('DOMContentLoaded', function() {
         idx = next;
     }, 10000); // 10000ms (10 seconds)
 });
+
+
