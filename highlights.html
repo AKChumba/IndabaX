@@ -175,45 +175,37 @@
   </nav>
 
   <main>
-    <div class="page-hero">
-      <span class="hero-tag">Our Story in Pictures</span>
-      <h1>Highlights Archive</h1>
-      <p>Relive the moments, talks, and breakthroughs from every IndabaX Namibia conference.</p>
-    </div>
+    <!-- HERO SECTION -->
+    <section class="relative bg-white text-white pt-40 overflow-hidden">
+        <div class="absolute inset-0 bg-no-repeat" style="background-image: url('Resources/photo.jpg'); background-size: cover; background-position: center;"></div>">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>    
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+   
+        <div class="text-center">
+                <h1 class="text-5xl lg:text-5xl text-white font-light center mb-6">Archives</h1>
+                <p class="text-xl lg:text-2xl font-light opacity-90 max-w-3xl mx-auto">Our Story Over the Years</p>
+            </div>
+        </div>
+    </section>
 
     <div class="page-section">
-
       <!-- YEAR FILTERS -->
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
         <button class="year-tab active" onclick="filterYear('all',this)">All Years</button>
         <button class="year-tab"        onclick="filterYear('2025',this)">2025</button>
         <button class="year-tab"        onclick="filterYear('2024',this)">2024</button>
         <button class="year-tab"        onclick="filterYear('2023',this)">2023</button>
-        <button class="year-tab"        onclick="filterYear('2022',this)">2022</button>
       </div>
 
       <!-- CARDS GRID -->
       <div id="cards-grid" style="display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
 
         <!-- 2025 cards -->
-        <div class="highlight-card" data-year="2025" data-title="Annual Conference 2025" data-desc="Our largest event to date — over 400 attendees gathered at NUST Windhoek for three days of talks, workshops, and community. Highlights included a rooftop networking session and the inaugural Student Research Award." data-date="June 10, 2025" onclick="openArticle(this)">
-          <div style="position:relative;overflow:hidden;">
-            <img src="https://www.confco.co.za/wp-content/uploads/2025/04/SlideShow2.jpg" alt="Annual Conference 2025" loading="lazy">
-            <span class="card-label-abs">Annual Conference</span>
-          </div>
-          <div style="padding:20px;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              June 10, 2025
-            </div>
-            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Bringing together the brightest minds in machine learning across Africa for a week of talks, workshops, and collaboration.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
-          </div>
-        </div>
 
-        <div class="highlight-card" data-year="2025" data-title="Student Research Award 2025" data-desc="For the first time, IndabaX Namibia awarded three student researchers for outstanding poster presentations. The winning paper on low-resource Oshikwanyama NLP received a travel grant to attend the Deep Learning Indaba main event." data-date="June 12, 2025" onclick="openArticle(this)">
+        <div class="highlight-card" data-year="2025" data-title="Student Research Award 2025" data-desc="For the first time, IndabaX Namibia awarded three student researchers for outstanding poster presentations. The winning paper on low-resource Oshikwanyama NLP received a travel grant to attend the Deep Learning Indaba main event."></div>
           <div style="position:relative;overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Student Awards" loading="lazy">
+            <img src="Resources/2025.png" alt="Student Awards" loading="lazy">
             <span class="card-label-abs">Student Awards</span>
           </div>
           <div style="padding:20px;">
@@ -222,14 +214,14 @@
               June 12, 2025
             </div>
             <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Celebrating the next generation of AI researchers from Namibian universities with our inaugural award programme.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
+            <a href="https://indabaxnamibia.com/">Read more <span>→</span></a>
           </div>
         </div>
 
         <!-- 2024 -->
-        <div class="highlight-card" data-year="2024" data-title="The Future of Artificial Intelligence" data-desc="A deep-dive feature exploring what the next decade of AI looks like for Africa — from large language models and multimodal systems to AI governance frameworks being developed on the continent." data-date="May 18, 2024" onclick="openArticle(this)">
+        <div class="highlight-card" data-year="2024" data-title="The Future of Artificial Intelligence" data-desc="A deep-dive feature exploring what the next decade of AI looks like for Africa — from large language models and multimodal systems to AI governance frameworks being developed on the continent." data-date="May 18, 2024">
           <div style="position:relative;overflow:hidden;">
-            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Future_Of_Artificial_Intelligence.jpg" alt="AI Future" loading="lazy">
+            <img src="Resources/2024.png" alt="AI Future" loading="lazy">
             <span class="card-label-abs">Artificial Intelligence</span>
           </div>
           <div style="padding:20px;">
@@ -237,45 +229,16 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               May 18, 2024
             </div>
-            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Exploring the future of artificial intelligence and its impact on various industries across the continent.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="highlight-card" data-year="2024" data-title="Industry Partnership Launch" data-desc="2024 saw IndabaX Namibia formalise its industry partnership programme, welcoming five anchor sponsors including a leading telecommunications group and a regional fintech firm. These partnerships fund 40 student bursaries annually." data-date="March 5, 2024" onclick="openArticle(this)">
-          <div style="position:relative;overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Industry Partnerships" loading="lazy">
-            <span class="card-label-abs">Partnerships</span>
-          </div>
-          <div style="padding:20px;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              March 5, 2024
-            </div>
-            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Launching our formal industry partnership programme to fund student bursaries and research grants across Namibia.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
+            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Harnessing the Power of Data and AI for Namibia's Development</p>
+            <a href="https://indabaxnamibia.com/2024/">Read more <span>→</span></a>
           </div>
         </div>
 
         <!-- 2023 -->
-        <div class="highlight-card" data-year="2023" data-title="Workshop Sessions 2023" data-desc="Our 2023 hands-on track featured five deep-dive workshops on topics from computer vision to responsible AI. Led by expert practitioners, the sessions introduced Namibian participants to the latest tools in the PyTorch and Hugging Face ecosystems." data-date="June 12, 2023" onclick="openArticle(this)">
-          <div style="position:relative;overflow:hidden;">
-            <img src="https://www.arebbusch.com/wp-content/uploads/2021/09/Sossusvlei-Namibia-Attractions-in-Namibia-Arebbusch-Travel-Lodge-5.jpg" alt="Workshop Sessions" loading="lazy">
-            <span class="card-label-abs">Workshop Sessions</span>
-          </div>
-          <div style="padding:20px;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              June 12, 2023
-            </div>
-            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Hands-on sessions led by expert practitioners covering the latest techniques in deep learning, NLP, and computer vision.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
-          </div>
-        </div>
 
-        <div class="highlight-card" data-year="2023" data-title="Back in Person — 300 Attendees" data-desc="After two virtual editions driven by the pandemic, IndabaX Namibia returned to campus in 2023 with record in-person attendance. The hybrid format allowed 150 additional participants to join online from across the continent." data-date="June 8, 2023" onclick="openArticle(this)">
+        <div class="highlight-card" data-year="2023" data-title="Back in Person — 300 Attendees" data-desc="The 2023 edition focused on AI policy, machine learning, robotics, large language models, digital safety, natural language processing for African languages, transportation innovation, and responsible AI adoption" data-date="June 8, 2023">
           <div style="position:relative;overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="Return to Campus" loading="lazy">
+            <img src="Resources/Intelligence.png" alt="Return to Campus" loading="lazy">
             <span class="card-label-abs">In-Person Return</span>
           </div>
           <div style="padding:20px;">
@@ -284,25 +247,10 @@
               June 8, 2023
             </div>
             <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Returning to campus with 300 attendees and a hybrid format after two years of virtual-only conferences.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
+            <a href="https://indabaxnamibia.com/2023/">Read more <span>→</span></a>
           </div>
         </div>
 
-        <!-- 2022 -->
-        <div class="highlight-card" data-year="2022" data-title="Virtual Edition 2022" data-desc="Our second all-virtual edition reached participants in 14 countries. Keynotes were delivered live, workshops were run via Google Colab, and a new online poster tool let students present their work to global reviewers." data-date="July 20, 2022" onclick="openArticle(this)">
-          <div style="position:relative;overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80" alt="Virtual 2022" loading="lazy">
-            <span class="card-label-abs">Virtual Edition</span>
-          </div>
-          <div style="padding:20px;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--color-brand-brown);margin-bottom:8px;">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              July 20, 2022
-            </div>
-            <p style="color:var(--color-text-secondary);font-size:.88rem;line-height:1.6;margin:0 0 14px;">Reaching 14 countries with live keynotes, virtual workshops, and our online poster showcase platform.</p>
-            <a class="read-more-link" href="#">Read more <span>→</span></a>
-          </div>
-        </div>
       </div>
 
       <div id="no-results" style="display:none;text-align:center;padding:48px;color:var(--color-text-secondary);">
