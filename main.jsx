@@ -5,6 +5,11 @@ import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
 import CountUp from "./react-components/CountUp.jsx";
 import LogoLoop from "./react-components/LogoLoop.jsx";
+import unamLogo from "./Resources/unam.png";
+import nustLogo from "./Resources/nust.png";
+import mtcLogo from "./Resources/mtc.png";
+import indabaXLogo from "./Resources/IndabaX_Logo.png";
+
 const root = createRoot(
     document.getElementById("react-bit")
 );
@@ -64,19 +69,19 @@ if (logoLoop) {
 
             logos={[
                 {
-                    src: "/Resources/unam.png",
+                    src: unamLogo,
                     alt: "Logo 1"
                 },
                 {
-                    src: "/Resources/nust.png",
+                    src: nustLogo,
                     alt: "Logo 2"
                 },
                 {
-                    src: "/Resources/mtc.png",
+                    src: mtcLogo,
                     alt: "Logo 3"
                 },
                 {
-                    src: "/Resources/IndabaX_Logo.png",
+                    src: indabaXLogo,
                     alt: "Logo 4"
                 }
             ]}
