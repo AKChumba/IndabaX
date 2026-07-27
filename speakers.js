@@ -2,6 +2,8 @@
 // Data sourced from the official "Speakers.docx" bio pack.
 
 import nashandiPhoto from "./Resources/speakers/nashandi.webp";
+import placeholderLogo from "./Resources/Logo1.webp";
+import naftaliPhoto from "./Resources/Naftali.webp";
 import aniciaPetersPhoto from "./Resources/speakers/anicia-peters.webp";
 import leoMaruwasaPhoto from "./Resources/speakers/leo-maruwasa.webp";
 import stantinSiebritzPhoto from "./Resources/speakers/stantin-siebritz.webp";
@@ -14,8 +16,6 @@ import andreVanDerWesthuizenPhoto from "./Resources/speakers/andre-van-der-westh
 import stephenFashotoPhoto from "./Resources/speakers/stephen-fashoto.webp";
 import benjaminAkinmoyejePhoto from "./Resources/speakers/benjamin-akinmoyeje.webp";
 import yakubuShehuPhoto from "./Resources/speakers/yakubu-shehu.webp";
-import placeholderLogo from "./Resources/Logo1.webp";
-import naftaliPhoto from "./Resources/Naftali.webp";
 
 const speakers = [
     {
@@ -175,7 +175,7 @@ categoryOrder.forEach(category => {
     section.appendChild(heading);
 
     const grid = document.createElement('div');
-    grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8';
+    grid.className = 'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6';
 
     group.forEach(s => {
         const card = document.createElement('div');
@@ -186,8 +186,8 @@ categoryOrder.forEach(category => {
         card.setAttribute('aria-label', `View bio for ${s.name}`);
 
         card.innerHTML = `
-            <div class="overflow-hidden h-56 bg-gray-100">
-                <img src="${s.image}" alt="${s.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="overflow-hidden aspect-square bg-gray-100">
+                <img src="${s.image}" alt="${s.name}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" loading="lazy">
             </div>
             <div class="p-5 pb-14 relative">
                 <h3 class="text-lg font-bold text-brand-peach">${s.name}</h3>

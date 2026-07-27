@@ -5,6 +5,9 @@ import sebastianPhoto from "./Resources/Sebastian.webp";
 import stephanPhoto from "./Resources/Stephan.webp";
 import ndeshihafelaPhoto from "./Resources/Ndeshihafela.webp";
 import profPhoto from "./Resources/prof.webp";
+import massipaPhoto from "./Resources/Massipa.webp";
+import hambiraPhoto from "./Resources/Hambira.webp";
+import alvanPhoto from "./Resources/1783455805858.png";
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -96,6 +99,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             shortBio: "Oversees proceedings and open-access archives.",
             fullBio: "Prof. Gamundani is a cybersecurity expert with a focus on open-access research. He ensures that all conference proceedings are archived and accessible to the global research community.",
             image: profPhoto
+        },
+        {
+            name: "Ms. Kataliina Massipa",
+            role: "Web Development Team",
+            shortBio: "Builds and maintains the IndabaX Namibia website.",
+            fullBio: "Kataliina is part of the web development team behind the IndabaX Namibia website, helping design and maintain the platform that connects the community with conference information.",
+            image: massipaPhoto
+        },
+        {
+            name: "Mr. Tk Hambira",
+            role: "Web Development Team",
+            shortBio: "Builds and maintains the IndabaX Namibia website.",
+            fullBio: "Tk is part of the web development team behind the IndabaX Namibia website, helping design and maintain the platform that connects the community with conference information.",
+            image: hambiraPhoto
+        },
+        {
+            name: "Mr. Alvan Chumba",
+            role: "Web Development Team",
+            shortBio: "Builds and maintains the IndabaX Namibia website.",
+            fullBio: "Alvan is part of the web development team behind the IndabaX Namibia website, helping design and maintain the platform that connects the community with conference information.",
+            image: alvanPhoto
         }
     ];
 
@@ -109,8 +133,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         card.setAttribute('aria-label', `View bio for ${m.name}`);
 
         card.innerHTML = `
-            <div class="overflow-hidden h-56">
-                <img src="${m.image}" alt="${m.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="overflow-hidden aspect-square">
+                <img src="${m.image}" alt="${m.name}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" loading="lazy">
             </div>
             <div class="p-5 pb-14 relative">
                 <h3 class="text-lg font-bold text-brand-peach">${m.name}</h3>
