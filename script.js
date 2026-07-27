@@ -11,6 +11,45 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.toggle('fa-times');
         });
     }
+
+    // Mobile Submenu Toggle
+    const mobileSubmenuToggle = document.querySelector('.mobile-submenu-toggle');
+    if (mobileSubmenuToggle) {
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+        const mobileCaret = mobileSubmenuToggle.querySelector('.mobile-caret');
+
+        mobileSubmenuToggle.addEventListener('click', () => {
+            if (mobileSubmenu && mobileCaret) {
+                mobileSubmenu.classList.toggle('hidden');
+                mobileCaret.classList.toggle('rotate-180');
+                mobileSubmenuToggle.setAttribute('aria-expanded', mobileSubmenu.classList.contains('hidden') ? 'false' : 'true');
+            }
+        });
+    }
+    // Desktop Dropdown
+    const dropdown = document.querySelector('.nav-dropdown');
+    if (dropdown) {
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        dropdown.addEventListener('mouseenter', () => {
+            dropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+        });
+        dropdown.addEventListener('mouseleave', () => {
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
+        // Keyboard accessibility
+        toggle.addEventListener('focus', () => {
+            dropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+        });
+        dropdown.addEventListener('focusout', (e) => {
+            if (!dropdown.contains(e.relatedTarget)) {
+                dropdown.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 // Smooth scrolling for anchor links
@@ -35,6 +74,8 @@ window.addEventListener('scroll', function () {
     const links = document.querySelectorAll('nav a');
     const btn = document.getElementById('mobile-menu-btn');
     const logoText = document.getElementById('nav-logo-text');
+    const isSchedulePage = window.location.pathname.endsWith('schedule.html');
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
 
     if (window.scrollY > threshold) {
         // Apply frosted translucent navbar
@@ -46,6 +87,10 @@ window.addEventListener('scroll', function () {
             a.classList.remove('text-white', 'text-earth', 'text-black');
             a.classList.add('text-black');
         });
+        if (dropdownToggle) {
+            dropdownToggle.classList.remove('text-white', 'text-earth', 'text-black');
+            dropdownToggle.classList.add('text-black');
+        }
 
         if (btn) {
             btn.classList.remove('text-white', 'text-earth', 'text-black');
@@ -59,14 +104,24 @@ window.addEventListener('scroll', function () {
         }
     } else {
         // At top: restore original solid navbar
-        navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
-        navbar.classList.add('bg-sky-500', 'shadow-lg');
+        if (isSchedulePage) {
+            navbar.classList.remove('bg-sky-500', 'shadow-lg');
+            navbar.classList.add('bg-transparent');
+        } else {
+            navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
+            navbar.classList.add('bg-sky-500', 'shadow-lg');
+        }
 
         // Restore link colors to white: remove any previous color classes then add white
         links.forEach(a => {
             a.classList.remove('text-black', 'text-earth', 'text-white');
-            a.classList.add('text-white');
+            a.classList.add(isSchedulePage ? 'text-black' : 'text-white');
         });
+
+        if (dropdownToggle) {
+            dropdownToggle.classList.remove('text-black', 'text-earth', 'text-white');
+            dropdownToggle.classList.add(isSchedulePage ? 'text-black' : 'text-white');
+        }
 
         if (btn) {
             btn.classList.remove('text-earth', 'text-white', 'text-black');
@@ -76,7 +131,7 @@ window.addEventListener('scroll', function () {
         // Logo text color
         if (logoText) {
             logoText.classList.remove('text-black', 'text-earth', 'text-white');
-            logoText.classList.add('text-white');
+            logoText.classList.add(isSchedulePage ? 'text-black' : 'text-white');
         }
     }
 });
@@ -378,5 +433,3 @@ document.addEventListener('DOMContentLoaded', function() {
         idx = next;
     }, 10000); // 10000ms (10 seconds)
 });
-
-

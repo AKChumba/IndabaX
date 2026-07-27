@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IndabaX Namibia 2026 – Programme Schedule</title>
-  <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
+  <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
@@ -18,33 +21,114 @@
       --hero-bg: #1E1410;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: #fff;
+      background-color: var(white);
       color: var(--dark);
       min-height: 100vh;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       font-family: 'Playfair Display', serif;
     }
 
     /* Override any conflicting nav styles.....keep consistent */
     nav.bg-sky-500 {
-      background-color: transparent !important; /* sky-500 = #2A9D8F */
+      background-color: transparent !important;
+      /* sky-500 = #2A9D8F */
     }
+
     nav.bg-sky-500 a.text-white {
       color: white !important;
     }
+
     nav.bg-sky-500 a.text-white:hover {
-      color: #E85D04 !important; /* orange/70 equivalent */
+      color: #E85D04 !important;
+      /* orange/70 equivalent */
+    }
+
+    /* Nav dropdown: "Conference" > Schedule / Speakers */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 190px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+      z-index: 70;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 8px;
+      color: #264653 !important;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: #FEF3EA;
+      color: #E85D04 !important;
+    }
+
+    .nav-dropdown-caret {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown.open .nav-dropdown-caret {
+      transform: rotate(180deg);
+    }
+
+    .mobile-submenu {
+      border-left: 2px solid rgba(38, 20, 16, 0.12);
+      margin-left: 10px;
+    }
+
+    .mobile-caret {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .mobile-caret.rotate-180 {
+      transform: rotate(180deg);
     }
 
     /* ── Hero ── */
     .hero {
-      background-image: url('Resources/photo.webp');
+      background-image: url('Resources/photo.jpg');
       color: white;
       padding: 96px 24px 56px;
       text-align: center;
@@ -78,7 +162,9 @@
     }
 
     @media (max-width: 900px) {
-      .main-content { grid-template-columns: 1fr; }
+      .main-content {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── Tag badges ── */
@@ -91,11 +177,31 @@
       padding: 2px 8px;
       border-radius: 999px;
     }
-    .tag-workshop { background: #FEE9D3; color: #B54C10; }
-    .tag-lunch    { background: #D6EDD7; color: #2A6B2E; }
-    .tag-panel    { background: #D6E8F7; color: #1A5C9A; }
-    .tag-closing  { background: #EDD6D6; color: #8B1A1A; }
-    .tag-social   { background: #E8D6F5; color: #5A1A8B; }
+
+    .tag-workshop {
+      background: #FEE9D3;
+      color: #B54C10;
+    }
+
+    .tag-lunch {
+      background: #D6EDD7;
+      color: #2A6B2E;
+    }
+
+    .tag-panel {
+      background: #D6E8F7;
+      color: #1A5C9A;
+    }
+
+    .tag-closing {
+      background: #EDD6D6;
+      color: #8B1A1A;
+    }
+
+    .tag-social {
+      background: #E8D6F5;
+      color: #5A1A8B;
+    }
 
     /* ── Day tabs ── */
     .day-tab {
@@ -109,8 +215,15 @@
       transition: all 0.2s;
       color: var(--muted);
     }
-    .day-tab:hover { color: var(--rust); }
-    .day-tab.active { background: var(--rust); color: white; }
+
+    .day-tab:hover {
+      color: var(--rust);
+    }
+
+    .day-tab.active {
+      background: var(--rust);
+      color: white;
+    }
 
     /* ── Schedule rows ── */
     .schedule-row {
@@ -121,11 +234,21 @@
       border-bottom: 1px solid #E8E0D4;
       animation: fadeUp 0.3s ease both;
     }
-    .schedule-row:last-child { border-bottom: none; }
+
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .time-col {
@@ -144,10 +267,18 @@
       position: relative;
       height: 340px;
     }
-    .map-container iframe { width: 100%; height: 100%; border: none; }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     .map-overlay-label {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background: var(--rust);
       color: white;
       text-align: center;
@@ -171,10 +302,12 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     }
 
-    .info-card svg { flex-shrink: 0; }
+    .info-card svg {
+      flex-shrink: 0;
+    }
 
     .card-label {
       font-size: 0.65rem;
@@ -184,6 +317,7 @@
       color: var(--muted);
       margin-bottom: 2px;
     }
+
     .card-value {
       font-size: 0.82rem;
       font-weight: 600;
@@ -194,7 +328,10 @@
       color: var(--rust);
       text-decoration: none;
     }
-    .card-value a:hover { text-decoration: underline; }
+
+    .card-value a:hover {
+      text-decoration: underline;
+    }
 
     /* Contact card spans both columns */
     .info-card.contact {
@@ -202,8 +339,13 @@
     }
 
     /* Fading transition */
-    #schedule-list { transition: opacity 0.2s; }
-    #schedule-list.fading { opacity: 0; }
+    #schedule-list {
+      transition: opacity 0.2s;
+    }
+
+    #schedule-list.fading {
+      opacity: 0;
+    }
 
     /* Footer styling consistency */
     footer {
@@ -211,6 +353,7 @@
       border-top: 1px solid #E8E0D4;
       margin-top: 40px;
     }
+
     .footer-inner {
       max-width: 1280px;
       margin: 0 auto;
@@ -219,6 +362,7 @@
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 40px;
     }
+
     .footer-bottom {
       border-top: 1px solid #E8E0D4;
       padding: 16px 24px;
@@ -230,13 +374,23 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    .footer-bottom p, .footer-bottom a {
+
+    .footer-bottom p,
+    .footer-bottom a {
       font-size: 0.75rem;
       color: var(--muted);
       text-decoration: none;
     }
-    .footer-bottom a:hover { color: var(--rust); }
-    .footer-bottom nav { display: flex; gap: 20px; }
+
+    .footer-bottom a:hover {
+      color: var(--rust);
+    }
+
+    .footer-bottom nav {
+      display: flex;
+      gap: 20px;
+    }
+
     .footer-col h3 {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.65rem;
@@ -248,15 +402,26 @@
       padding-bottom: 8px;
       border-bottom: 1px solid #E8E0D4;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 8px; }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
     .footer-col ul li a {
       font-size: 0.85rem;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-col ul li a:hover { color: var(--rust); }
+
+    .footer-col ul li a:hover {
+      color: var(--rust);
+    }
+
     .social-link {
       display: flex;
       align-items: center;
@@ -264,8 +429,10 @@
       margin-bottom: 10px;
       text-decoration: none;
     }
+
     .social-link span.icon {
-      width: 28px; height: 28px;
+      width: 28px;
+      height: 28px;
       background: #F5F0E8;
       border: 1px solid #E8E0D4;
       border-radius: 6px;
@@ -274,17 +441,22 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .social-link span.label {
       font-size: 0.85rem;
       color: var(--muted);
       transition: color 0.2s;
     }
-    .social-link:hover span.label { color: var(--rust); }
+
+    .social-link:hover span.label {
+      color: var(--rust);
+    }
   </style>
 </head>
+
 <body class="text-earth">
 
-  
+
   <!-- NAVBAR -->
   <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,16 +466,28 @@
           <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
           <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
-        
+
         <!-- Desktop Menu -->
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
-            <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
-            <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
-            <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Conference</a>
+            <a href="index.html"
+              class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+            <a href="about.html"
+              class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+            <div class="nav-dropdown">
+              <button
+                class="nav-dropdown-toggle text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300 inline-flex items-center gap-1.5"
+                aria-haspopup="true" aria-expanded="false">
+                Conference <i class="fas fa-chevron-down nav-dropdown-caret text-xs"></i>
+              </button>
+              <div class="nav-dropdown-menu">
+                <a href="schedule.html">Schedule</a>
+                <a href="speakers.html">Speakers</a>
+              </div>
+            </div>
           </div>
         </div>
-        
+
         <!-- Mobile menu button -->
         <div class="md:hidden">
           <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
@@ -311,13 +495,24 @@
           </button>
         </div>
       </div>
-      
+
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="md:hidden hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
           <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
-          <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Programme</a>
+          <button
+            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune px-3 py-2 rounded-md"
+            aria-expanded="false">
+            <span>Conference</span>
+            <i class="fas fa-chevron-down text-xs mobile-caret"></i>
+          </button>
+          <div class="mobile-submenu hidden space-y-1 pb-1">
+            <a href="schedule.html"
+              class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Schedule</a>
+            <a href="speakers.html"
+              class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Speakers</a>
+          </div>
         </div>
       </div>
     </div>
@@ -333,14 +528,17 @@
   <div class="main-content">
 
     <!-- LEFT: Schedule Panel -->
-    <div style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
+    <div
+      style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
       <h1 style="font-size:1.9rem; color:var(--rust); margin-bottom:4px;">Programme Schedule</h1>
-      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">The programme 2026 is currently under development. Below isa preview of the week to help you know what you might expect at the Indaba. Please note that the programme is subject to change and will be updated here regularly.</p>
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">The programme 2026 is currently under
+        development. Below isa preview of the week to help you know what you might expect at the Indaba. Please note
+        that the programme is subject to change and will be updated here regularly.</p>
 
       <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
         <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — Aug 18</button>
-        <button class="day-tab"        onclick="switchDay(1, this)">Day 2 — Aug 19</button>
-        <button class="day-tab"        onclick="switchDay(2, this)">Day 3 — Aug 20</button>
+        <button class="day-tab" onclick="switchDay(1, this)">Day 2 — Aug 19</button>
+        <button class="day-tab" onclick="switchDay(2, this)">Day 3 — Aug 20</button>
       </div>
 
       <div id="schedule-list"></div>
@@ -350,7 +548,8 @@
     <div style="display:flex; flex-direction:column; gap:16px;">
 
       <!-- Map -->
-      <div style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); overflow:hidden; position:relative;">
+      <div
+        style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); overflow:hidden; position:relative;">
         <div class="map-container">
           <iframe
             src="https://maps.google.com/maps?q=Namibia+University+of+Science+and+Technology,+Windhoek,+Namibia&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -358,12 +557,12 @@
           </iframe>
           <div class="map-overlay-label">Windhoek, Namibia</div>
         </div>
-        <a href="https://maps.google.com/?q=Namibia+University+of+Science+and+Technology,+Windhoek"
-          target="_blank"
+        <a href="https://maps.google.com/?q=Namibia+University+of+Science+and+Technology,+Windhoek" target="_blank"
           style="position:absolute; top:12px; left:12px; background:white; font-size:0.75rem; font-weight:600; padding:6px 12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.12); color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:6px;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
           </svg>
           Maps
         </a>
@@ -375,8 +574,10 @@
         <!-- Dates -->
         <div class="info-card">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
           <div>
             <div class="card-label">Dates</div>
@@ -387,8 +588,8 @@
         <!-- Venue -->
         <div class="info-card">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
-            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+            <circle cx="12" cy="10" r="3" />
           </svg>
           <div>
             <div class="card-label">Venue</div>
@@ -399,8 +600,8 @@
         <!-- Contact — spans both columns -->
         <div class="info-card contact">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05A28" stroke-width="1.8">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
           </svg>
           <div>
             <div class="card-label">Contact</div>
@@ -418,30 +619,30 @@
   <script>
     const scheduleData = [
       [
-        { time: "08:30", tag: "opening",  label: "Opening Ceremony",                   sub: "Main Auditorium",         tagClass: "tag-closing" },
-        { time: "09:30", tag: "keynote",  label: "Keynote: The Future of AI in Africa", sub: "Dr. Abebe Birhane",       tagClass: "tag-panel" },
-        { time: "11:00", tag: "workshop", label: "Introduction to Deep Learning",       sub: "Track A – Room 101",      tagClass: "tag-workshop" },
-        { time: "11:00", tag: "workshop", label: "Data Engineering & Pipelines",        sub: "Track B – Room 102",      tagClass: "tag-workshop" },
-        { time: "13:00", tag: "lunch",    label: "Lunch Break",                         sub: "",                        tagClass: "tag-lunch" },
-        { time: "14:00", tag: "panel",    label: "Panel: AI Policy & Governance",       sub: "Chaired by Nadia Hassan", tagClass: "tag-panel" },
-        { time: "16:00", tag: "social",   label: "Welcome Reception",                   sub: "Rooftop Terrace",         tagClass: "tag-social" },
+        { time: "08:30", tag: "opening", label: "Opening Ceremony", sub: "Main Auditorium", tagClass: "tag-closing" },
+        { time: "09:30", tag: "keynote", label: "Keynote: The Future of AI in Africa", sub: "Dr. Abebe Birhane", tagClass: "tag-panel" },
+        { time: "11:00", tag: "workshop", label: "Introduction to Deep Learning", sub: "Track A – Room 101", tagClass: "tag-workshop" },
+        { time: "11:00", tag: "workshop", label: "Data Engineering & Pipelines", sub: "Track B – Room 102", tagClass: "tag-workshop" },
+        { time: "13:00", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
+        { time: "14:00", tag: "panel", label: "Panel: AI Policy & Governance", sub: "Chaired by Nadia Hassan", tagClass: "tag-panel" },
+        { time: "16:00", tag: "social", label: "Welcome Reception", sub: "Rooftop Terrace", tagClass: "tag-social" },
       ],
       [
-        { time: "09:00", tag: "keynote",  label: "Keynote: Responsible ML Systems",     sub: "Prof. Sara Hooker",       tagClass: "tag-panel" },
-        { time: "10:30", tag: "workshop", label: "Computer Vision: Object Detection",   sub: "Track A – Room 204",      tagClass: "tag-workshop" },
-        { time: "10:30", tag: "workshop", label: "NLP & Transformers in Practice",      sub: "Track B – Room 205",      tagClass: "tag-workshop" },
-        { time: "12:30", tag: "lunch",    label: "Lunch Break",                         sub: "",                        tagClass: "tag-lunch" },
-        { time: "13:30", tag: "workshop", label: "Reinforcement Learning Fundamentals", sub: "Track A – Room 204",      tagClass: "tag-workshop" },
-        { time: "15:00", tag: "panel",    label: "Poster Session & Demo Hour",          sub: "Exhibition Hall",         tagClass: "tag-panel" },
-        { time: "17:00", tag: "social",   label: "Community Mixer",                     sub: "Garden Courtyard",        tagClass: "tag-social" },
+        { time: "09:00", tag: "keynote", label: "Keynote: Responsible ML Systems", sub: "Prof. Sara Hooker", tagClass: "tag-panel" },
+        { time: "10:30", tag: "workshop", label: "Computer Vision: Object Detection", sub: "Track A – Room 204", tagClass: "tag-workshop" },
+        { time: "10:30", tag: "workshop", label: "NLP & Transformers in Practice", sub: "Track B – Room 205", tagClass: "tag-workshop" },
+        { time: "12:30", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
+        { time: "13:30", tag: "workshop", label: "Reinforcement Learning Fundamentals", sub: "Track A – Room 204", tagClass: "tag-workshop" },
+        { time: "15:00", tag: "panel", label: "Poster Session & Demo Hour", sub: "Exhibition Hall", tagClass: "tag-panel" },
+        { time: "17:00", tag: "social", label: "Community Mixer", sub: "Garden Courtyard", tagClass: "tag-social" },
       ],
       [
-        { time: "09:00", tag: "workshop", label: "NLP for Healthcare: Building Triage Systems",      sub: "Track A – Room 204",      tagClass: "tag-workshop" },
-        { time: "09:00", tag: "workshop", label: "MLOps & Production Deployments",                   sub: "Track B – Room 206",      tagClass: "tag-workshop" },
-        { time: "12:00", tag: "lunch",    label: "Lunch Break",                                      sub: "",                        tagClass: "tag-lunch" },
-        { time: "13:30", tag: "panel",    label: "Student Research Showcase & Awards",               sub: "Chaired by Lina Massipa", tagClass: "tag-panel" },
-        { time: "15:30", tag: "closing",  label: "Closing Ceremony & Announcement of IndabaX 2027", sub: "Organising Committee",    tagClass: "tag-closing" },
-        { time: "17:00", tag: "social",   label: "Farewell Networking Drinks",                       sub: "Rooftop Terrace",         tagClass: "tag-social" },
+        { time: "09:00", tag: "workshop", label: "NLP for Healthcare: Building Triage Systems", sub: "Track A – Room 204", tagClass: "tag-workshop" },
+        { time: "09:00", tag: "workshop", label: "MLOps & Production Deployments", sub: "Track B – Room 206", tagClass: "tag-workshop" },
+        { time: "12:00", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
+        { time: "13:30", tag: "panel", label: "Student Research Showcase & Awards", sub: "Chaired by Lina Massipa", tagClass: "tag-panel" },
+        { time: "15:30", tag: "closing", label: "Closing Ceremony & Announcement of IndabaX 2027", sub: "Organising Committee", tagClass: "tag-closing" },
+        { time: "17:00", tag: "social", label: "Farewell Networking Drinks", sub: "Rooftop Terrace", tagClass: "tag-social" },
       ],
     ];
 
@@ -493,10 +694,7 @@
   <div id="footer-placeholder"></div>
   <script>
     fetch('footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
-        return response.text();
-      })
+      .then(response => response.text())
       .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
       })
@@ -514,6 +712,7 @@
         `;
       });
   </script>
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
