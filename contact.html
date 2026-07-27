@@ -23,6 +23,7 @@
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-white text-earth">
@@ -41,8 +42,17 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="text-white hover:text-dune px-3 py-2 rounded-md transition duration-300">Home</a>
                         <a href="about.html" class="text-white hover:text-dune px-3 py-2 rounded-md transition duration-300">About</a>
-                        <a href="schedule.html" class="text-white hover:text-dune px-3 py-2 rounded-md transition duration-300">Schedule</a>
-                        <a href="speakers.html" class="text-white hover:text-dune px-3 py-2 rounded-md transition duration-300">Speakers</a>
+                        <div class="nav-dropdown">
+                            <button
+                                class="nav-dropdown-toggle text-white hover:text-dune px-3 py-2 rounded-md transition duration-300 inline-flex items-center gap-1.5"
+                                aria-haspopup="true" aria-expanded="false">
+                                Conference <i class="fas fa-chevron-down nav-dropdown-caret text-xs"></i>
+                            </button>
+                            <div class="nav-dropdown-menu">
+                                <a href="schedule.html">Schedule</a>
+                                <a href="speakers.html">Speakers</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -59,8 +69,18 @@
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="index.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">Home</a>
                     <a href="about.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">About</a>
-                    <a href="schedule.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">Schedule</a>
-                    <a href="speakers.html" class="text-white hover:text-dune block px-3 py-2 rounded-md">Speakers</a>
+                    <button
+                        class="mobile-submenu-toggle w-full flex items-center justify-between text-white hover:text-dune px-3 py-2 rounded-md"
+                        aria-expanded="false">
+                        <span>Conference</span>
+                        <i class="fas fa-chevron-down text-xs mobile-caret"></i>
+                    </button>
+                    <div class="mobile-submenu hidden space-y-1 pb-1">
+                        <a href="schedule.html"
+                            class="text-white/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Schedule</a>
+                        <a href="speakers.html"
+                            class="text-white/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Speakers</a>
+                    </div>
                 </div>
             </div>
         </div>

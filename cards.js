@@ -1,5 +1,12 @@
 // for the committee cards and modal
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+import nashandiPhoto from "./Resources/Nashandi.webp";
+import naftaliPhoto from "./Resources/Naftali.webp";
+import sebastianPhoto from "./Resources/Sebastian.webp";
+import stephanPhoto from "./Resources/Stephan.webp";
+import ndeshihafelaPhoto from "./Resources/Ndeshihafela.webp";
+import profPhoto from "./Resources/prof.webp";
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href !== "#" && href !== "") {
@@ -53,42 +60,42 @@
             role: "Lecturer: Software Engineering",
             shortBio: "Leading the strategic vision and overall coordination ensures runs smoothly.",
             fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
-            image: "Resources/Nashandi.webp"
+            image: nashandiPhoto
         },
         {
             name: "Mr. Naftali Indongo",
             role: "Lecturer: Software Engineering",
             shortBio: "Manages peer-review and scientific tracks, ensuring all work runs smoothly.",
             fullBio: "Mr. Indongo is a passionate software engineering lecturer with a focus on AI and machine learning. He has been instrumental in developing the curriculum for AI courses at NUST and is committed to mentoring the next generation of AI researchers.",
-            image: "Resources/Naftali.webp"
+            image: naftaliPhoto
         },
         {
             name: "Dr. Sebastian Mukumbira",
             role: "Lecturer: Informatics",
             shortBio: "Connects with industry partners and funding bodies.",
             fullBio: "Dr. Mukumbira is a senior lecturer in Informatics and has extensive experience in industry-academia collaborations. He has successfully secured funding for multiple AI research projects and is passionate about bridging the gap between research and real-world applications.",
-            image: "Resources/Sebastian.webp"
+            image: sebastianPhoto
         },
         {
             name: "Prof. Stephen Fashoto",
             role: "Associate Professor: Informatics",
             shortBio: "Coordinates pre-conference workshops and hands-on sessions.",
             fullBio: "Prof. Fashoto is an expert in machine learning and data science. He has organized numerous workshops and believes in practical, hands-on learning experiences for students and professionals alike.",
-            image: "Resources/Stephan.webp"
+            image: stephanPhoto
         },
         {
             name: "Ms. Ndeshihafela Kakwambi",
             role: "Lecturer: INCEIT",
             shortBio: "Ensures smooth on-site and virtual experience.",
             fullBio: "Ms. Kakwambi is a lecturer at the Namibia Centre of Excellence in Information Technology, dedicated to providing high-quality education and fostering innovation in the field.",
-            image: "Resources/Ndeshihafela.webp"
+            image: ndeshihafelaPhoto
         },
         {
             name: "Prof. Attle M. Gamundani",
             role: "Associate Professor: Cybersecurity",
             shortBio: "Oversees proceedings and open-access archives.",
             fullBio: "Prof. Gamundani is a cybersecurity expert with a focus on open-access research. He ensures that all conference proceedings are archived and accessible to the global research community.",
-            image: "Resources/prof.webp"
+            image: profPhoto
         }
     ];
 

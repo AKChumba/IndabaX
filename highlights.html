@@ -32,6 +32,7 @@
     }
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     /* Additional custom styles that match the original archive page aesthetic */
     :root {
@@ -144,7 +145,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
-          <span class="text-xl font-bold text-black">IndabaX Namibia</span>
+          <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
         
         <!-- Desktop Menu -->
@@ -152,8 +153,17 @@
           <div class="ml-10 flex items-baseline space-x-8">
             <a href="index.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
             <a href="about.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
-            <a href="schedule.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Schedule</a>
-            <a href="speakers.html" class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Speakers</a>
+            <div class="nav-dropdown">
+              <button
+                class="nav-dropdown-toggle text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300 inline-flex items-center gap-1.5"
+                aria-haspopup="true" aria-expanded="false">
+                Conference <i class="fas fa-chevron-down nav-dropdown-caret text-xs"></i>
+              </button>
+              <div class="nav-dropdown-menu">
+                <a href="schedule.html">Schedule</a>
+                <a href="speakers.html">Speakers</a>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -170,8 +180,18 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
           <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
-          <a href="schedule.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Schedule</a>
-          <a href="speakers.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">Speakers</a>
+          <button
+            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune px-3 py-2 rounded-md"
+            aria-expanded="false">
+            <span>Conference</span>
+            <i class="fas fa-chevron-down text-xs mobile-caret"></i>
+          </button>
+          <div class="mobile-submenu hidden space-y-1 pb-1">
+            <a href="schedule.html"
+              class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Schedule</a>
+            <a href="speakers.html"
+              class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Speakers</a>
+          </div>
         </div>
       </div>
     </div>
@@ -354,16 +374,8 @@
       });
     }
 
-    // Mobile nav toggle for the navbar (index style)
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
-    });
+    // (Mobile-menu toggle is handled once, centrally, by script.js — a second
+    // handler here was cancelling clicks out and silently breaking the button.)
   </script>
 
   <div id="footer-placeholder"></div>

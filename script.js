@@ -74,7 +74,6 @@ window.addEventListener('scroll', function () {
     const links = document.querySelectorAll('nav a');
     const btn = document.getElementById('mobile-menu-btn');
     const logoText = document.getElementById('nav-logo-text');
-    const isSchedulePage = window.location.pathname.endsWith('schedule.html');
     const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
 
     if (window.scrollY > threshold) {
@@ -103,35 +102,30 @@ window.addEventListener('scroll', function () {
             logoText.classList.add('text-black');
         }
     } else {
-        // At top: restore original solid navbar
-        if (isSchedulePage) {
-            navbar.classList.remove('bg-sky-500', 'shadow-lg');
-            navbar.classList.add('bg-transparent');
-        } else {
-            navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
-            navbar.classList.add('bg-sky-500', 'shadow-lg');
-        }
+        // At top: transparent/glass navbar (matches schedule.html on every page)
+        navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110', 'bg-sky-500', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
 
-        // Restore link colors to white: remove any previous color classes then add white
+        // Restore link colors: remove any previous color classes then add black
         links.forEach(a => {
             a.classList.remove('text-black', 'text-earth', 'text-white');
-            a.classList.add(isSchedulePage ? 'text-black' : 'text-white');
+            a.classList.add('text-black');
         });
 
         if (dropdownToggle) {
             dropdownToggle.classList.remove('text-black', 'text-earth', 'text-white');
-            dropdownToggle.classList.add(isSchedulePage ? 'text-black' : 'text-white');
+            dropdownToggle.classList.add('text-black');
         }
 
         if (btn) {
             btn.classList.remove('text-earth', 'text-white', 'text-black');
-            btn.classList.add('text-white');
+            btn.classList.add('text-black');
         }
 
         // Logo text color
         if (logoText) {
             logoText.classList.remove('text-black', 'text-earth', 'text-white');
-            logoText.classList.add(isSchedulePage ? 'text-black' : 'text-white');
+            logoText.classList.add('text-black');
         }
     }
 });
@@ -257,12 +251,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Polygon image viewer
+import polyPhoto from "./Resources/photo.webp";
+import polyQuestion from "./Resources/question.webp";
+import polyStage from "./Resources/stage.webp";
+
 (function () {
 
     const images = [
-        'Resources/photo.webp',
-        'Resources/question.webp',
-        'Resources/stage.webp'
+        polyPhoto,
+        polyQuestion,
+        polyStage
     ];
 
     let idx = 0;

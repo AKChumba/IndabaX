@@ -51,6 +51,91 @@ a { text-decoration: none; }
 button { cursor: pointer; border: none; background: none; }
 img { width: 100%; }
 
+/* ── Navbar: "Conference" dropdown (Schedule / Speakers) ──
+   Shared across every page so the navbar behaves identically everywhere. */
+nav.bg-sky-500 {
+    background-color: transparent !important;
+}
+
+nav.bg-sky-500 a.text-white {
+    color: white !important;
+}
+
+nav.bg-sky-500 a.text-white:hover {
+    color: #E85D04 !important;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 190px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 70;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 9px 14px;
+    border-radius: 8px;
+    color: #264653 !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-dropdown-menu a:hover {
+    background: #FEF3EA;
+    color: #E85D04 !important;
+}
+
+.nav-dropdown-caret {
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.nav-dropdown.open .nav-dropdown-caret {
+    transform: rotate(180deg);
+}
+
+.mobile-submenu {
+    border-left: 2px solid rgba(38, 20, 16, 0.12);
+    margin-left: 10px;
+}
+
+.mobile-caret {
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.mobile-caret.rotate-180 {
+    transform: rotate(180deg);
+}
+
 /* Indaba card / conference section */
 .indaba-wrap {
     width: 100%;

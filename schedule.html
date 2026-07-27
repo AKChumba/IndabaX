@@ -5,12 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IndabaX Namibia 2026 – Programme Schedule</title>
-  <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
+  <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
       --rust: #E85D04;
@@ -39,96 +40,14 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* Override any conflicting nav styles.....keep consistent */
-    nav.bg-sky-500 {
-      background-color: transparent !important;
-      /* sky-500 = #2A9D8F */
-    }
-
-    nav.bg-sky-500 a.text-white {
-      color: white !important;
-    }
-
-    nav.bg-sky-500 a.text-white:hover {
-      color: #E85D04 !important;
-      /* orange/70 equivalent */
-    }
-
-    /* Nav dropdown: "Conference" > Schedule / Speakers */
-    .nav-dropdown {
-      position: relative;
-    }
-
-    .nav-dropdown-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .nav-dropdown-menu {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      min-width: 190px;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 8px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-      z-index: 70;
-    }
-
-    .nav-dropdown.open .nav-dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .nav-dropdown-menu a {
-      display: block;
-      padding: 9px 14px;
-      border-radius: 8px;
-      color: #264653 !important;
-      font-weight: 600;
-      font-size: 0.88rem;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .nav-dropdown-menu a:hover {
-      background: #FEF3EA;
-      color: #E85D04 !important;
-    }
-
-    .nav-dropdown-caret {
-      transition: transform 0.2s ease;
-      display: inline-block;
-    }
-
-    .nav-dropdown.open .nav-dropdown-caret {
-      transform: rotate(180deg);
-    }
-
-    .mobile-submenu {
-      border-left: 2px solid rgba(38, 20, 16, 0.12);
-      margin-left: 10px;
-    }
-
-    .mobile-caret {
-      transition: transform 0.2s ease;
-      display: inline-block;
-    }
-
-    .mobile-caret.rotate-180 {
-      transform: rotate(180deg);
-    }
+    /* Nav-dropdown / mobile-submenu styling now lives in style.css, shared by every page */
 
     /* ── Hero ── */
     .hero {
-      background-image: url('Resources/photo.jpg');
+      background-image: linear-gradient(rgba(30, 20, 16, 0.55), rgba(30, 20, 16, 0.55)), url('Resources/photo.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
       padding: 96px 24px 56px;
       text-align: center;
@@ -670,17 +589,8 @@
     }
 
     renderDay(0);
-
-    // Mobile nav toggle for the navbar (index style)
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
-    });
+    // (Mobile-menu toggle is handled once, centrally, by script.js — a second
+    // handler here was cancelling clicks out and silently breaking the button.)
   </script>
 
   <!-- Footer (from original programme page) -->
@@ -705,7 +615,7 @@
         `;
       });
   </script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>
