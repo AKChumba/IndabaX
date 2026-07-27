@@ -531,14 +531,13 @@
     <div
       style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
       <h1 style="font-size:1.9rem; color:var(--rust); margin-bottom:4px;">Programme Schedule</h1>
-      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">The programme 2026 is currently under
-        development. Below isa preview of the week to help you know what you might expect at the Indaba. Please note
-        that the programme is subject to change and will be updated here regularly.</p>
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">Two days of keynotes, technical talks,
+        lightning talks, practical demonstrations, workshops and panel discussions. Some speaker slots are still being
+        finalised, so please check back — this page will be updated as the programme is confirmed.</p>
 
       <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
-        <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — Aug 18</button>
-        <button class="day-tab" onclick="switchDay(1, this)">Day 2 — Aug 19</button>
-        <button class="day-tab" onclick="switchDay(2, this)">Day 3 — Aug 20</button>
+        <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — 30 July</button>
+        <button class="day-tab" onclick="switchDay(1, this)">Day 2 — 31 July</button>
       </div>
 
       <div id="schedule-list"></div>
@@ -552,12 +551,13 @@
         style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); overflow:hidden; position:relative;">
         <div class="map-container">
           <iframe
-            src="https://maps.google.com/maps?q=Namibia+University+of+Science+and+Technology,+Windhoek,+Namibia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=High-Tech+Transfer+Plaza+Select+HTTPS,+NUST+Lower+Campus,+Windhoek,+Namibia&t=&z=17&ie=UTF8&iwloc=&output=embed"
             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
           </iframe>
           <div class="map-overlay-label">Windhoek, Namibia</div>
         </div>
-        <a href="https://maps.google.com/?q=Namibia+University+of+Science+and+Technology,+Windhoek" target="_blank"
+        <a href="https://maps.google.com/?q=High-Tech+Transfer+Plaza+Select+HTTPS,+NUST+Lower+Campus,+Windhoek"
+          target="_blank"
           style="position:absolute; top:12px; left:12px; background:white; font-size:0.75rem; font-weight:600; padding:6px 12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.12); color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:6px;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
@@ -581,7 +581,7 @@
           </svg>
           <div>
             <div class="card-label">Dates</div>
-            <div class="card-value">Aug 18 – 20, 2026</div>
+            <div class="card-value">30 – 31 July, 2026</div>
           </div>
         </div>
 
@@ -593,7 +593,7 @@
           </svg>
           <div>
             <div class="card-label">Venue</div>
-            <div class="card-value">NUST, Windhoek</div>
+            <div class="card-value">NUST Lower Campus, 6th Floor, HTTPS Building</div>
           </div>
         </div>
 
@@ -619,30 +619,23 @@
   <script>
     const scheduleData = [
       [
-        { time: "08:30", tag: "opening", label: "Opening Ceremony", sub: "Main Auditorium", tagClass: "tag-closing" },
-        { time: "09:30", tag: "keynote", label: "Keynote: The Future of AI in Africa", sub: "Dr. Abebe Birhane", tagClass: "tag-panel" },
-        { time: "11:00", tag: "workshop", label: "Introduction to Deep Learning", sub: "Track A – Room 101", tagClass: "tag-workshop" },
-        { time: "11:00", tag: "workshop", label: "Data Engineering & Pipelines", sub: "Track B – Room 102", tagClass: "tag-workshop" },
-        { time: "13:00", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
-        { time: "14:00", tag: "panel", label: "Panel: AI Policy & Governance", sub: "Chaired by Nadia Hassan", tagClass: "tag-panel" },
-        { time: "16:00", tag: "social", label: "Welcome Reception", sub: "Rooftop Terrace", tagClass: "tag-social" },
+        { time: "08:45", tag: "opening", label: "Introduction & Opening", sub: "Ms Ndinelago Nashandi, Chairperson", tagClass: "tag-closing" },
+        { time: "09:00", tag: "keynote", label: "Keynote Address", sub: "Prof. Dr Anicia Peters, CEO, NCRST", tagClass: "tag-panel" },
+        { time: "10:30", tag: "talk", label: "AI in Banking and Financial Services: Transforming Namibia's Digital Economy", sub: "Mr Leo Maruwasa, Access Bank Namibia", tagClass: "tag-workshop" },
+        { time: "11:15", tag: "talk", label: "AI in Finance: Mapping the Opportunity and Deploying Customer Intelligence", sub: "Mr Gbemileke Emmanuel Falade, Union Bank of Nigeria", tagClass: "tag-workshop" },
+        { time: "12:30", tag: "lunch", label: "Lunch Time", sub: "", tagClass: "tag-lunch" },
+        { time: "13:30", tag: "talk", label: "Advances in Robust Decentralised Federated Learning", sub: "Mr Aitor Belenguer, University of the Basque Country", tagClass: "tag-workshop" },
+        { time: "14:30", tag: "talk", label: "Closing the Credentialing Gap: Making Applied AI Count as a Vocational Competency", sub: "Dr Taime Sylvester, NUST", tagClass: "tag-workshop" },
+        { time: "16:00", tag: "social", label: "Networking Session", sub: "", tagClass: "tag-social" },
       ],
       [
-        { time: "09:00", tag: "keynote", label: "Keynote: Responsible ML Systems", sub: "Prof. Sara Hooker", tagClass: "tag-panel" },
-        { time: "10:30", tag: "workshop", label: "Computer Vision: Object Detection", sub: "Track A – Room 204", tagClass: "tag-workshop" },
-        { time: "10:30", tag: "workshop", label: "NLP & Transformers in Practice", sub: "Track B – Room 205", tagClass: "tag-workshop" },
-        { time: "12:30", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
-        { time: "13:30", tag: "workshop", label: "Reinforcement Learning Fundamentals", sub: "Track A – Room 204", tagClass: "tag-workshop" },
-        { time: "15:00", tag: "panel", label: "Poster Session & Demo Hour", sub: "Exhibition Hall", tagClass: "tag-panel" },
-        { time: "17:00", tag: "social", label: "Community Mixer", sub: "Garden Courtyard", tagClass: "tag-social" },
-      ],
-      [
-        { time: "09:00", tag: "workshop", label: "NLP for Healthcare: Building Triage Systems", sub: "Track A – Room 204", tagClass: "tag-workshop" },
-        { time: "09:00", tag: "workshop", label: "MLOps & Production Deployments", sub: "Track B – Room 206", tagClass: "tag-workshop" },
-        { time: "12:00", tag: "lunch", label: "Lunch Break", sub: "", tagClass: "tag-lunch" },
-        { time: "13:30", tag: "panel", label: "Student Research Showcase & Awards", sub: "Chaired by Lina Massipa", tagClass: "tag-panel" },
-        { time: "15:30", tag: "closing", label: "Closing Ceremony & Announcement of IndabaX 2027", sub: "Organising Committee", tagClass: "tag-closing" },
-        { time: "17:00", tag: "social", label: "Farewell Networking Drinks", sub: "Rooftop Terrace", tagClass: "tag-social" },
+        { time: "09:00", tag: "talk", label: "A Multi-Layer Trust Evaluation Framework for Explainable AI in Clinical Breast Cancer Prediction", sub: "Mr Oyetayo Oyebisi, Pan African University Institute", tagClass: "tag-workshop" },
+        { time: "10:00", tag: "talk", label: "Problematic or Promising? Student Perspectives on Using ChatGPT for Research Problem Statements", sub: "Mr André van der Westhuizen, The IIE's Emeris Campus", tagClass: "tag-workshop" },
+        { time: "11:00", tag: "workshop", label: "Lightning Talk: Use of Databricks with PySpark for Big Data", sub: "Prof. Stephen Fashoto, Ms Jovita Mateus & Mr Naftali Indongo, NUST", tagClass: "tag-workshop" },
+        { time: "12:30", tag: "lunch", label: "Lunch Time", sub: "", tagClass: "tag-lunch" },
+        { time: "13:30", tag: "demo", label: "Technical Demo: Reducing Redundancy in Research Proposals with Hybrid RAG", sub: "Dr Benjamin Akinmoyeje & Mr Quang Thinh Lam", tagClass: "tag-workshop" },
+        { time: "14:30", tag: "demo", label: "Technical Demo: Building Your Own Chatbot in 10 Minutes", sub: "Mr Yakubu Shehu, NUST", tagClass: "tag-workshop" },
+        { time: "16:00", tag: "closing", label: "Conclusion & Q&A Session", sub: "Organising Committee", tagClass: "tag-closing" },
       ],
     ];
 
