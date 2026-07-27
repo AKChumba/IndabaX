@@ -348,15 +348,16 @@
             </a>
         </div>
     </div>
+
 </section>
  <!-- video section -->
-  <div class="indaba-wrap px-4 sm:px-6 lg:px-8 bg-white ">
+  <div class="indaba-wrap px-4 sm:px-6 lg:px-8 bg-dune ">
     <div style="max-width: 1200px; margin: 0 auto;">
         <div class="text-center mb-8">
-            <h2 style="font-size: 2.5rem; font-weight: 700; background: var(--color-earth); margin: 0 0 12px;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; background: var(--color-earth); margin: 0 0 12px; color: rgba(255, 255, 255, 0.979);">
                 IndabaX Annual Conference
             </h2>
-            <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+            <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">
                 See below for upcoming event happening this year, see you there!
             </p>
         </div>
@@ -409,24 +410,13 @@
         <h2 class="text-4xl font-light mb-10">
             Proudly Brought To You By
         </h2>
-        <!-- React LogoLoop will load here -->
+        <!-- React Sponsors LogoLoop will load here -->
         <div id="logo-loop-root"></div>
     </div>
 
 </section>
-
-
-
-    <!-- Call-to-Action Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-earth text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-light mb-6">Ready to Shape the Future of AI?</h2>
-            <p class="text-xl opacity-90 mb-8">Don't miss this opportunity to be part of Namibia's growing AI community. Register today and join the conversation.</p>
-            <a href="contact.html" class="bg-orange hover:bg-orange/90 text-white px-10 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Get Your Ticket</a>
-        </div>
-    </section>
     
-<section id="organizing-committee" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+<section id="organizing-committee" class="py-10 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-brand-earth mt-2">Organizing Committee</h2>
@@ -437,7 +427,7 @@
 
         <div id="committee-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
-</section>
+
 
 <div id="bio-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0" role="dialog" aria-modal="true" aria-labelledby="modal-name">
     <div id="modal-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
@@ -464,9 +454,10 @@
         </div>
     </div>
 </div>
- 
+</section>
 
 <div id="footer-placeholder"></div>
+
 <script>
   fetch('footer.html')
     .then(response => response.text())
