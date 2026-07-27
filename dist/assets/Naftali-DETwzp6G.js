@@ -1,0 +1,1 @@
+var e=`/2026/assets/Naftali-BMRR88mY.webp`;export{e as t};
