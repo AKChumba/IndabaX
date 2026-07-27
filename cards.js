@@ -1,11 +1,4 @@
 // for the committee cards and modal
-    const playBtn = document.getElementById('playBtn');
-    if (playBtn) {
-        playBtn.addEventListener('click', function() {
-            alert('Video player would start playing. Add a <video> element with your actual video source.');
-        });
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -25,22 +18,6 @@
         });
         stat.addEventListener('mouseleave', () => {
             stat.style.transform = 'translateX(0)';
-        });
-    });
-
-    const readMoreLinks = document.querySelectorAll('.read-more-link');
-    readMoreLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const card = this.closest('.highlight-card');
-            const title = card.querySelector('.card-label').innerText;
-            alert(`Opening "${title}" article - Add your modal or page navigation here`);
-        });
-    });
-
-    document.querySelectorAll('.highlight-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            console.log('Card hovered');
         });
     });
 
@@ -76,42 +53,42 @@
             role: "Lecturer: Software Engineering",
             shortBio: "Leading the strategic vision and overall coordination ensures runs smoothly.",
             fullBio: "Dr. Nashandi is a professor of Computer Science with 15+ years in academic. She has chaired over 20 international Conferences and is dedicated to fostering inclusive tech communities across Africa.",
-            image: "Resources/Nashandi.jpeg"
+            image: "Resources/Nashandi.webp"
         },
         {
             name: "Mr. Naftali Indongo",
             role: "Lecturer: Software Engineering",
-            shortBio: "Manages peer-review and scientific tracks ensure all work is done and runs smoothely .",
+            shortBio: "Manages peer-review and scientific tracks, ensuring all work runs smoothly.",
             fullBio: "Mr. Indongo is a passionate software engineering lecturer with a focus on AI and machine learning. He has been instrumental in developing the curriculum for AI courses at NUST and is committed to mentoring the next generation of AI researchers.",
-            image: "Resources/Naftali.jpeg"
+            image: "Resources/Naftali.webp"
         },
         {
             name: "Dr. Sebastian Mukumbira",
             role: "Lecturer: Informatics",
             shortBio: "Connects with industry partners and funding bodies.",
             fullBio: "Dr. Mukumbira is a senior lecturer in Informatics and has extensive experience in industry-academia collaborations. He has successfully secured funding for multiple AI research projects and is passionate about bridging the gap between research and real-world applications.",
-            image: "Resources/Sebastian.jpeg"
+            image: "Resources/Sebastian.webp"
         },
         {
             name: "Prof. Stephen Fashoto",
             role: "Associate Professor: Informatics",
             shortBio: "Coordinates pre-conference workshops and hands-on sessions.",
             fullBio: "Prof. Fashoto is an expert in machine learning and data science. He has organized numerous workshops and believes in practical, hands-on learning experiences for students and professionals alike.",
-            image: "Resources/Stephan.jpeg"
+            image: "Resources/Stephan.webp"
         },
         {
             name: "Ms. Ndeshihafela Kakwambi",
             role: "Lecturer: INCEIT",
             shortBio: "Ensures smooth on-site and virtual experience.",
             fullBio: "Ms. Kakwambi is a lecturer at the Namibia Centre of Excellence in Information Technology, dedicated to providing high-quality education and fostering innovation in the field.",
-            image: "Resources/Ndeshihafela.jpeg"
+            image: "Resources/Ndeshihafela.webp"
         },
         {
             name: "Prof. Attle M. Gamundani",
             role: "Associate Professor: Cybersecurity",
             shortBio: "Oversees proceedings and open-access archives.",
             fullBio: "Prof. Gamundani is a cybersecurity expert with a focus on open-access research. He ensures that all conference proceedings are archived and accessible to the global research community.",
-            image: "Resources/prof.png"
+            image: "Resources/prof.webp"
         }
     ];
 
@@ -208,32 +185,3 @@
         }
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.querySelectorAll('.footer-link, .social-link span:last-child').forEach(function(link) {
-        link.style.position = 'relative';
-    });
-
-    const footerObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, i) {
-            if (entry.isIntersecting) {
-                setTimeout(function() {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, i * 80);
-                footerObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('footer > div:first-child > div > div').forEach(function(col) {
-        col.style.opacity = '0';
-        col.style.transform = 'translateY(20px)';
-        col.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        footerObserver.observe(col);
-    });
-
-    document.querySelector('.border-brand-brown').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });

@@ -5,10 +5,10 @@ import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
 import CountUp from "./react-components/CountUp.jsx";
 import LogoLoop from "./react-components/LogoLoop.jsx";
-import unamLogo from "./Resources/unam.png";
-import nustLogo from "./Resources/nust.png";
-import mtcLogo from "./Resources/mtc.png";
-import indabaXLogo from "./Resources/IndabaX_Logo.png";
+import unamLogo from "./Resources/unam.webp";
+import nustLogo from "./Resources/nust.webp";
+import mtcLogo from "./Resources/mtc.webp";
+import indabaXLogo from "./Resources/IndabaX_Logo.webp";
 
 const root = createRoot(
     document.getElementById("react-bit")

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IndabaX Namibia 2026 - Home</title>
-    <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
+    <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -43,7 +43,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
                     <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span> <!-- Brand Name change color -->
                 </div>
                 
@@ -79,7 +79,7 @@
     <section class="relative bg-dune text-white pt-10 overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-            style="background-image: url('Resources/NamibDesert.jpg');   
+            style="background-image: url('Resources/2025\ Main.webp');   
                     background-size: cover; 
                     background-position: center;">
             </div>
@@ -225,7 +225,7 @@
             <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
                 <div class="relative overflow-hidden bg-gray-200">
                     <img class="card-image w-full h-64 object-cover" 
-                         src="Resources/stage.jpg" 
+                         src="Resources/stage.webp" 
                          alt="Annual conference" 
                          loading="lazy">
                     <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
@@ -255,7 +255,7 @@
                         </svg>
                         <span>June 10, 2025</span>
                     </div>
-                    <a href link="https://indabaxnamibia.com/" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                    <a href="https://indabaxnamibia.com/" class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
                         read more <span>→</span>
                     </a>
                 </div>
@@ -264,7 +264,7 @@
             <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
                 <div class="relative overflow-hidden bg-gray-200">
                     <img class="card-image w-full h-64 object-cover" 
-                         src="Resources/2025.png" 
+                         src="Resources/2025.webp" 
                          alt="Workshop sessions" 
                          loading="lazy">
                     <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
@@ -307,7 +307,7 @@
 
             <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
                 <div class="relative overflow-hidden bg-gray-200">
-                    <img class="card-image w-full h-64 object-cover" src="Resources/2024.png" alt="Workshop sessions" loading="lazy">
+                    <img class="card-image w-full h-64 object-cover" src="Resources/2024.webp" alt="Workshop sessions" loading="lazy">
                     <span class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
                         Workshop sessions
                     </span>
@@ -460,14 +460,18 @@
 
 <script>
   fetch('footer.html')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
+      return response.text();
+    })
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
-    });
+    })
+    .catch(error => console.error(error));
 </script>
 
-    <script src="cards.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="cards.js"></script>
+    <script type="module" src="script.js"></script>
     <script type="module" src="./main.jsx"></script>
 </body>
 </html>

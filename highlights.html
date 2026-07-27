@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Highlights Archive | IndabaX Namibia</title>
-  <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
+  <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -143,7 +143,7 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
           <span class="text-xl font-bold text-black">IndabaX Namibia</span>
         </div>
         
@@ -178,7 +178,7 @@
   <main>
     <!-- HERO SECTION -->
     <section class="relative bg-white text-white pt-40 overflow-hidden">
-        <div class="absolute inset-0 bg-no-repeat" style="background-image: url('Resources/photo.jpg'); background-size: cover; background-position: center;"></div>">
+        <div class="absolute inset-0 bg-no-repeat" style="background-image: url('Resources/photo.webp'); background-size: cover; background-position: center;"></div>">
         <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>    
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -206,7 +206,7 @@
 
         <div class="highlight-card" data-year="2025" data-title="Student Research Award 2025" data-desc="For the first time, IndabaX Namibia awarded three student researchers for outstanding poster presentations. The winning paper on low-resource Oshikwanyama NLP received a travel grant to attend the Deep Learning Indaba main event."></div>
           <div style="position:relative;overflow:hidden;">
-            <img src="Resources/2025.png" alt="Student Awards" loading="lazy">
+            <img src="Resources/2025.webp" alt="Student Awards" loading="lazy">
             <span class="card-label-abs">Student Awards</span>
           </div>
           <div style="padding:20px;">
@@ -222,7 +222,7 @@
         <!-- 2024 -->
         <div class="highlight-card" data-year="2024" data-title="The Future of Artificial Intelligence" data-desc="A deep-dive feature exploring what the next decade of AI looks like for Africa — from large language models and multimodal systems to AI governance frameworks being developed on the continent." data-date="May 18, 2024">
           <div style="position:relative;overflow:hidden;">
-            <img src="Resources/2024.png" alt="AI Future" loading="lazy">
+            <img src="Resources/2024.webp" alt="AI Future" loading="lazy">
             <span class="card-label-abs">Artificial Intelligence</span>
           </div>
           <div style="padding:20px;">
@@ -239,7 +239,7 @@
 
         <div class="highlight-card" data-year="2023" data-title="Back in Person — 300 Attendees" data-desc="The 2023 edition focused on AI policy, machine learning, robotics, large language models, digital safety, natural language processing for African languages, transportation innovation, and responsible AI adoption" data-date="June 8, 2023">
           <div style="position:relative;overflow:hidden;">
-            <img src="Resources/Intelligence.png" alt="Return to Campus" loading="lazy">
+            <img src="Resources/Intelligence.webp" alt="Return to Campus" loading="lazy">
             <span class="card-label-abs">In-Person Return</span>
           </div>
           <div style="padding:20px;">
@@ -367,14 +367,18 @@
   <div id="footer-placeholder"></div>
 <script>
   fetch('footer.html')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
+      return response.text();
+    })
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
-    });
+    })
+    .catch(error => console.error(error));
 </script>
 
-<script src="shared.js"></script>
-<script src="script.js"></script>
+<script type="module" src="shared.js"></script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>

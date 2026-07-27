@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - IndabaX Namibia 2026</title>
-    <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
+    <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,7 +33,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
                     <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
                 </div>
                 
@@ -68,7 +68,7 @@
     <!-- Hero Section -->
     <section class="relative bg-sky text-white pt-40 overflow-hidden">
         <!-- Static Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/aboutHero.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/aboutHero.webp'); background-size: cover; background-position: center;"></div>
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
 
@@ -95,7 +95,7 @@
                 </div>
                 <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-12">
                     
-                        <img src="Resources/about2.jpg" alt="IndabaX Namibia Logo">
+                        <img src="Resources/about2.webp" alt="IndabaX Namibia Logo">
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
 
     <!-- Why Attend Section -->
     <section class="py-10 bg-white">
-        <div class="max-w-7x1 mx-auto px-4 sm:px-2 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-light text-earth mb-4">Why Attend IndabaX Namibia?</h2>
                 <p class="text-xl text-earth/70">Join us for an transformative experience</p>
@@ -167,7 +167,7 @@
   <!-- fills the whole section, darkened -->
   <div
     class="absolute inset-0 bg-cover bg-center"
-    style="background-image: url('Resources/copy.jpg');"></div>
+    style="background-image: url('Resources/copy.webp');"></div>
   <!-- Dark overlay so text stays readable over the background photo sefdb   -->
   <div class="absolute inset-0 bg-black/70"></div>
 
@@ -178,7 +178,7 @@
     <!-- LEFT: photo panel -->
     <div class="w-full md:w-1/2 flex justify-center">
       <img
-        src="Resources/africa.png"
+        src="Resources/africa.webp"
         alt="Description of left photo"
         class="w-full max-w-md aspect-square object-cover rounded-md shadow-2xl"/>
     </div>
@@ -206,11 +206,15 @@
 <div id="footer-placeholder"></div>
 <script>
   fetch('footer.html')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
+      return response.text();
+    })
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
-    });
+    })
+    .catch(error => console.error(error));
 </script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

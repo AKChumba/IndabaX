@@ -205,9 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
 
     const images = [
-        'Resources/photo.jpg',
-        'Resources/question.jpg',
-        'Resources/stage.jpg'
+        'Resources/photo.webp',
+        'Resources/question.webp',
+        'Resources/stage.webp'
     ];
 
     let idx = 0;

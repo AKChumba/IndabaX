@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IndabaX Namibia 2026 – Programme Schedule</title>
-  <link rel="icon" type="image/png" href="Resources/IndabaX_Logo.png">
+  <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: var(white);
+      background-color: #fff;
       color: var(--dark);
       min-height: 100vh;
     }
@@ -44,7 +44,7 @@
 
     /* ── Hero ── */
     .hero {
-      background-image: url('Resources/photo.jpg');
+      background-image: url('Resources/photo.webp');
       color: white;
       padding: 96px 24px 56px;
       text-align: center;
@@ -291,7 +291,7 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="Resources/Logo1.png" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
           <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
         
@@ -493,7 +493,10 @@
   <div id="footer-placeholder"></div>
   <script>
     fetch('footer.html')
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
+        return response.text();
+      })
       .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
       })
@@ -511,6 +514,6 @@
         `;
       });
   </script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
