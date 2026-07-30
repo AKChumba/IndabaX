@@ -256,6 +256,81 @@
       grid-column: 1 / -1;
     }
 
+    /* ── Programme download card ── */
+    .programme-download {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 28px;
+      padding: 16px 18px;
+      border: 1px solid #E8E0D4;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #FFF7F0 0%, #FFFFFF 70%);
+      text-decoration: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .programme-download:hover {
+      border-color: var(--rust);
+      box-shadow: 0 12px 28px rgba(232, 93, 4, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .pd-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: rgba(232, 93, 4, 0.12);
+      color: var(--rust);
+      font-size: 1.15rem;
+    }
+
+    .pd-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pd-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .pd-meta {
+      margin-top: 3px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .pd-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 999px;
+      background: var(--rust);
+      color: #fff;
+      font-size: 0.85rem;
+      transition: transform 0.25s ease;
+    }
+
+    .programme-download:hover .pd-cta { transform: translateY(2px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .programme-download,
+      .pd-cta { transition: none; }
+      .programme-download:hover { transform: none; }
+      .programme-download:hover .pd-cta { transform: none; }
+    }
+
     /* Fading transition */
     #schedule-list {
       transition: opacity 0.2s;
@@ -370,8 +445,8 @@
       color: var(--rust);
     }
   </style>
-  <script type="module" crossorigin src="/assets/script-CInrWj2i.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-CiQQBvrY.css">
+  <script type="module" crossorigin src="/assets/script-CDpFeOT9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-DB1JLbuq.css">
 </head>
 
 <body class="text-earth">
@@ -461,6 +536,17 @@
       </div>
 
       <div id="schedule-list"></div>
+
+      <!-- Official programme download -->
+      <a class="programme-download" href="/IndabaX-Namibia-2026-Programme.pdf"
+        download="IndabaX-Namibia-2026-Programme.pdf">
+        <span class="pd-icon"><i class="fas fa-file-pdf"></i></span>
+        <span class="pd-body">
+          <span class="pd-title">Download the full programme</span>
+          <span class="pd-meta">Official two-day programme, with speakers and venue details &middot; PDF</span>
+        </span>
+        <span class="pd-cta"><i class="fas fa-download"></i></span>
+      </a>
     </div>
 
     <!-- RIGHT: Map + Info -->
@@ -548,7 +634,7 @@
         { time: "10:50", tag: "break", label: "Photo Session and Breakfast", sub: "", tagClass: "tag-social" },
         { time: "11:00", tag: "talk", label: "Technical Talk 1: AI in Finance: Mapping the Opportunity and Deploying Customer Intelligence across African Financial Institutions", sub: "Mr Gbemileke Emmanuel Falade, Senior Data Analyst and Data Scientist, Union Bank of Nigeria", tagClass: "tag-workshop" },
         { time: "11:20", tag: "talk", label: "Technical Talk 2: Advances in Robust Decentralized Federated Learning", sub: "Aitor Belenguer, PhD candidate, University of the Basque Country, UPV/EHU, Spain", tagClass: "tag-workshop" },
-        { time: "11:40", tag: "talk", label: "Technical Talk 3: Problematic or Promising? Exploring Student Perspectives in Using ChatGPT to Develop a Research Problem Statement", sub: "Andre Van Der Westhuizen, Head of Education, Umeris: Institute of High Education", tagClass: "tag-workshop" },
+        { time: "11:40", tag: "talk", label: "Technical Talk 3: Rethinking AI as a Pedagogical Partner in Research Education", sub: "Andre Van Der Westhuizen, Head of Education, The Independent Institute of Education, Emeris, Faculty of Education", tagClass: "tag-workshop" },
         { time: "12:00", tag: "panel", label: "Fireside Chat: AI and the Future of Work: Preparing the Namibian Youth for an AI-Driven Economy through Emerging AI Startups", sub: "Moderators: Ms Liina Massipa & Tjiperinai Hambira (Students, Computer Science, NUST). Fireside Chatters: Abubakar Kamagata (PhD student, NUST) & Students", tagClass: "tag-panel" },
         { time: "12:30", tag: "exhibitors", label: "Exhibitors' Introductions", sub: "Mr Naftali Indongo (Lecturer, Software Engineering, NUST). Exhibitors: Huawei, P3 Group, Access Bank, ACM SIGCHI chapter, OctoAI Language Research, NamTwin-Go, Asmbly, FarmOS", tagClass: "tag-social" },
         { time: "12:45", tag: "exhibitions", label: "Exhibitions", sub: "", tagClass: "tag-social" },
@@ -566,12 +652,12 @@
         { time: "08:00", tag: "registration", label: "Registration and Arrival", sub: "FCI Society", tagClass: "tag-social" },
         { time: "08:30", tag: "opening", label: "Welcoming Remarks", sub: "Prof Zodi Guy-Alai, Associate Dean: School of Computing, Faculty of Computing & Informatics", tagClass: "tag-panel" },
         { time: "08:40", tag: "keynote", label: "Keynote 2: Rented Intelligence: Why Africa's AI Future Depends on What We Own", sub: "Stantin Siebritz, Managing Director (New Creation Solutions), AI Expert, Software Engineer", tagClass: "tag-panel" },
-        { time: "09:10", tag: "talk", label: "Technical Talk 5: A.I('d Rather Not) - Protecting Yourself from Intrusive AI", sub: "Mr Yakubu Shehu, Full-stack Software Developer, PhD Candidate, NUST", tagClass: "tag-workshop" },
+        { time: "09:10", tag: "talk", label: "Technical Talk 6: A.I('d Rather Not) - Protecting Yourself from Intrusive AI", sub: "Mr Yakubu Shehu, Full-stack Software Developer, PhD Candidate, NUST", tagClass: "tag-workshop" },
         { time: "09:35", tag: "talk", label: "Technical Talk 7: From Prediction to Decision: Agentic AI for Climate Resilient Water Demand and Supply Management in Windhoek", sub: "João Julia Luzolo (MSc Student, NUST, AI/ML Engineer, Software Engineer)", tagClass: "tag-workshop" },
         { time: "10:20", tag: "poster", label: "Poster Session", sub: "", tagClass: "tag-social" },
         { time: "10:20", tag: "break", label: "Tea Break", sub: "", tagClass: "tag-lunch" },
-        { time: "11:20", tag: "panel", label: "Panel Discussion 2: Are We Shying Away from AI? Addressing the AI Accountability Gap in Higher Education", sub: "Moderator: Ms Jordaania Andima (HoD: Digital Arts & Animation). Panellists: Dr Gabriel Nhinda (Senior Lecturer, Informatics, NUST), Mr Sergio De Sousa (Chief Data and Analytics Officer, FNB), Mr Wynand Gariseb (Specialist: IT Security DICTS, UNAM), Mr Anton Limbo (Lecturer: Computer Science, UNAM)", tagClass: "tag-panel" },
-        { time: "12:05", tag: "talk", label: "Technical Talk 6: Pattern Recognition for Automated Job Scheduling in Smart Manufacturing", sub: "Rachel Lazarus, BSc Honours Industrial Engineering Student, University of Pretoria, Software Developer", tagClass: "tag-workshop" },
+        { time: "11:20", tag: "panel", label: "Panel Discussion 2: Are We Shying Away from AI? Addressing the AI Accountability Gap in Higher Education", sub: "Moderator: Dr. Benjamin Akinmoyeje (Microsoft Student Ambassador, Namibia). Panellists: Dr Gabriel Nhinda (Senior Lecturer, Informatics, NUST), Prof Attlee Gamundani (Associate Professor: Cybersecurity, NUST), Mr Sergio De Sousa (Chief Data and Analytics Officer, FNB), Mr Wynand Gariseb (Specialist: IT Security DICTS, UNAM), Mr Anton Limbo (Lecturer: Computer Science, UNAM), Prof. Stephen Fashoto (Associate Professor of Data Science, FCI, NUST)", tagClass: "tag-panel" },
+        { time: "12:05", tag: "talk", label: "Technical Talk 8: Pattern Recognition for Automated Job Scheduling in Smart Manufacturing", sub: "Rachel Lazarus, BSc Honours Industrial Engineering Student, University of Pretoria, Software Developer", tagClass: "tag-workshop" },
         { time: "12:25", tag: "opportunities", label: "Opportunities: Connect, Learn and Lead: Unlocking Global Opportunities Through ACM", sub: "ACM Chapter", tagClass: "tag-social" },
         { time: "12:40", tag: "talk", label: "Technical Talk 9: Navigating Ethical Implications of Enforcing Regulations for Artificial Intelligence in Education Assessment and Research", sub: "Gabriel Uunona, Coordinator: Learning Design, Centre for Innovation in Learning and Teaching (CILT), UNAM", tagClass: "tag-workshop" },
         { time: "13:00", tag: "lunch", label: "Lunch", sub: "", tagClass: "tag-lunch" },
