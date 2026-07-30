@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IndabaX Namibia 2026 – Programme Schedule</title>
-  <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
+  <link rel="icon" type="image/webp" href="Resources/Logo1_white.webp">
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -377,12 +377,12 @@
 
 
   <!-- NAVBAR -->
-  <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
+  <nav class="site-nav fixed w-full top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <img src="Resources/Logo1_white.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
           <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
 
@@ -451,8 +451,8 @@
       style="background:white; border-radius:16px; box-shadow:0 1px 6px rgba(0,0,0,0.06); padding:28px; min-height:520px;">
       <h1 style="font-size:1.9rem; color:var(--rust); margin-bottom:4px;">Programme Schedule</h1>
       <p style="font-size:0.875rem; color:var(--muted); margin-bottom:24px;">Two days of keynotes, technical talks,
-        lightning talks, practical demonstrations, workshops and panel discussions. Some speaker slots are still being
-        finalised, so please check back — this page will be updated as the programme is confirmed.</p>
+        panel discussions, hands-on demos, workshops and a hackathon. Theme: Advancing Inclusive and Responsible AI
+        Innovation for a Digitally Empowered Namibia.</p>
 
       <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
         <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — 30 July</button>
@@ -538,23 +538,45 @@
   <script>
     const scheduleData = [
       [
-        { time: "08:45", tag: "opening", label: "Introduction & Opening", sub: "Ms Ndinelago Nashandi, Chairperson", tagClass: "tag-closing" },
-        { time: "09:00", tag: "keynote", label: "Keynote Address", sub: "Prof. Dr Anicia Peters, CEO, NCRST", tagClass: "tag-panel" },
-        { time: "10:30", tag: "talk", label: "AI in Banking and Financial Services: Transforming Namibia's Digital Economy", sub: "Mr Leo Maruwasa, Access Bank Namibia", tagClass: "tag-workshop" },
-        { time: "11:15", tag: "talk", label: "AI in Finance: Mapping the Opportunity and Deploying Customer Intelligence", sub: "Mr Gbemileke Emmanuel Falade, Union Bank of Nigeria", tagClass: "tag-workshop" },
-        { time: "12:30", tag: "lunch", label: "Lunch Time", sub: "", tagClass: "tag-lunch" },
-        { time: "13:30", tag: "talk", label: "Advances in Robust Decentralised Federated Learning", sub: "Mr Aitor Belenguer, University of the Basque Country", tagClass: "tag-workshop" },
-        { time: "14:30", tag: "talk", label: "Closing the Credentialing Gap: Making Applied AI Count as a Vocational Competency", sub: "Dr Taime Sylvester, NUST", tagClass: "tag-workshop" },
-        { time: "16:00", tag: "social", label: "Networking Session", sub: "", tagClass: "tag-social" },
+        { time: "08:00", tag: "registration", label: "Registration and Arrival", sub: "FCI Student Society", tagClass: "tag-social" },
+        { time: "08:30", tag: "opening", label: "Welcoming/Opening Remarks", sub: "Prof. Andrew Niikondo, Acting Vice Chancellor, NUST", tagClass: "tag-panel" },
+        { time: "09:00", tag: "keynote", label: "Keynote 1: The Last Mile Is the Whole Race: Deploying Inclusive & Responsible AI Inside a Frontier-Market Bank", sub: "Mr Leo Maruwasa, Chief Information Officer (CIO), Access Bank, Namibia", tagClass: "tag-panel" },
+        { time: "09:30", tag: "talk", label: "Progress on Namibia's National AI Strategy", sub: "Dr Maria Kanyama, Researcher, NCRST", tagClass: "tag-workshop" },
+        { time: "09:55", tag: "talk", label: "Ministry of Education, Innovation, Youth, Sport, Arts, and Culture", sub: "Representative on behalf of Hon. Dino Balloti, Deputy Minister of Education, Innovation, Youth, Sport, Arts, and Culture", tagClass: "tag-workshop" },
+        { time: "10:40", tag: "closing", label: "Vote of Thanks", sub: "Prof. Fungai Bhunu Shava, Acting Dean, Faculty of Computing and Informatics, NUST", tagClass: "tag-closing" },
+        { time: "10:50", tag: "break", label: "Photo Session and Breakfast", sub: "", tagClass: "tag-social" },
+        { time: "11:00", tag: "talk", label: "Technical Talk 1: AI in Finance: Mapping the Opportunity and Deploying Customer Intelligence across African Financial Institutions", sub: "Mr Gbemileke Emmanuel Falade, Senior Data Analyst and Data Scientist, Union Bank of Nigeria", tagClass: "tag-workshop" },
+        { time: "11:20", tag: "talk", label: "Technical Talk 2: Advances in Robust Decentralized Federated Learning", sub: "Aitor Belenguer, PhD candidate, University of the Basque Country, UPV/EHU, Spain", tagClass: "tag-workshop" },
+        { time: "11:40", tag: "talk", label: "Technical Talk 3: Problematic or Promising? Exploring Student Perspectives in Using ChatGPT to Develop a Research Problem Statement", sub: "Andre Van Der Westhuizen, Head of Education, Umeris: Institute of High Education", tagClass: "tag-workshop" },
+        { time: "12:00", tag: "panel", label: "Fireside Chat: AI and the Future of Work: Preparing the Namibian Youth for an AI-Driven Economy through Emerging AI Startups", sub: "Moderators: Ms Liina Massipa & Tjiperinai Hambira (Students, Computer Science, NUST). Fireside Chatters: Abubakar Kamagata (PhD student, NUST) & Students", tagClass: "tag-panel" },
+        { time: "12:30", tag: "exhibitors", label: "Exhibitors' Introductions", sub: "Mr Naftali Indongo (Lecturer, Software Engineering, NUST). Exhibitors: Huawei, P3 Group, Access Bank, ACM SIGCHI chapter, OctoAI Language Research, NamTwin-Go, Asmbly, FarmOS", tagClass: "tag-social" },
+        { time: "12:45", tag: "exhibitions", label: "Exhibitions", sub: "", tagClass: "tag-social" },
+        { time: "13:00", tag: "lunch", label: "Lunch", sub: "", tagClass: "tag-lunch" },
+        { time: "14:00", tag: "demo", label: "Demo 1: Reducing Redundancy in Student Research Proposals using Open-Source Hybrid RAG-Based Knowledge Retrieval", sub: "Dr. Benjamin Akinmoyeje (Microsoft Student Ambassador, Namibia) & Quang Thinh Lam (Microsoft Student Ambassador, New Zealand)", tagClass: "tag-workshop" },
+        { time: "14:15", tag: "demo", label: "Demo 2: Autonomous Drones for Livestock Farming in Low-Resource Namibian Environments", sub: "Mr Wilbard Lazarus, Founder, Mashoke Drones", tagClass: "tag-workshop" },
+        { time: "14:30", tag: "demo", label: "Demo 3: Building your own Chatbot in 10 minutes", sub: "Mr Yakubu Shehu, Full-stack Software Developer, PhD Candidate, NUST", tagClass: "tag-workshop" },
+        { time: "14:45", tag: "talk", label: "Technical Talk 4: Closing the Credentialing Gap: Making Applied AI Count as a Recognised Vocational Competency in Namibia", sub: "Dr Taime Sylvester, Senior Lecturer in Clinical Health Sciences, NUST", tagClass: "tag-workshop" },
+        { time: "15:00", tag: "talk", label: "Technical Talk 5: A Multi-Layer Trust Evaluation Framework for Assessing Consistency Between Statistical Inference and Explainable AI in Clinical Breast Cancer Prediction", sub: "Mr Oyetayo Oyebisi, MSc Student, Pan African University, Institute for Basic Sciences, Technology and Innovation, Kenya", tagClass: "tag-workshop" },
+        { time: "15:25", tag: "workshop", label: "Workshop 1: From Honours to AI Research: A Practical Guide to Machine Learning Thesis Success", sub: "DAAD PhD students: Dr. Benjamin Akinmoyeje, Abubakar Hamisu Kamagata, Kebadu Mekuriaw Adamu, Tadesse Kebede, Werkineh Eshete Yifru", tagClass: "tag-workshop" },
+        { time: "15:25", tag: "workshop", label: "Workshop 2: Development of Tutoring and Assisting Systems for Asperger's Syndrome People Utilizing Machine Learning", sub: "Ananias Nghiyelekwa Amupadi, Software Developer, Honours Software Development Graduate (NUST)", tagClass: "tag-workshop" },
+        { time: "16:20", tag: "closing", label: "Closing Remarks", sub: "Dr Simon Muchinenyika, HoD, Software Engineering, NUST", tagClass: "tag-closing" },
       ],
       [
-        { time: "09:00", tag: "talk", label: "A Multi-Layer Trust Evaluation Framework for Explainable AI in Clinical Breast Cancer Prediction", sub: "Mr Oyetayo Oyebisi, Pan African University Institute", tagClass: "tag-workshop" },
-        { time: "10:00", tag: "talk", label: "Problematic or Promising? Student Perspectives on Using ChatGPT for Research Problem Statements", sub: "Mr André van der Westhuizen, The IIE's Emeris Campus", tagClass: "tag-workshop" },
-        { time: "11:00", tag: "workshop", label: "Lightning Talk: Use of Databricks with PySpark for Big Data", sub: "Prof. Stephen Fashoto, Ms Jovita Mateus & Mr Naftali Indongo, NUST", tagClass: "tag-workshop" },
-        { time: "12:30", tag: "lunch", label: "Lunch Time", sub: "", tagClass: "tag-lunch" },
-        { time: "13:30", tag: "demo", label: "Technical Demo: Reducing Redundancy in Research Proposals with Hybrid RAG", sub: "Dr Benjamin Akinmoyeje & Mr Quang Thinh Lam", tagClass: "tag-workshop" },
-        { time: "14:30", tag: "demo", label: "Technical Demo: Building Your Own Chatbot in 10 Minutes", sub: "Mr Yakubu Shehu, NUST", tagClass: "tag-workshop" },
-        { time: "16:00", tag: "closing", label: "Conclusion & Q&A Session", sub: "Organising Committee", tagClass: "tag-closing" },
+        { time: "08:00", tag: "registration", label: "Registration and Arrival", sub: "FCI Society", tagClass: "tag-social" },
+        { time: "08:30", tag: "opening", label: "Welcoming Remarks", sub: "Prof Zodi Guy-Alai, Associate Dean: School of Computing, Faculty of Computing & Informatics", tagClass: "tag-panel" },
+        { time: "08:40", tag: "keynote", label: "Keynote 2: Rented Intelligence: Why Africa's AI Future Depends on What We Own", sub: "Stantin Siebritz, Managing Director (New Creation Solutions), AI Expert, Software Engineer", tagClass: "tag-panel" },
+        { time: "09:10", tag: "talk", label: "Technical Talk 5: A.I('d Rather Not) - Protecting Yourself from Intrusive AI", sub: "Mr Yakubu Shehu, Full-stack Software Developer, PhD Candidate, NUST", tagClass: "tag-workshop" },
+        { time: "09:35", tag: "talk", label: "Technical Talk 7: From Prediction to Decision: Agentic AI for Climate Resilient Water Demand and Supply Management in Windhoek", sub: "João Julia Luzolo (MSc Student, NUST, AI/ML Engineer, Software Engineer)", tagClass: "tag-workshop" },
+        { time: "10:20", tag: "poster", label: "Poster Session", sub: "", tagClass: "tag-social" },
+        { time: "10:20", tag: "break", label: "Tea Break", sub: "", tagClass: "tag-lunch" },
+        { time: "11:20", tag: "panel", label: "Panel Discussion 2: Are We Shying Away from AI? Addressing the AI Accountability Gap in Higher Education", sub: "Moderator: Ms Jordaania Andima (HoD: Digital Arts & Animation). Panellists: Dr Gabriel Nhinda (Senior Lecturer, Informatics, NUST), Mr Sergio De Sousa (Chief Data and Analytics Officer, FNB), Mr Wynand Gariseb (Specialist: IT Security DICTS, UNAM), Mr Anton Limbo (Lecturer: Computer Science, UNAM)", tagClass: "tag-panel" },
+        { time: "12:05", tag: "talk", label: "Technical Talk 6: Pattern Recognition for Automated Job Scheduling in Smart Manufacturing", sub: "Rachel Lazarus, BSc Honours Industrial Engineering Student, University of Pretoria, Software Developer", tagClass: "tag-workshop" },
+        { time: "12:25", tag: "opportunities", label: "Opportunities: Connect, Learn and Lead: Unlocking Global Opportunities Through ACM", sub: "ACM Chapter", tagClass: "tag-social" },
+        { time: "12:40", tag: "talk", label: "Technical Talk 9: Navigating Ethical Implications of Enforcing Regulations for Artificial Intelligence in Education Assessment and Research", sub: "Gabriel Uunona, Coordinator: Learning Design, Centre for Innovation in Learning and Teaching (CILT), UNAM", tagClass: "tag-workshop" },
+        { time: "13:00", tag: "lunch", label: "Lunch", sub: "", tagClass: "tag-lunch" },
+        { time: "13:45", tag: "hackathon", label: "Hackathon/Competition Presentation and Judging", sub: "Moderators: Mr Naftali Indongo (AI Expert, Lecturer, Software Eng., NUST), Ms Jovita Shiweda (Lecturer: Computer Science, NUST). Judges: Mr Herman Kandjimi (NUST), Mr Sergio De Sousa (FNB), Lukas Namupala (CRAN), Mr Vernick Mashuna (Bank of Namibia), Mr Abraham Palema (GIPF)", tagClass: "tag-workshop" },
+        { time: "16:00", tag: "awards", label: "Hackathon Winner & Best Poster Winner", sub: "Ndinelago Nashandi, MTC Representative, Lecturer: Software Engineering, NUST", tagClass: "tag-closing" },
+        { time: "16:15", tag: "closing", label: "Vote of Thanks", sub: "Prof Attlee Gamundani, Associate Professor: Cyber security, NUST", tagClass: "tag-closing" },
       ],
     ];
 

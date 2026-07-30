@@ -43,9 +43,11 @@ export default function CountUp({ end, duration = 1.5 }) {
     }, [end, duration]);
 
 
+    // Render the real target up front: if the scroll trigger hasn't fired yet
+    // (or JS/GSAP fails) the correct figure is still what's on screen.
     return (
         <span ref={numberRef}>
-            28
+            {end}
         </span>
     );
 }

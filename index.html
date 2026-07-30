@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IndabaX Namibia 2026 - Home</title>
-    <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
+    <link rel="icon" type="image/webp" href="Resources/Logo1_white.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -41,12 +41,12 @@
     <!-- Navbar -->
 
     <!-- NAVBAR -->
-    <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
+    <nav class="site-nav fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <img src="Resources/Logo1_white.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
                     <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
                 </div>
 
@@ -102,149 +102,161 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-dune text-white pt-40 overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('Resources/2025\ Main.webp');   
-                    background-size: cover; 
-                    background-position: center;">
-        </div>
-        <!-- Lighter Gradient Overlay to improve image visibility while keeping text readable -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30  to-black/30"></div>
+    <section class="home-hero relative text-white overflow-hidden">
+        <!-- Background photo (slow drift) -->
+        <div class="home-hero__media" style="background-image: url('Resources/2025 Main.webp');"></div>
+        <!-- Brand duotone wash: keeps the copy readable, lets the photo breathe on the right -->
+        <div class="home-hero__scrim"></div>
+
         <!-- Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-28 lg:pt-36 lg:pb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+                <div class="home-hero__copy lg:col-span-7">
+                    <!-- Eyebrow badge -->
+                    <div class="hero-fade-up inline-flex items-center gap-3 mb-7" style="animation-delay:0.1s;">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-lg bg-orange text-white shadow-lg shadow-orange/30">
+                            <i class="fas fa-calendar-alt text-sm"></i>
+                        </span>
+                        <span class="text-xs font-bold uppercase tracking-[0.16em] text-orange">
+                            Namibia&rsquo;s Premier AI Gathering
+                        </span>
+                    </div>
+
                     <div id="hero-text">
-                        <h1 class="split-parent text-5xl lg:text-6xl">IndabaX Namibia 2026</h1>
+                        <h1 class="split-parent text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.03] tracking-tight mb-5">
+                            IndabaX Namibia 2026</h1>
                     </div>
-                    <p class="text-xl lg:text-2xl font-light mb-8 opacity-90">Advancing Inclusive and Responsible AI
-                        Innovation for a Digitally Empowered Namibia</p>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-calendar-alt text-orange text-xl"></i>
-                            <span class="font-semibold text-lg">30 &ndash; 31 July, 2026</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-map-marker-alt text-orange text-xl"></i>
-                            <span class="font-semibold text-lg">NUST Lower Campus, 6th Floor, HTTPS Building</span>
-                        </div>
-                    </div>
+
+                    <div id="hero-intro"></div>
                 </div>
-                <div class="lg:text-right relative">
 
-                    <!-- React Magic Rings -->
-                    <div id="react-bit" class="absolute inset-0 w-80 h-80 mx-auto lg:ml-auto">
-                    </div>
-
-                    <!-- Brain Icon -->
-                    <div
-                        class="relative z-10 bg-orange/20 rounded-full w-80 h-80 mx-auto lg:ml-auto flex items-center justify-center">
-
-                        <div class="bg-orange/30 rounded-full w-60 h-60 flex items-center justify-center">
-
-                            <div class="bg-white/20 rounded-full w-40 h-40 flex items-center justify-center">
-
-                                <i class="fas fa-brain text-white text-6xl"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <div class="lg:col-span-5">
+                    <!-- Neural core visual (Framer Motion) -->
+                    <div id="brain-pulse-root"></div>
                 </div>
+
             </div>
         </div>
+
     </section>
 
-    <!-- Feature Strip (3 columns) -->
-    <section id="features" class="py-16 bg-dune">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Stat bar — compact band riding the seam between hero and content -->
+    <section id="features" class="relative z-20 -mt-12 sm:-mt-14 px-4 sm:px-6 lg:px-8 pb-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="stat-bar">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card: Speakers -->
-                <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full"
-                        role="group">
-                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Speakers</div>
-                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span id="speakers-count" class="mr-2">24</span>
-                            <span class="text-2xl text-white/100">+</span>
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-microphone-lines"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="speakers-count">24</span><span class="text-orange">+</span>
                         </div>
+                        <div class="stat-label">Speakers</div>
                     </div>
                 </div>
 
-                <!-- Card: Overall Attendees -->
-                <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full"
-                        role="group">
-                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Attendees</div>
-                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span id="attendees-count" class="mr-2">512</span>
-                            <span class="text-2xl text-white/100">+</span>
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-users"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="attendees-count">512</span><span class="text-orange">+</span>
                         </div>
+                        <div class="stat-label">Attendees</div>
                     </div>
                 </div>
 
-                <!-- Card: Overall Workshops -->
-                <div style="perspective:1000px;" class="flex items-stretch justify-center">
-                    <div class="bg-gradient-to-br from-orange/20 to-sand/50 rounded-lg p-10"></div>
-                    <div class="tilt-card transform-gpu transition duration-300 ease-out flex flex-col items-center text-center p-8 bg-brown backdrop-blur-sm border border-white/10 rounded-lg shadow-lg hover:-translate-y-2 hover:scale-105 hover:shadow-2xl w-full h-full"
-                        role="group">
-                        <div class="text-sm uppercase tracking-wider text-white/100 mb-2">Overall Workshops</div>
-                        <div class="flex items-center justify-center text-4xl font-semibold text-white">
-                            <span id="workshops-count" class="mr-2">18</span>
-                            <span class="text-2xl text-white/100">+</span>
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-chalkboard-user"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="workshops-count">18</span><span class="text-orange">+</span>
                         </div>
+                        <div class="stat-label">Workshops</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Highlight Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section class="highlight-section py-24 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+                <!-- Polygon showcase -->
                 <div class="lg:order-2">
-                    <!-- Polygon image viewer -->
-                    <div class="flex items-center justify-center">
-                        <div id="poly-viewer"
-                            class="relative w-full max-w-md md:max-w-lg h-64 md:h-80 flex items-center justify-center">
-                            <!-- Prev button placed outside left -->
+                    <div class="poly-stage mx-auto w-full max-w-md md:max-w-lg">
+                        <div id="poly-viewer" class="relative w-full aspect-[4/3]">
+
+                            <!-- Offset echo of the same shape, for depth -->
+                            <span class="poly-echo poly-shape" aria-hidden="true"></span>
+
                             <button id="poly-prev" aria-label="Previous image"
-                                class="absolute z-20 top-1/2 -translate-y-1/2 bg-dune/85 hover:bg-black/50 text-white p-3 rounded-full shadow"
-                                style="left: -48px;">‹</button>
+                                class="poly-nav poly-nav--prev">&lsaquo;</button>
 
-                            <div class="polygon-mask w-full h-full overflow-hidden rounded-3xl shadow-lg"
-                                style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
-                                <img id="poly-image" alt="Highlight image"
-                                    class="w-full h-full object-cover transition-all duration-700 ease-in-out">
-                            </div>
-                            <!-- the dots -->
-                            <div id="poly-dots" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-50">
+                            <div class="poly-frame poly-shape relative w-full h-full overflow-hidden shadow-2xl">
+                                <img id="poly-image" alt="Highlight image" class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Next button placed outside right -->
+                            <div id="poly-dots"
+                                class="absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-2.5 z-30"></div>
+
                             <button id="poly-next" aria-label="Next image"
-                                class="absolute z-20 top-1/2 -translate-y-1/2 bg-dune/85 hover:bg-black/70 text-white p-3 rounded-full shadow"
-                                style="right: -48px;">›</button>
+                                class="poly-nav poly-nav--next">&rsaquo;</button>
+                        </div>
 
-
+                        <!-- Floating caption chip -->
+                        <div
+                            class="relative z-30 mx-auto mt-6 w-fit rounded-full bg-white px-5 py-2 shadow-lg ring-1 ring-earth/10">
+                            <span class="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-earth/60">
+                                Moments from IndabaX Namibia
+                            </span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Copy -->
                 <div class="lg:order-1">
-                    <h2 class="text-4xl font-semibold text-earth mb-6">Building AI Excellence in Namibia</h2>
-                    <p class="text-xl text-earth/70 mb-8">IndabaX Namibia is more than just a conference – it's a
-                        movement to democratize AI education and foster innovation across our nation. Join us as we
-                        build a stronger, more inclusive AI community.</p>
+                    <span class="inline-flex items-center gap-2.5 mb-5">
+                        <span class="h-px w-8 bg-orange"></span>
+                        <span class="text-xs font-bold uppercase tracking-[0.16em] text-orange">Our Mission</span>
+                    </span>
+
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-earth leading-[1.12] mb-6">
+                        Building AI Excellence
+                        <span class="block text-orange">in Namibia</span>
+                    </h2>
+
+                    <p class="text-lg text-earth/70 leading-relaxed mb-8">
+                        IndabaX Namibia is more than just a conference &ndash; it&rsquo;s a movement to democratise AI
+                        education and foster innovation across our nation. Join us as we build a stronger, more
+                        inclusive AI community.
+                    </p>
+
+                    <ul class="space-y-3.5 mb-9">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Hands-on workshops and practical technical demos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Research from across Namibia and the continent</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Direct access to industry and academic leaders</span>
+                        </li>
+                    </ul>
+
                     <a href="about.html"
-                        class="bg-orange hover:bg-black/70 text-white px-8 py-4 rounded-lg text-lg font-medium transition duration-300 inline-block">Learn
-                        More</a>
+                        class="group inline-flex items-center gap-2.5 rounded-xl bg-orange px-7 py-3.5 font-semibold text-white shadow-lg shadow-orange/25 transition duration-300 hover:bg-earth hover:shadow-earth/25">
+                        Learn More
+                        <i
+                            class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
                 </div>
             </div>
         </div>

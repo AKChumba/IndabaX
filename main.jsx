@@ -1,8 +1,8 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 
-import MagicRings from "./react-components/MagicRings.jsx";
 import HeroText from "./react-components/HeroText.jsx";
+import HeroIntro from "./react-components/HeroIntro.jsx";
+import BrainPulse from "./react-components/BrainPulse.jsx";
 import CountUp from "./react-components/CountUp.jsx";
 import LogoLoop from "./react-components/LogoLoop.jsx";
 import unamLogo from "./Resources/unam.webp";
@@ -10,29 +10,27 @@ import nustLogo from "./Resources/nust.webp";
 import mtcLogo from "./Resources/mtc.webp";
 import indabaXLogo from "./Resources/IndabaX_Logo.webp";
 
-const root = createRoot(
-    document.getElementById("react-bit")
-);
-
-root.render(
-    <MagicRings
-    color="#F4A261"
-    colorTwo="#E85D04"
-    speed={0.4
-
-    }
-    ringCount={5}
-    followMouse={true}
-    mouseInfluence={0.3}
-    clickBurst={true}
-/>
-);
-
 const heroText = document.getElementById("hero-text");
 
 if (heroText) {
     createRoot(heroText).render(
         <HeroText />
+    );
+}
+
+const heroIntro = document.getElementById("hero-intro");
+
+if (heroIntro) {
+    createRoot(heroIntro).render(
+        <HeroIntro />
+    );
+}
+
+const brainPulse = document.getElementById("brain-pulse-root");
+
+if (brainPulse) {
+    createRoot(brainPulse).render(
+        <BrainPulse />
     );
 }
 

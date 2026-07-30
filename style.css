@@ -323,3 +323,654 @@ nav.bg-sky-500 a.text-white:hover {
     .year-num { font-size: 36px; }
     .card-label { font-size: 11px; padding: 5px 12px; white-space: nowrap; }
 }
+
+/* ── Site navbar ──────────────────────────────────────────────────────────
+   Frosted in both states. Over the dark hero it's a smoked-glass panel with
+   white type; once scrolled onto light content it becomes a bright frosted
+   panel with dark type. JS only toggles .site-nav--scrolled. */
+.site-nav {
+    background: rgba(28, 19, 15, 0.30);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+.site-nav a,
+.site-nav .nav-dropdown-toggle,
+.site-nav #nav-logo-text,
+.site-nav #mobile-menu-btn {
+    color: #ffffff;
+    transition: color 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav .nav-dropdown-toggle:hover,
+.site-nav #mobile-menu-btn:hover {
+    color: var(--burnt-orange);
+}
+
+/* Away from the top the glass firms up slightly so white type stays legible
+   over light page sections — still translucent, still frosted. */
+.site-nav--stuck {
+    background: rgba(28, 19, 15, 0.48);
+    backdrop-filter: blur(36px) saturate(190%);
+    -webkit-backdrop-filter: blur(36px) saturate(190%);
+}
+
+/* Dropdown panel keeps its own light styling in both states (its links are
+   already pinned with !important above). */
+
+/* ── Home hero ────────────────────────────────────────────────────────── */
+.home-hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: #1E1410;
+}
+
+/* Photo layer, slowly drifting so the hero never feels frozen */
+.home-hero__media {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform-origin: 60% 50%;
+    animation: heroDrift 26s ease-in-out infinite alternate;
+}
+
+@keyframes heroDrift {
+    from { transform: scale(1.02); }
+    to   { transform: scale(1.11); }
+}
+
+/* Brand duotone wash: opaque behind the copy, translucent behind the visual */
+.home-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(30, 20, 16, 0.6) 0%, rgba(30, 20, 16, 0) 24%),
+        linear-gradient(180deg, rgba(30, 20, 16, 0) 64%, rgba(30, 20, 16, 0.82) 100%),
+        radial-gradient(ellipse 55% 70% at 72% 50%, rgba(232, 93, 4, 0.26), transparent 70%),
+        radial-gradient(circle at 74% 48%, rgba(20, 13, 10, 0.55) 0%, rgba(20, 13, 10, 0.26) 34%, transparent 64%),
+        linear-gradient(100deg,
+            rgba(24, 16, 13, 0.82) 0%,
+            rgba(24, 16, 13, 0.66) 32%,
+            rgba(30, 20, 16, 0.34) 56%,
+            rgba(193, 68, 14, 0.1) 100%);
+}
+
+/* Readability floor directly under the headline block, so lightening the
+   overall wash above doesn't cost contrast on the copy itself. */
+.home-hero__copy {
+    position: relative;
+}
+
+.home-hero__copy::before {
+    content: '';
+    position: absolute;
+    inset: -12% -18% -12% -40%;
+    background: radial-gradient(ellipse at 38% 50%, rgba(18, 12, 9, 0.62), transparent 68%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-hero__media {
+        animation: none;
+    }
+}
+
+/* ── Reusable page hero (About, and any future inner page) ────────────── */
+.page-hero {
+    position: relative;
+    overflow: hidden;
+    background: #1E1410;
+}
+
+.page-hero__media {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: heroDrift 26s ease-in-out infinite alternate;
+}
+
+/* Copy here is centred over the middle of the photo, so this needs a
+   centre-weighted vignette rather than the home hero's side wash. */
+.page-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 62% 58% at 50% 52%, rgba(16, 10, 8, 0.78), rgba(16, 10, 8, 0.30) 62%, transparent 80%),
+        linear-gradient(180deg, rgba(26, 17, 13, 0.80) 0%, rgba(26, 17, 13, 0.52) 42%, rgba(26, 17, 13, 0.90) 100%),
+        radial-gradient(ellipse 70% 60% at 50% 45%, rgba(232, 93, 4, 0.18), transparent 74%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-hero__media { animation: none; }
+}
+
+/* ── Site footer ──────────────────────────────────────────────────────── */
+.site-footer {
+    width: 100%;
+    margin-top: 0;
+    color: rgba(255, 255, 255, 0.72);
+    background:
+        radial-gradient(ellipse 45% 60% at 88% 0%, rgba(232, 93, 4, 0.16), transparent 68%),
+        #1A110D;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.site-footer__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 24px 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .site-footer__inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .site-footer__inner { grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 48px; }
+}
+
+.site-footer__blurb {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 34ch;
+}
+
+.site-footer__socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.site-footer__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.site-footer__social:hover {
+    background: var(--burnt-orange);
+    border-color: var(--burnt-orange);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.site-footer__heading {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.site-footer__list a {
+    position: relative;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.22s ease, padding-left 0.22s ease;
+}
+
+.site-footer__list a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--burnt-orange);
+    transition: width 0.22s ease;
+}
+
+.site-footer__list a:hover {
+    color: #fff;
+    padding-left: 16px;
+}
+
+.site-footer__list a:hover::before { width: 10px; }
+
+.site-footer__meta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.site-footer__meta li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.site-footer__meta i {
+    margin-top: 3px;
+    color: var(--burnt-orange);
+    flex-shrink: 0;
+}
+
+.site-footer__meta a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.22s ease;
+}
+
+.site-footer__meta a:hover { color: var(--burnt-orange); }
+
+.site-footer__bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 18px 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.site-footer__bar p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-footer__social,
+    .site-footer__list a,
+    .site-footer__list a::before { transition: none; }
+    .site-footer__social:hover { transform: none; }
+}
+
+/* ── About page: "What is IndabaX" band ───────────────────────────────── */
+.about-band {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 70% at 88% 20%, rgba(232, 93, 4, 0.30), transparent 68%),
+        linear-gradient(140deg, #7A2E08 0%, #C1440E 55%, #A8380B 100%);
+}
+
+.about-chip {
+    padding: 14px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.about-chip__value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.about-chip__label {
+    margin-top: 4px;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Image panel with an offset rust frame behind it */
+.about-figure {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 30px 70px rgba(20, 12, 8, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.about-figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(20, 12, 8, 0.42) 100%);
+    pointer-events: none;
+}
+
+.about-figure img {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-figure:hover img { transform: scale(1.05); }
+
+/* ── About page: "Why Attend" cards ───────────────────────────────────── */
+.why-attend {
+    background:
+        radial-gradient(ellipse 50% 45% at 92% 8%, rgba(232, 93, 4, 0.08), transparent 70%),
+        #ffffff;
+}
+
+.why-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 24px 26px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232, 93, 4, 0.35);
+    box-shadow: 0 22px 46px rgba(30, 20, 16, 0.12);
+}
+
+/* Oversized ghost numeral */
+.why-card__num {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 3.1rem;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(30, 20, 16, 0.06);
+    transition: color 0.3s ease;
+}
+
+.why-card:hover .why-card__num { color: rgba(232, 93, 4, 0.16); }
+
+.why-card__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background: rgba(232, 93, 4, 0.12);
+    color: var(--burnt-orange);
+    font-size: 1.15rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.why-card:hover .why-card__icon {
+    background: var(--burnt-orange);
+    color: #fff;
+}
+
+.why-card__title {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.why-card__body {
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(38, 70, 83, 0.68);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .why-card,
+    .why-card__num,
+    .why-card__icon,
+    .about-figure img { transition: none; }
+    .why-card:hover { transform: none; }
+    .about-figure:hover img { transform: none; }
+}
+
+/* ── Highlight section: polygon showcase ──────────────────────────────── */
+.poly-shape {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.poly-stage {
+    position: relative;
+}
+
+/* Warm halo so the shape lifts off the white section */
+.poly-stage::before {
+    content: '';
+    position: absolute;
+    inset: -14% -10%;
+    background: radial-gradient(closest-side, rgba(232, 93, 4, 0.22), transparent 72%);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+/* Offset echo of the same shape, for depth behind the photo */
+.poly-echo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232, 93, 4, 0.35), rgba(197, 109, 70, 0.12));
+    transform: rotate(9deg) scale(0.96);
+    pointer-events: none;
+}
+
+.poly-frame img {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+
+.poly-stage:hover .poly-frame img {
+    transform: scale(1.06);
+}
+
+/* Positioning lives here rather than in Tailwind utilities: the CDN build
+   injects its styles after this sheet, so a utility-based transform would
+   beat the hover rule below. */
+.poly-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    background: rgba(30, 20, 16, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.poly-nav--prev { left: 4px; }
+.poly-nav--next { right: 4px; }
+
+@media (min-width: 640px) {
+    .poly-nav--prev { left: -22px; }
+    .poly-nav--next { right: -22px; }
+}
+
+.poly-nav:hover {
+    background: var(--burnt-orange);
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: translateY(-50%) scale(1.09);
+}
+
+/* Dots sit over the photo, so they stay light */
+#poly-dots button {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Section canvas: soft warm wash instead of flat white */
+.highlight-section {
+    position: relative;
+    background:
+        radial-gradient(ellipse 60% 55% at 88% 12%, rgba(232, 93, 4, 0.09), transparent 70%),
+        radial-gradient(ellipse 55% 50% at 4% 92%, rgba(197, 109, 70, 0.10), transparent 72%),
+        #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .poly-frame img,
+    .poly-nav { transition: none; }
+    .poly-stage:hover .poly-frame img { transform: none; }
+}
+
+/* ── Stat bar (compact band that overlaps the hero) ───────────────────── */
+.stat-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(30, 20, 16, 0.82);
+    backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 60px rgba(30, 20, 16, 0.32);
+}
+
+@media (min-width: 640px) {
+    .stat-bar { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stat-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 22px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    transition: background 0.3s ease;
+}
+
+.stat-cell:first-child { border-top: none; }
+
+@media (min-width: 640px) {
+    .stat-cell {
+        border-top: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .stat-cell:first-child { border-left: none; }
+}
+
+.stat-cell:hover { background: rgba(232, 93, 4, 0.12); }
+
+/* Accent rule that grows in on hover */
+.stat-cell::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--burnt-orange);
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+}
+
+.stat-cell:hover::after { width: 62%; }
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(232, 93, 4, 0.18);
+    color: var(--burnt-orange);
+    font-size: 1rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    margin-top: 4px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-cell,
+    .stat-cell::after { transition: none; }
+}
+
+/* Speakers hero — dark hero with rust glow + staggered entrance */
+.speakers-hero {
+    background: #1E1410;
+}
+
+.speakers-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 30% 20%, rgba(232, 93, 4, 0.28), transparent 65%),
+        radial-gradient(ellipse 50% 60% at 85% 80%, rgba(197, 109, 70, 0.18), transparent 65%);
+    pointer-events: none;
+}
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-fade-up {
+    opacity: 0;
+    animation: heroFadeUp 0.7s ease forwards;
+}
+
+@keyframes posterProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.poster-progress-fill {
+    animation-name: posterProgress;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}

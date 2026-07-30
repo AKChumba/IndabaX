@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndabaX Namibia 2026 - Home</title>
+    <link rel="icon" type="image/webp" href="/assets/Logo1_white-Czz2ULRP.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dune': '#C1440E',
+                        'orange': '#E85D04',
+                        'sand': '#F4A261',
+                        'brown': '#3d251e',
+                        'desert': '#E9C46A',
+                        'sky': '#2A9D8F',
+                        'earth': '#264653',
+                        'light-sand': '#F4A261',
+                        'brown': '#C56D46',
+                        'burgundy': '#6a2a11',
+                        'peach': '#FECF97',
+                        brand: {
+                            brown: '#C56D46',
+                            burgundy: '#6a2a11',
+                            peach: '#FECF97'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/main-CoqF1P-r.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/use-reduced-motion-CsWl593g.js">
+  <link rel="modulepreload" crossorigin href="/assets/script-CInrWj2i.js">
+  <link rel="stylesheet" crossorigin href="/assets/script-CiQQBvrY.css">
+</head>
+
+<body class="text-earth">
+    <!-- Navbar -->
+
+    <!-- NAVBAR -->
+    <nav class="site-nav fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="/assets/Logo1_white-Czz2ULRP.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">Home</a>
+                        <a href="about.html"
+                            class="text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300">About</a>
+                        <div class="nav-dropdown">
+                            <button
+                                class="nav-dropdown-toggle text-white font-bold hover:text-orange/70 px-3 py-2 rounded-md transition duration-300 inline-flex items-center gap-1.5"
+                                aria-haspopup="true" aria-expanded="false">
+                                Conference <i class="fas fa-chevron-down nav-dropdown-caret text-xs"></i>
+                            </button>
+                            <div class="nav-dropdown-menu">
+                                <a href="schedule.html">Schedule</a>
+                                <a href="speakers.html">Speakers</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
+                    <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
+                    <button
+                        class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune px-3 py-2 rounded-md"
+                        aria-expanded="false">
+                        <span>Conference</span>
+                        <i class="fas fa-chevron-down text-xs mobile-caret"></i>
+                    </button>
+                    <div class="mobile-submenu hidden space-y-1 pb-1">
+                        <a href="schedule.html"
+                            class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Schedule</a>
+                        <a href="speakers.html"
+                            class="text-earth/80 hover:text-dune block px-3 py-2 rounded-md text-sm">Speakers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="home-hero relative text-white overflow-hidden">
+        <!-- Background photo (slow drift) -->
+        <div class="home-hero__media" style="background-image: url('/assets/2025%20Main-Di52PtVN.webp');"></div>
+        <!-- Brand duotone wash: keeps the copy readable, lets the photo breathe on the right -->
+        <div class="home-hero__scrim"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-28 lg:pt-36 lg:pb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+                <div class="home-hero__copy lg:col-span-7">
+                    <!-- Eyebrow badge -->
+                    <div class="hero-fade-up inline-flex items-center gap-3 mb-7" style="animation-delay:0.1s;">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-lg bg-orange text-white shadow-lg shadow-orange/30">
+                            <i class="fas fa-calendar-alt text-sm"></i>
+                        </span>
+                        <span class="text-xs font-bold uppercase tracking-[0.16em] text-orange">
+                            Namibia&rsquo;s Premier AI Gathering
+                        </span>
+                    </div>
+
+                    <div id="hero-text">
+                        <h1 class="split-parent text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.03] tracking-tight mb-5">
+                            IndabaX Namibia 2026</h1>
+                    </div>
+
+                    <div id="hero-intro"></div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <!-- Neural core visual (Framer Motion) -->
+                    <div id="brain-pulse-root"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Stat bar — compact band riding the seam between hero and content -->
+    <section id="features" class="relative z-20 -mt-12 sm:-mt-14 px-4 sm:px-6 lg:px-8 pb-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="stat-bar">
+
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-microphone-lines"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="speakers-count">24</span><span class="text-orange">+</span>
+                        </div>
+                        <div class="stat-label">Speakers</div>
+                    </div>
+                </div>
+
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-users"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="attendees-count">512</span><span class="text-orange">+</span>
+                        </div>
+                        <div class="stat-label">Attendees</div>
+                    </div>
+                </div>
+
+                <div class="stat-cell" role="group">
+                    <span class="stat-icon"><i class="fas fa-chalkboard-user"></i></span>
+                    <div>
+                        <div class="stat-value">
+                            <span id="workshops-count">18</span><span class="text-orange">+</span>
+                        </div>
+                        <div class="stat-label">Workshops</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+                <!-- Polygon showcase -->
+                <div class="lg:order-2">
+                    <div class="poly-stage mx-auto w-full max-w-md md:max-w-lg">
+                        <div id="poly-viewer" class="relative w-full aspect-[4/3]">
+
+                            <!-- Offset echo of the same shape, for depth -->
+                            <span class="poly-echo poly-shape" aria-hidden="true"></span>
+
+                            <button id="poly-prev" aria-label="Previous image"
+                                class="poly-nav poly-nav--prev">&lsaquo;</button>
+
+                            <div class="poly-frame poly-shape relative w-full h-full overflow-hidden shadow-2xl">
+                                <img id="poly-image" alt="Highlight image" class="w-full h-full object-cover">
+                            </div>
+
+                            <div id="poly-dots"
+                                class="absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-2.5 z-30"></div>
+
+                            <button id="poly-next" aria-label="Next image"
+                                class="poly-nav poly-nav--next">&rsaquo;</button>
+                        </div>
+
+                        <!-- Floating caption chip -->
+                        <div
+                            class="relative z-30 mx-auto mt-6 w-fit rounded-full bg-white px-5 py-2 shadow-lg ring-1 ring-earth/10">
+                            <span class="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-earth/60">
+                                Moments from IndabaX Namibia
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copy -->
+                <div class="lg:order-1">
+                    <span class="inline-flex items-center gap-2.5 mb-5">
+                        <span class="h-px w-8 bg-orange"></span>
+                        <span class="text-xs font-bold uppercase tracking-[0.16em] text-orange">Our Mission</span>
+                    </span>
+
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-earth leading-[1.12] mb-6">
+                        Building AI Excellence
+                        <span class="block text-orange">in Namibia</span>
+                    </h2>
+
+                    <p class="text-lg text-earth/70 leading-relaxed mb-8">
+                        IndabaX Namibia is more than just a conference &ndash; it&rsquo;s a movement to democratise AI
+                        education and foster innovation across our nation. Join us as we build a stronger, more
+                        inclusive AI community.
+                    </p>
+
+                    <ul class="space-y-3.5 mb-9">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Hands-on workshops and practical technical demos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Research from across Namibia and the continent</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-circle-check mt-1 text-orange"></i>
+                            <span class="text-earth/80">Direct access to industry and academic leaders</span>
+                        </li>
+                    </ul>
+
+                    <a href="about.html"
+                        class="group inline-flex items-center gap-2.5 rounded-xl bg-orange px-7 py-3.5 font-semibold text-white shadow-lg shadow-orange/25 transition duration-300 hover:bg-earth hover:shadow-earth/25">
+                        Learn More
+                        <i
+                            class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Highlights Section -->
+    <section id="Highlight-section" class="py-12 px-4 md:px-6 lg:px-8 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="mb-10">
+                <h2 class="text-4xl font-bold text-earth mt-2">Latest Highlights</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" src="/assets/stage-CJGtQQdF.webp"
+                            alt="Annual conference" loading="lazy">
+                        <span
+                            class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Annual conference
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span class="text-brand-brown">IndabaX committee</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Bringing together the brightest minds in machine learning across Africa for a week of talks,
+                            workshops, and collaboration opportunities.
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            <span>June 10, 2025</span>
+                        </div>
+                        <a href="https://indabaxnamibia.com/"
+                            class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" src="/assets/2025-DvSuyQHu.webp"
+                            alt="Workshop sessions" loading="lazy">
+                        <span
+                            class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Deep Learning Indaba
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span class="text-brand-brown">IndabaX</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The Deep Learning Indaba is the annual meeting of the African machine learning and AI
+                            community.
+                            Since 2017, our mission has been to Strengthen African AI,
+                            and to ensure that Africans are owners and shapers of the coming advances in AI.
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            <span>May 18, 2024</span>
+                        </div>
+                        <a href="https://indabaxnamibia.com/2024/" target="_blank" rel="noopener noreferrer"
+                            class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="highlight-card bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden bg-gray-200">
+                        <img class="card-image w-full h-64 object-cover" src="/assets/2024-BBVkwkPD.webp"
+                            alt="Workshop sessions" loading="lazy">
+                        <span
+                            class="card-label absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange text-white px-5 py-2 rounded-md text-sm font-semibold whitespace-nowrap shadow-md">
+                            Workshop sessions
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span class="text-brand-brown">IndabaX committee</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Hands-on sessions led by expert practitioners covering the latest techniques in deep
+                            learning, NLP, and computer vision applications.
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center p-5 pt-0 border-t border-gray-100">
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            <span>July 13, 2023</span>
+                        </div>
+                        <a href="highlights.html"
+                            class="read-more-link text-brand-brown font-medium flex items-center gap-1 text-sm hover:text-brand-peach transition-colors duration-200">
+                            read more <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="highlights.html"
+                    class="inline-block px-8 py-3 bg-orange text-white rounded-lg font-semibold hover:bg-brand-burgundy transition-colors duration-200 shadow-md hover:shadow-lg">
+                    View All Highlights →
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <!-- video section -->
+    <div class="indaba-wrap px-4 sm:px-6 lg:px-8 bg-dune ">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="text-center mb-8">
+                <h2
+                    style="font-size: 2.5rem; font-weight: 700; background: var(--color-earth); margin: 0 0 12px; color: rgba(255, 255, 255, 0.979);">
+                    IndabaX Annual Conference
+                </h2>
+                <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">
+                    See below for upcoming event happening this year, see you there!
+                </p>
+            </div>
+
+            <div class="indaba-card">
+                <div class="slide-grid">
+                    <div class="cell quote-cell">
+                    </div>
+
+                    <div class="cell year-cell">
+                        <p class="qmark">&ldquo;</p>
+                        <p class="qtext">IndabaX brought together a community that is shaping the future of AI on the
+                            African continent. Truly inspiring.</p>
+                        <p class="qauthor">— Dr Aisha Kamara, Keynote Speaker</p>
+
+                    </div>
+
+                    <div class="cell video-cell">
+                        <iframe src="https://www.youtube.com/embed/W1obb9L9dUM"
+                            title="What is an IndabaX? - YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                        <span class="vid-label">What is an IndabaX?</span>
+                    </div>
+                    <!-- I'll fix this later, dont touch it works!!!! -->
+                    <div class="cell map-cell">
+
+                    </div>
+
+                    <div class="stats-col">
+                        <iframe src="https://maps.google.com/maps?q=-22.5657756,17.074975&z=18&output=embed"
+                            loading="lazy" title="IndabaX Namibia Location">
+                        </iframe>
+                        <div class="map-label">Windhoek, Namibia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- next stop -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+
+        <div class="max-w-6xl mx-auto text-center">
+
+            <h2 class="text-4xl font-light mb-10">
+                Proudly Brought To You By
+            </h2>
+            <!-- React Sponsors LogoLoop will load here -->
+            <div id="logo-loop-root"></div>
+        </div>
+
+    </section>
+
+    <section id="organizing-committee" class="py-10 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-brand-earth mt-2">Organizing Committee</h2>
+                <p class="text-gray-600 mt-3 max-w-xl mx-auto text-base">
+                    Meet the passionate team behind the scenes driving AI &amp; ML education across Namibia.
+                </p>
+            </div>
+
+            <div id="committee-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+
+
+        <div id="bio-modal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 hidden opacity-0" role="dialog"
+            aria-modal="true" aria-labelledby="modal-name">
+            <div id="modal-panel"
+                class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden scale-95 opacity-0">
+                <div class="bg-brand-brown px-6 py-4 flex items-center justify-between">
+                    <span class="text-white/80 text-sm font-semibold uppercase tracking-widest">Full Profile</span>
+                    <button id="modal-close"
+                        class="text-white/70 hover:text-white text-3xl leading-none focus:outline-none"
+                        aria-label="Close">&times;</button>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-5 mb-5">
+                        <img id="modal-img" src="" alt=""
+                            class="w-24 h-24 rounded-full object-cover ring-4 ring-brand-burgundy/30 flex-shrink-0">
+                        <div>
+                            <h3 id="modal-name" class="text-xl font-bold text-brand-peach"></h3>
+                            <p id="modal-role" class="text-brand-burgundy font-semibold text-sm mt-1"></p>
+                        </div>
+                    </div>
+                    <p id="modal-bio" class="text-gray-600 leading-relaxed text-sm"></p>
+                    <hr class="my-4 border-gray-100">
+                    <p id="modal-contact" class="text-xs text-gray-400"></p>
+                </div>
+                <div class="border-t border-gray-100 px-6 py-3 flex justify-between items-center bg-gray-50">
+                    <button id="modal-prev" class="text-sm text-brand-orange hover:underline focus:outline-none">&larr;
+                        Previous</button>
+                    <span id="modal-counter" class="text-xs text-gray-400"></span>
+                    <button id="modal-next" class="text-sm text-brand-brown hover:underline focus:outline-none">Next
+                        &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error(`Unable to load footer: ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    </script>
+
+</body>
+
+</html>

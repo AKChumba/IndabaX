@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speakers - IndabaX Namibia 2026</title>
-    <link rel="icon" type="image/webp" href="Resources/IndabaX_Logo.webp">
+    <link rel="icon" type="image/webp" href="Resources/Logo1_white.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,12 +39,12 @@
 
 <body class="bg-white text-earth">
     <!-- Navbar -->
-    <nav class="bg-transparent fixed w-full top-0 z-50 backdrop-blur-md">
+    <nav class="site-nav fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="Resources/Logo1.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+                    <img src="Resources/Logo1_white.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
                     <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
                 </div>
 
@@ -100,20 +100,47 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-sky text-white pt-40 overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style="background-image: url('Resources/aboutHero.webp'); background-size: cover; background-position: center;">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/30"></div>
+    <section class="speakers-hero relative text-white pt-40 pb-20 overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center">
-                <h1 class="text-5xl lg:text-5xl text-white font-bold mb-6">Meet the Speakers</h1>
-                <p class="text-xl lg:text-2xl font-light opacity-90 max-w-3xl mx-auto">
-                    IndabaX Namibia 2026 brings together respected leaders, researchers, educators, technologists and
-                    industry professionals working across artificial intelligence, data science, digital
-                    transformation, financial services, healthcare, education and software engineering.
-                </p>
+                <!-- Left: Copy -->
+                <div>
+                    <span
+                        class="hero-fade-up inline-block text-xs font-semibold uppercase tracking-widest text-orange border border-orange/40 rounded-full px-4 py-1.5 mb-6"
+                        style="animation-delay:0.05s;">
+                        Deep Learning IndabaX Namibia &middot; 30&ndash;31 July 2026
+                    </span>
+
+                    <h1 class="hero-fade-up text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+                        style="animation-delay:0.15s;">
+                        Meet the Speakers
+                    </h1>
+
+                    <p class="hero-fade-up text-lg lg:text-xl font-light text-white/70 max-w-xl mb-10 leading-relaxed"
+                        style="animation-delay:0.28s;">
+                        Respected leaders, researchers, educators, technologists and industry professionals working
+                        across artificial intelligence, data science, digital transformation, financial services,
+                        healthcare, education and software engineering.
+                    </p>
+
+                    <div class="hero-fade-up flex flex-col sm:flex-row gap-4" style="animation-delay:0.4s;">
+                        <a href="schedule.html"
+                            class="inline-flex items-center justify-center gap-2 bg-orange hover:bg-orange/90 text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+                            View Full Schedule
+                        </a>
+                        <a href="#speakers-sections"
+                            class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+                            Browse All Speakers
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Animated poster showcase (Framer Motion, mounted via speakers-hero.jsx) -->
+                <div class="hero-fade-up" style="animation-delay:0.3s;">
+                    <div id="poster-showcase-root"></div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -189,6 +216,7 @@
 
     <script type="module" src="speakers.js"></script>
     <script type="module" src="script.js"></script>
+    <script type="module" src="./speakers-hero.jsx"></script>
 </body>
 
 </html>

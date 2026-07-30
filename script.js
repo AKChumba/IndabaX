@@ -65,70 +65,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Frosted navbar on scroll
-window.addEventListener('scroll', function () {
+// Frosted navbar: translucent smoked glass, visible at all times. The frost
+// is applied by CSS from the very first paint (not only once the user
+// scrolls); this handler just firms the glass up slightly away from the top
+// so white type stays legible over light sections.
+(function () {
     const navbar = document.querySelector('nav');
     if (!navbar) return;
 
-    const threshold = 30; // px scrolled before applying frosted style
-    const links = document.querySelectorAll('nav a');
-    const btn = document.getElementById('mobile-menu-btn');
-    const logoText = document.getElementById('nav-logo-text');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const STUCK_AT = 30; // px before the glass firms up
+    let ticking = false;
 
-    if (window.scrollY > threshold) {
-        // Apply frosted translucent navbar
-        navbar.classList.add('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110');
-        navbar.classList.remove('bg-sky-500', 'shadow-lg', 'bg-transparent');
+    const sync = () => {
+        navbar.classList.toggle('site-nav--stuck', window.scrollY > STUCK_AT);
+        ticking = false;
+    };
 
-        // Update link colors for contrast: remove any previous color classes then add black
-        links.forEach(a => {
-            a.classList.remove('text-white', 'text-earth', 'text-black');
-            a.classList.add('text-black');
-        });
-        if (dropdownToggle) {
-            dropdownToggle.classList.remove('text-white', 'text-earth', 'text-black');
-            dropdownToggle.classList.add('text-black');
-        }
+    sync(); // establish the correct state on load, not only after first scroll
 
-        if (btn) {
-            btn.classList.remove('text-white', 'text-earth', 'text-black');
-            btn.classList.add('text-earth');
-        }
-
-        // Logo text color
-        if (logoText) {
-            logoText.classList.remove('text-white', 'text-black', 'text-earth');
-            logoText.classList.add('text-black');
-        }
-    } else {
-        // At top: transparent/glass navbar (matches schedule.html on every page)
-        navbar.classList.remove('backdrop-blur-md', 'bg-white/20', 'border-b', 'border-white/10', 'backdrop-saturate-110', 'bg-sky-500', 'shadow-lg');
-        navbar.classList.add('bg-transparent');
-
-        // Restore link colors: remove any previous color classes then add black
-        links.forEach(a => {
-            a.classList.remove('text-black', 'text-earth', 'text-white');
-            a.classList.add('text-black');
-        });
-
-        if (dropdownToggle) {
-            dropdownToggle.classList.remove('text-black', 'text-earth', 'text-white');
-            dropdownToggle.classList.add('text-black');
-        }
-
-        if (btn) {
-            btn.classList.remove('text-earth', 'text-white', 'text-black');
-            btn.classList.add('text-black');
-        }
-
-        // Logo text color
-        if (logoText) {
-            logoText.classList.remove('text-black', 'text-earth', 'text-white');
-            logoText.classList.add('text-black');
-        }
-    }
-});
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(sync);
+    }, { passive: true });
+})();
 
 // Fade-in cards on scroll
 const observer = new IntersectionObserver(function (entries) {
@@ -279,21 +239,21 @@ import polyStage from "./Resources/stage.webp";
 
             if(index === idx){
 
-                dot.classList.remove('bg-white/50');
+                dot.classList.remove('bg-white/50', 'w-2');
 
                 dot.classList.add(
-                    'bg-white/80',
-                    'scale-125'
+                    'bg-orange',
+                    'w-7'
                 );
 
             }
             else{
 
-                dot.classList.add('bg-white/50');
+                dot.classList.add('bg-white/50', 'w-2');
 
                 dot.classList.remove(
-                    'bg-white/80',
-                    'scale-125'
+                    'bg-orange',
+                    'w-7'
                 );
 
             }
@@ -315,7 +275,7 @@ import polyStage from "./Resources/stage.webp";
 
 
         dot.className =
-        "w-3 h-3 rounded-full bg-white/80 border border-black transition-all duration-300";
+        "w-2 h-2 rounded-full bg-white/50 transition-all duration-300";
 
 
         dot.addEventListener('click',()=>{
