@@ -323,13 +323,24 @@
       transition: transform 0.25s ease;
     }
 
-    .programme-download:hover .pd-cta { transform: translateY(2px); }
+    .programme-download:hover .pd-cta {
+      transform: translateY(2px);
+    }
 
     @media (prefers-reduced-motion: reduce) {
+
       .programme-download,
-      .pd-cta { transition: none; }
-      .programme-download:hover { transform: none; }
-      .programme-download:hover .pd-cta { transform: none; }
+      .pd-cta {
+        transition: none;
+      }
+
+      .programme-download:hover {
+        transform: none;
+      }
+
+      .programme-download:hover .pd-cta {
+        transform: none;
+      }
     }
 
     /* Fading transition */
@@ -484,7 +495,7 @@
 
         <!-- Mobile menu button -->
         <div class="md:hidden">
-          <button id="mobile-menu-btn" class="text-earth hover:text-dune focus:outline-none">
+          <button id="mobile-menu-btn" class="text-white hover:text-dune focus:outline-none">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
@@ -494,9 +505,9 @@
       <div id="mobile-menu" class="md:hidden hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
-          <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
+          <a href="about.html" class="text-earth hover:text-dune font-semibold block px-3 py-2 rounded-md">About</a>
           <button
-            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune px-3 py-2 rounded-md"
+            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune font-semibold px-3 py-2 rounded-md"
             aria-expanded="false">
             <span>Conference</span>
             <i class="fas fa-chevron-down text-xs mobile-caret"></i>
