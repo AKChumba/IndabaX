@@ -101,10 +101,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             image: profPhoto
         },
         {
-            name: "Ms. Kataliina Massipa",
+            name: "Ms. Liina Massipa",
             role: "Web Development Team",
             shortBio: "Builds and maintains the IndabaX Namibia website.",
-            fullBio: "Kataliina is part of the web development team behind the IndabaX Namibia website, helping design and maintain the platform that connects the community with conference information.",
+            fullBio: "Liina is part of the web development team behind the IndabaX Namibia website, helping design and maintain the platform that connects the community with conference information.",
             image: massipaPhoto
         },
         {

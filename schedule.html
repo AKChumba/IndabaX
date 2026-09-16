@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IndabaX Namibia 2026 – Programme Schedule</title>
-  <link rel="icon" type="image/webp" href="Resources/Logo1_white.webp">
+  <link rel="icon" type="image/webp" href="/assets/logo1_white-czz2ulrp.webp">
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -336,13 +336,24 @@
       transition: transform 0.25s ease;
     }
 
-    .programme-download:hover .pd-cta { transform: translateY(2px); }
+    .programme-download:hover .pd-cta {
+      transform: translateY(2px);
+    }
 
     @media (prefers-reduced-motion: reduce) {
+
       .programme-download,
-      .pd-cta { transition: none; }
-      .programme-download:hover { transform: none; }
-      .programme-download:hover .pd-cta { transform: none; }
+      .pd-cta {
+        transition: none;
+      }
+
+      .programme-download:hover {
+        transform: none;
+      }
+
+      .programme-download:hover .pd-cta {
+        transform: none;
+      }
     }
 
     /* Fading transition */
@@ -470,7 +481,7 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="Resources/Logo1_white.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
+          <img src="/assets/logo1_white-czz2ulrp.webp" alt="IndabaX Namibia" class="h-10 w-auto mr-3">
           <span id="nav-logo-text" class="text-xl font-bold text-white">IndabaX Namibia</span>
         </div>
 
@@ -509,7 +520,7 @@
           <a href="index.html" class="text-dune font-semibold block px-3 py-2 rounded-md">Home</a>
           <a href="about.html" class="text-earth hover:text-dune block px-3 py-2 rounded-md">About</a>
           <button
-            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune px-3 py-2 rounded-md"
+            class="mobile-submenu-toggle w-full flex items-center justify-between text-earth hover:text-dune font-semibold block px-3 py-2 rounded-md"
             aria-expanded="false">
             <span>Conference</span>
             <i class="fas fa-chevron-down text-xs mobile-caret"></i>
