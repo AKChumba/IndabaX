@@ -337,8 +337,12 @@ nav.bg-sky-500 a.text-white:hover {
     transition: background 0.35s ease, backdrop-filter 0.35s ease;
 }
 
+/* "Conference" is a <button>, not an <a>, on both desktop (.nav-dropdown-toggle)
+   and mobile (.mobile-submenu-toggle) — both must be listed here or they fall
+   back to their Tailwind colour and stop matching the Home/About links. */
 .site-nav a,
 .site-nav .nav-dropdown-toggle,
+.site-nav .mobile-submenu-toggle,
 .site-nav #nav-logo-text,
 .site-nav #mobile-menu-btn {
     color: #ffffff;
@@ -347,8 +351,45 @@ nav.bg-sky-500 a.text-white:hover {
 
 .site-nav a:hover,
 .site-nav .nav-dropdown-toggle:hover,
+.site-nav .mobile-submenu-toggle:hover,
 .site-nav #mobile-menu-btn:hover {
     color: var(--burnt-orange);
+}
+
+/* Match the links' weight/size exactly so the toggle reads as a peer, not a
+   control (a bare <button> otherwise inherits body weight, not font-bold). */
+.site-nav .nav-dropdown-toggle,
+.site-nav .mobile-submenu-toggle {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* The mobile panel's markup carries mixed Tailwind weights (font-semibold on
+   Home, nothing on About), so pin the three top-level items to one weight.
+   Nested submenu links keep their smaller text-sm styling. */
+.site-nav #mobile-menu>div>a,
+.site-nav .mobile-submenu-toggle {
+    font-weight: 600;
+}
+
+/* The bar's own tint is deliberately translucent, which is fine for a 64px
+   strip but lets page content read straight through the expanded menu. Give
+   the open panel its own near-opaque surface. */
+.site-nav #mobile-menu:not(.hidden) {
+    background: rgba(20, 13, 10, 0.95);
+    backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
 }
 
 /* Away from the top the glass firms up slightly so white type stays legible
@@ -415,6 +456,21 @@ nav.bg-sky-500 a.text-white:hover {
     background: radial-gradient(ellipse at 38% 50%, rgba(18, 12, 9, 0.62), transparent 68%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* On phones the copy spans the full width, so the side-weighted wash above
+   can't protect it — swap in a strong uniform vertical scrim instead. */
+@media (max-width: 640px) {
+    .home-hero__scrim {
+        background:
+            linear-gradient(180deg,
+                rgba(20, 13, 10, 0.88) 0%,
+                rgba(20, 13, 10, 0.76) 45%,
+                rgba(20, 13, 10, 0.93) 100%),
+            radial-gradient(ellipse 90% 45% at 50% 38%, rgba(232, 93, 4, 0.16), transparent 78%);
+    }
+
+    .home-hero__copy::before { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -834,9 +890,12 @@ nav.bg-sky-500 a.text-white:hover {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
 }
 
-/* Section canvas: soft warm wash instead of flat white */
+/* Section canvas: soft warm wash instead of flat white.
+   overflow-hidden contains the .poly-stage halo, which is inset negatively
+   and would otherwise push the page wider than the viewport on mobile. */
 .highlight-section {
     position: relative;
+    overflow: hidden;
     background:
         radial-gradient(ellipse 60% 55% at 88% 12%, rgba(232, 93, 4, 0.09), transparent 70%),
         radial-gradient(ellipse 55% 50% at 4% 92%, rgba(197, 109, 70, 0.10), transparent 72%),
@@ -852,7 +911,7 @@ nav.bg-sky-500 a.text-white:hover {
 /* ── Stat bar (compact band that overlaps the hero) ───────────────────── */
 .stat-bar {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     border-radius: 20px;
     overflow: hidden;
     background: rgba(30, 20, 16, 0.82);
@@ -862,10 +921,6 @@ nav.bg-sky-500 a.text-white:hover {
     box-shadow: 0 24px 60px rgba(30, 20, 16, 0.32);
 }
 
-@media (min-width: 640px) {
-    .stat-bar { grid-template-columns: repeat(3, 1fr); }
-}
-
 .stat-cell {
     position: relative;
     display: flex;
@@ -873,18 +928,35 @@ nav.bg-sky-500 a.text-white:hover {
     justify-content: center;
     gap: 14px;
     padding: 22px 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
     transition: background 0.3s ease;
 }
 
-.stat-cell:first-child { border-top: none; }
+.stat-cell:first-child { border-left: none; }
 
-@media (min-width: 640px) {
+/* Phones: stack icon over value so three columns still fit cleanly */
+@media (max-width: 639px) {
     .stat-cell {
-        border-top: none;
-        border-left: 1px solid rgba(255, 255, 255, 0.10);
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 6px;
+        text-align: center;
     }
-    .stat-cell:first-child { border-left: none; }
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    .stat-value { font-size: 1.15rem; }
+
+    .stat-label {
+        margin-top: 3px;
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
+    }
 }
 
 .stat-cell:hover { background: rgba(232, 93, 4, 0.12); }
