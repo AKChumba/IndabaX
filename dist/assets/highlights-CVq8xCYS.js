@@ -1,0 +1,1 @@
+import"./script-3zxSWvs6.js";(function(){let e=location.pathname.split(`/`).pop()||`index.html`;document.querySelectorAll(`.nav-link`).forEach(t=>{t.getAttribute(`href`)===e&&(t.style.color=`var(--color-brand-brown)`,t.style.fontWeight=`700`)})})();

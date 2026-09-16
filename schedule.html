@@ -212,6 +212,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      min-width: 0;
+    }
+
+    /* Grid/flex children default to min-width:auto, so a long unbreakable
+       token (the contact email) can push the whole layout wider than the
+       viewport on narrow phones. */
+    .main-content>*,
+    .info-card {
+      min-width: 0;
+    }
+
+    .card-value {
+      overflow-wrap: anywhere;
     }
 
     .info-card {

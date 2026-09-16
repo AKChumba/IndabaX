@@ -211,6 +211,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      min-width: 0;
+    }
+
+    /* Grid/flex children default to min-width:auto, so a long unbreakable
+       token (the contact email) can push the whole layout wider than the
+       viewport on narrow phones. */
+    .main-content>*,
+    .info-card {
+      min-width: 0;
+    }
+
+    .card-value {
+      overflow-wrap: anywhere;
     }
 
     .info-card {
@@ -261,7 +274,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-top: 28px;
+      margin: 0 0 24px;
       padding: 16px 18px;
       border: 1px solid #E8E0D4;
       border-radius: 14px;
@@ -445,8 +458,8 @@
       color: var(--rust);
     }
   </style>
-  <script type="module" crossorigin src="/assets/script-CDpFeOT9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-DB1JLbuq.css">
+  <script type="module" crossorigin src="/assets/script-3zxSWvs6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-D7GNUIGR.css">
 </head>
 
 <body class="text-earth">
@@ -530,13 +543,6 @@
         panel discussions, hands-on demos, workshops and a hackathon. Theme: Advancing Inclusive and Responsible AI
         Innovation for a Digitally Empowered Namibia.</p>
 
-      <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
-        <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — 30 July</button>
-        <button class="day-tab" onclick="switchDay(1, this)">Day 2 — 31 July</button>
-      </div>
-
-      <div id="schedule-list"></div>
-
       <!-- Official programme download -->
       <a class="programme-download" href="/IndabaX-Namibia-2026-Programme.pdf"
         download="IndabaX-Namibia-2026-Programme.pdf">
@@ -547,6 +553,13 @@
         </span>
         <span class="pd-cta"><i class="fas fa-download"></i></span>
       </a>
+
+      <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
+        <button class="day-tab active" onclick="switchDay(0, this)">Day 1 — 30 July</button>
+        <button class="day-tab" onclick="switchDay(1, this)">Day 2 — 31 July</button>
+      </div>
+
+      <div id="schedule-list"></div>
     </div>
 
     <!-- RIGHT: Map + Info -->
